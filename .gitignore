@@ -1,0 +1,9 @@
+# générés par Latex
+*.bbl
+*.blg
+*.fdb*
+*.fls
+*.ilg
+*.ind
+*.cls
+*.log
