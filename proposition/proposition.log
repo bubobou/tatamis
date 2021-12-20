@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.8.31)  13 NOV 2021 13:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.8.31)  15 NOV 2021 16:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -183,6 +183,21 @@ Package tocbasic Info: babel extension for `lot' omitted
 \c@table=\count185
 Class scrartcl Info: Redefining `\numberline' on input line 6252.
 \bibindent=\dimen138
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
 ) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2020/08/01 v1.3d Input encoding file
 \inpenc@prehook=\toks16
@@ -194,7 +209,7 @@ Package: babel 2021/01/26 3.53 The Babel package
  (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2021/01/26 3.53 Babel common definitions
 \babel@savecnt=\count186
-\U@D=\dimen139
+\U@D=\dimen141
 \l@babelnohyphens=\language9
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
@@ -221,19 +236,19 @@ Package babel Info: Making ! an active character on input line 432.
 Package babel Info: Making ? an active character on input line 433.
 \FBguill@level=\count189
 \FBold@everypar=\toks18
-\FB@Mht=\dimen140
+\FB@Mht=\dimen142
 \mc@charclass=\count190
 \mc@charfam=\count191
 \mc@charslot=\count192
 \std@mcc=\count193
 \dec@mcc=\count194
-\listindentFB=\dimen141
-\descindentFB=\dimen142
-\labelindentFB=\dimen143
-\labelwidthFB=\dimen144
-\leftmarginFB=\dimen145
-\parindentFFN=\dimen146
-\FBfnindent=\dimen147
+\listindentFB=\dimen143
+\descindentFB=\dimen144
+\labelindentFB=\dimen145
+\labelwidthFB=\dimen146
+\leftmarginFB=\dimen147
+\parindentFFN=\dimen148
+\FBfnindent=\dimen149
 ))) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texmf/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -278,19 +293,19 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@cnth=\count195
 \Gm@cntv=\count196
 \c@Gm@tempcnt=\count197
-\Gm@bindingoffset=\dimen148
-\Gm@wd@mp=\dimen149
-\Gm@odd@mp=\dimen150
-\Gm@even@mp=\dimen151
-\Gm@layoutwidth=\dimen152
-\Gm@layoutheight=\dimen153
-\Gm@layouthoffset=\dimen154
-\Gm@layoutvoffset=\dimen155
+\Gm@bindingoffset=\dimen150
+\Gm@wd@mp=\dimen151
+\Gm@odd@mp=\dimen152
+\Gm@even@mp=\dimen153
+\Gm@layoutwidth=\dimen154
+\Gm@layoutheight=\dimen155
+\Gm@layouthoffset=\dimen156
+\Gm@layoutvoffset=\dimen157
 \Gm@dimlist=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip63
-\enit@outerparindent=\dimen156
+\enit@outerparindent=\dimen158
 \enit@toks=\toks20
 \enit@inbox=\box49
 \enit@count@id=\count198
@@ -310,9 +325,6 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -342,10 +354,10 @@ Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
-\ex@=\dimen157
+\ex@=\dimen159
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen158
+\pmbraise@=\dimen160
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
@@ -361,7 +373,7 @@ LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box50
 \strutbox@=\box51
-\big@size=\dimen159
+\big@size=\dimen161
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count271
@@ -374,12 +386,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \column@=\count276
 \maxfields@=\count277
 \andhelp@=\toks24
-\eqnshift@=\dimen160
-\alignsep@=\dimen161
-\tagshift@=\dimen162
-\tagwidth@=\dimen163
-\totwidth@=\dimen164
-\lineht@=\dimen165
+\eqnshift@=\dimen162
+\alignsep@=\dimen163
+\tagshift@=\dimen164
+\tagwidth@=\dimen165
+\totwidth@=\dimen166
+\lineht@=\dimen167
 \@envbody=\toks25
 \multlinegap=\skip65
 \multlinetaggap=\skip66
@@ -418,16 +430,16 @@ Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count282
 \output=\toks27
 \linenoprevgraf=\count283
-\linenumbersep=\dimen166
-\linenumberwidth=\dimen167
+\linenumbersep=\dimen168
+\linenumberwidth=\dimen169
 \c@linenumber=\count284
 \c@pagewiselinenumber=\count285
 \c@LN@truepage=\count286
 \c@internallinenumber=\count287
 \c@internallinenumbers=\count288
-\quotelinenumbersep=\dimen168
-\bframerule=\dimen169
-\bframesep=\dimen170
+\quotelinenumbersep=\dimen170
+\bframerule=\dimen171
+\bframesep=\dimen172
 \bframebox=\box53
 LaTeX Info: Redefining \\ on input line 3056.
 )
@@ -439,26 +451,26 @@ LaTeX Info: Redefining \\ on input line 3056.
 \c@FV@HighlightLinesStop=\count292
 \FV@LoopCount=\count293
 \FV@NCharsBox=\box55
-\FV@BreakIndent=\dimen171
+\FV@BreakIndent=\dimen173
 \FV@BreakIndentNChars=\count294
-\FV@BreakSymbolSepLeft=\dimen172
+\FV@BreakSymbolSepLeft=\dimen174
 \FV@BreakSymbolSepLeftNChars=\count295
-\FV@BreakSymbolSepRight=\dimen173
+\FV@BreakSymbolSepRight=\dimen175
 \FV@BreakSymbolSepRightNChars=\count296
-\FV@BreakSymbolIndentLeft=\dimen174
+\FV@BreakSymbolIndentLeft=\dimen176
 \FV@BreakSymbolIndentLeftNChars=\count297
-\FV@BreakSymbolIndentRight=\dimen175
+\FV@BreakSymbolIndentRight=\dimen177
 \FV@BreakSymbolIndentRightNChars=\count298
 \c@FancyVerbLineBreakLast=\count299
 \FV@LineBox=\box56
 \FV@LineIndentBox=\box57
-\FV@LineWidth=\dimen176
+\FV@LineWidth=\dimen178
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count300
 \calc@Bcount=\count301
-\calc@Adimen=\dimen177
-\calc@Bdimen=\dimen178
+\calc@Adimen=\dimen179
+\calc@Bdimen=\dimen180
 \calc@Askip=\skip68
 \calc@Bskip=\skip69
 LaTeX Info: Redefining \setlength on input line 80.
@@ -498,10 +510,10 @@ Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip71
-\fb@frw=\dimen179
-\fb@frh=\dimen180
-\FrameRule=\dimen181
-\FrameSep=\dimen182
+\fb@frw=\dimen181
+\fb@frh=\dimen182
+\FrameRule=\dimen183
+\FrameSep=\dimen184
 ) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count305
@@ -546,6 +558,25 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count310
+\scratchdimen=\dimen185
+\scratchbox=\box62
+\nofMPsegments=\count311
+\nofMParguments=\count312
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count313
+\MPscratchDim=\dimen186
+\MPnumerator=\count314
+\makeMPintoPDFobject=\count315
+\everyMPtoPDFconversion=\toks32
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
 LaTeX Info: Redefining \degres on input line 20.
 LaTeX Info: Redefining \dots on input line 20.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
@@ -590,22 +621,8 @@ LaTeX Info: Redefining \up on input line 20.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count310
-\scratchdimen=\dimen183
-\scratchbox=\box62
-\nofMPsegments=\count311
-\nofMParguments=\count312
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count313
-\MPscratchDim=\dimen184
-\MPnumerator=\count314
-\makeMPintoPDFobject=\count315
-\everyMPtoPDFconversion=\toks32
-)
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 25.
- (/usr/share/texmf/tex/latex/lm/t1lmss.fd
+(/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 25.
@@ -637,32 +654,65 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Underfull \hbox (badness 10000) in paragraph at lines 29--32
+
+ []
+
+<pavage-par-tatamis.png, id=1, 477.785pt x 237.88875pt>
+File: pavage-par-tatamis.png Graphic file (type png)
+<use pavage-par-tatamis.png>
+Package pdftex.def Info: pavage-par-tatamis.png  used on input line 33.
+(pdftex.def)             Requested size: 241.84846pt x 120.41417pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+ []
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 43--45
+
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 49.
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+
+ []
+
+[1
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/bruno/Documents/TRAVAIL/DU/2021-2022/projet/tatamis/proposition/pavage-par-tatamis.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
+
+ []
+
+[2]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     45.
+(LaTeX3)     71.
 
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     45.
+(LaTeX3)     71.
 
  (/home/bruno/Documents/TRAVAIL/DU/2021-2022/projet/tatamis/proposition/proposition.aux) ) 
 Here is how much of TeX's memory you used:
- 11509 strings out of 481150
- 210331 string characters out of 5913037
- 683903 words of memory out of 5000000
- 28289 multiletter control sequences out of 15000+600000
- 437293 words of font info for 54 fonts, out of 8000000 for 9000
+ 11851 strings out of 481150
+ 215903 string characters out of 5913037
+ 694028 words of memory out of 5000000
+ 28606 multiletter control sequences out of 15000+600000
+ 437658 words of font info for 55 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 111i,7n,116p,10703b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on /home/bruno/Documents/TRAVAIL/DU/2021-2022/projet/tatamis/proposition/proposition.pdf (1 page, 78474 bytes).
+ 111i,7n,116p,10697b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb>
+Output written on /home/bruno/Documents/TRAVAIL/DU/2021-2022/projet/tatamis/proposition/proposition.pdf (2 pages, 85424 bytes).
 PDF statistics:
- 21 PDF objects out of 1000 (max. 8388607)
- 14 compressed objects within 1 object stream
+ 30 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
