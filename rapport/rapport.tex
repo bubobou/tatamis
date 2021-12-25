@@ -15,26 +15,77 @@
 %---------------------------------------------------------------------------
 
 %---------------------------------------------------------------------------
-\chapter{First chapter}
+\chapter{Présentation}
 
 \begin{summary}
-  This first chapter illustrates how to use various elements of this
-  text book template, such as definitions, theorems and exercises. You
-  may want to start each chapter with a meta summary like this one, to
-  explain to the reader what the chapter is all about, why it is
-  important and how it fits into the bigger picture of the
-  book. Another useful tip is to put the contents of each chapter into
-  a separate \LaTeX{} file and then use the command
-  \texttt{\textbackslash{}input\{\}} to include the chapter in the
-  main document.
+  Ce premier chapitre sera l'occasion d'introduire le projet tel qu'il a été initié et de 
+  détailler les outils et les méthodes utilisées lors de son développement.
 \end{summary}
 
-\section{First section}
-We prove the first of De Morgan's laws and leave the proofs of
-  the remaining propositions as exercises. To prove the statement,
-  we create a truth table and fill in all possible values (true or
-  false) for the propositions $P$ and $Q$. Each of these propositions
-  can be either true or false and we thus obtain the following truth
-  table with four cases:
+\section{Proposition initiale du projet}
+
+  \subsection{Descriptif de la problématique}
+
+
+    Le pavage du plan avec des rectangle est un problème classique et déjà largement documenté,
+    mais je souhaite l'aborder par un aspect très concret : étant donné un nombre de tatamis, quelles sont les 
+    configurations possibles.\\
+    \begin{center}
+        \includegraphics[width = 0.5\linewidth]{images/pavage-par-tatamis.png}
+    \end{center}
+    C'est un problème que rencontre notamment toute personne qui se retrouve à devoir installer un dojo.
+    Il existe une contrainte de base qui est que 4 tatamis ne rejoignent jamais en un même coin. Mais ont peut
+    en ajouter d'autres : possibilité de demi-tatamis (carré), répartition des couleurs, répartition de l'usure...
+
+  \subsection{Cahier des charges}
+
+    Utilisateur final : gestionnaire de dojo\\
+
+    L'interface utilisateur devra comprendre un menu de paramétrage basique : nombre de tatamis,
+    contraintes géométriques, contraintes d'aspect général; ainsi qu'un affichage des dispositions envisageables.\\
+
+    L'utilisateur devra pouvoir saisir :
+
+    \begin{itemize}
+        \item le nombre et le type (entier/demis) de tatamis à disposition
+        \item leurs dimensions
+        \item leurs couleurs
+        \item éventuellement leur état (on dispose de préférence les plus usés en périphérie)
+        \item les dimensions du dojo
+    \end{itemize}
+
+    L'affichage proposera différentes disposition selon les contraintes imposées.
+
+  \section{Membres du projet}
+
+  
+\chapter{Méthodologie}
+\input{sections/methodologie.tex}
+
+\chapter{Choix des outils et langages}
+\input{sections/choix-outils.tex}
+
+\chapter{Cahier des charges}
+\input{sections/cahier-des-charges.tex}
+
+\chapter{Backlog global}
+\input{sections/backlog-global.tex}
+
+\chapter{Roadmap globale}
+\input{sections/roadmap-globale.tex}
+
+\chapter{Backlog de chaque sprint}
+\input{sections/backlog-sprint.tex}
+
+\chapter{Explication de l'algorithme}
+\input{sections/explication-algorithme.tex}
+
+\chapter{Choix de programmation}
+\input{sections/choix-programmation.tex}
+
+\chapter{Tests}
+\input{sections/tests.tex}
+
+\chapter{Gestion des versions concurrentes}
 
 \end{document}
