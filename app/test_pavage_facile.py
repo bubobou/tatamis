@@ -72,6 +72,4 @@ def plot_tatami(sol, xmax, ymax):
         plot_sol(ax[i], x, y, d, xmax, ymax)
 
 sol=tatami(6,5)
-
-
-print(sol)
+# sol retourne un tableau de Booléens ?! ce n'est pas le résultat attendu
