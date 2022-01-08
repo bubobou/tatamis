@@ -16,9 +16,11 @@ En effet, la méthodologie agile:
 \end{itemize}
 
 La méthodologie agile, étant particulièrement adaptée aux situations d'incertitude, préconise
-une planification au fur et à mesure de temps, plutôt que d’importantes et lourdes activités de planification en début de projet car les informations manquent pour cette planification totale en amont.
+une planification au fur et à mesure de temps, plutôt que d’importantes et lourdes activités de 
+planification en début de projet car les informations manquent pour cette planification totale en amont.
 
-Pour nous donner un cadre, nous nous inspirons très fortement du schéma “Scrum” et du guide Scrum1, tout en l’adaptant à notre situation présente avec des ressources limitées et des contraintes particulières.
+Pour nous donner un cadre, nous nous inspirons très fortement du schéma “Scrum” et du guide Scrum1, 
+tout en l’adaptant à notre situation présente avec des ressources limitées et des contraintes particulières.
 
 \section{Les événements}
 
@@ -26,11 +28,21 @@ Pour nous donner un cadre, nous nous inspirons très fortement du schéma “Scr
 
 
 Les sprints sont des périodes de développement ayant un objectif précis et permettant d'arriver à une version du programme. 
-Compte tenu du planning imposé par l’exercice, les sprints seront de durée variable et d'une durée légèrement supérieur à un mois (contrairement à ce qui est suggéré par le schéma Scrum).
-Les sprints commencent par la session de planning et se terminent par la revue et la rétrospective (événements détaillés ci-après). Elles comprennent également des activités de 'raffinement' ou de préparation du prochain sprint, pour qu’un nouveau sprint puisse commencer immédiatement après la clôture du précédent sprint.
-Quatre sprints sont programmés pour le projet aboutissant aux versions Alpha, Beta, Release Candidate et Production.
+Compte tenu du planning imposé par l’exercice, les sprints seront de durée variable et d'une durée légèrement supérieur à un 
+mois (contrairement à ce qui est suggéré par le schéma Scrum).\\
 
-Nb: Une phase additionnelle de pré-développement aura lieu en amont pour la préparation du projet, mais est organisée de manière ad-hoc et ne peut être considérée comme un sprint. Cette phase a pour objectif d’analyser la demande (le cahier des charges), de déterminer la méthodologie et gouvernance et de préparer le développement pour aboutir sur une roadmap, un plan de développement global du programme qui sera bien sûr affiné au cours du temps.
+Les sprints commencent par la session de planning et se terminent par la revue et la rétrospective (événements détaillés ci-après). Elles comprennent également des activités de 'raffinement' ou de préparation du prochain sprint,
+ pour qu’un nouveau sprint puisse commencer immédiatement après la clôture du précédent sprint.\\
+
+Quatre sprints sont programmés pour le projet aboutissant aux versions Alpha, Beta, Release Candidate et 
+Production.\\
+
+\emph{Nb: Une phase additionnelle de pré-développement aura lieu en amont pour la préparation du projet,
+ mais est organisée de manière ad-hoc et ne peut être considérée comme un sprint. 
+ Cette phase a pour objectif d’analyser la demande (le cahier des charges), de déterminer la méthodologie
+ et gouvernance et de préparer le développement pour aboutir sur une roadmap, un plan de développement 
+ global du programme qui sera bien sûr affiné au cours du temps.
+}
 
 \subsection{La session de planning du sprint}
 
@@ -43,5 +55,80 @@ Pour chaque sprint la session de planning permet de déterminer:
 \end{itemize}
 
 Les décisions sont prises de la manière suivante:
- Quoi et pourquoi
-Les propositions d'éléments à ajouter et d’objectif du sprint viennent du product owner. L'équipe de développement prend ensuite la décision de manière souveraine et autonome en session de planification.
+\begin{itemize}
+      \item Quoi et pourquoi :
+       
+      Les propositions d'éléments à ajouter et d’objectif du sprint viennent du product owner. L'équipe de développement prend ensuite la décision de manière souveraine
+       et autonome en session de planification.
+       \item Comment :
+       
+       Chaque élément du Sprint backlog est discuté techniquement pour le décomposer en plus petites tâches qui feront l’objet de tickets. 
+       
+       En cas de manque de compétences techniques, des tickets sont prévus pour la réalisation de recherches.
+       
+       Cette session couvre également les questions d’architecture du programme: choix du nombre de classes, de leurs interactions…
+
+\end{itemize}
+
+\subsection{"L'hebdo"}
+
+Compte tenu de la situation particulière, un point de contact quotidien comme préconisé par le schéma Scrum n’est pas envisageable.
+ Il sera remplacé par:
+ \begin{itemize}
+       \item Un point hebdomadaire facilité par le Scrum master pour un focus particulier sur l'échange,
+        les challenges et solutions. 
+       \item La revue des tâches et le statut sont quand à eux discutés à travers:
+       \begin{itemize}
+             \item Une communication continue sur Slack
+             \item Une mise à jour en direct des avancées sur Redmine, directement sur les tâches. Redmine apportant la visibilité nécessaire à tous les membres de l'équipe pour comprendre le statut rapidement grâce à la combinaison du diagramme Gantt, d’un tableau Kanban des tâches et d’un tableau de roadmap qui suit le pourcentage de complétude du backlog du sprint
+
+       \end{itemize}
+ \end{itemize}
+
+
+\subsection{La revue du sprint}
+
+Chaque sprint se termine par une revue du produit livré à la fin du sprint. Les fonctionnalités développées sont discutées, ainsi que les challenges rencontrés.
+L'équipe commence à se projeter également sur le prochain sprint et ce qu’il faut faire ensuite.
+
+\subsection{La retrospective}
+L’objectif de cette réunion est une introspection pour une amélioration continue notamment de la collaboration au sein de l'équipe, les processus et les outils.
+La session est facilitée par le Scrum master et se déroule selon les principes suivants:
+
+\begin{itemize}
+      \item Discussions autour de 3 blocs successivement:
+      \begin{itemize}
+            \item ‘Garde’: ce que l’on considère adapté et a conserver dans le futur
+            \item ‘Start’: ce que l’on souhaite commencer a faire pour améliorer la situation
+            \item ‘Stop’: ce que l’on souhaite arrêter sur un constat d'échec
+      \end{itemize}
+      \item Étapes de chaque blocs:
+      \begin{itemize}
+            \item Réflexion individuelle de points/idées à ajouter pour le bloc discute
+            \item Discussion de groupe pour regrouper les points mentionnés par thème
+            \item Résumé des actions/idées retenues
+      \end{itemize}
+      \item La session se termine par la détermination du plan d'amélioration regroupant les 
+      idées retenues et en ajoutant une composante de temps et responsabilité des actions
+      \item Outil utilisé pour la session: Miro (outil interactif et collaboratif permettant notamment de créer et arranger facilement des ‘post it’ représentant les points/idees)
+\end{itemize}
+
+\section{Les éléments de formalisation}
+
+\subsection{Cahier des charges global (et les Epics)}
+
+\subsection{Le backlog global (et les User Stories)}
+
+\subsection{Roadmap globale}
+
+\subsection{Le backlog d’un sprint (et les Tâches)}
+
+\section{Les rôles}
+
+\subsection{Description des rôles}
+
+\subsection{Assignation des rôles}
+
+\section{L'approche de test}
+
+ 
