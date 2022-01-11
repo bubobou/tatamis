@@ -100,7 +100,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
             rounded corners,
             inner sep=0pt]
            (0,0)
-           {\hspace{1cm}\parbox[t][7.1cm][t]{11cm}
+           {\hspace{1cm}\parbox[t][5.1cm][t]{11cm}
            {\vspace{-1cm}\huge\bfseries\sffamily\flushleft
             \textcolor{black}{\sffamily\minitoc}}};
     \end{tikzpicture}
@@ -137,7 +137,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 % Minitoc styling
 %--------------------------------------------------------------------------
 \RequirePackage{minitoc}
-\setcounter{minitocdepth}{2}
+\setcounter{minitocdepth}{1}
 \dominitoc[n]
 \nomtcrule
 \nomtcpagenumbers
@@ -381,3 +381,5 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{booktabs}
 \RequirePackage{url}
+\RequirePackage{colortbl}
+

@@ -19,7 +19,8 @@ La méthodologie agile, étant particulièrement adaptée aux situations d'incer
 une planification au fur et à mesure de temps, plutôt que d’importantes et lourdes activités de 
 planification en début de projet car les informations manquent pour cette planification totale en amont.
 
-Pour nous donner un cadre, nous nous inspirons très fortement du schéma “Scrum” et du guide Scrum1, 
+Pour nous donner un cadre, nous nous inspirons très fortement du schéma “Scrum” et du guide 
+Scrum\footnote{The Scrum Guide, Ken Schwaber et Jeff Sutherland, Novembre 2017 https://www.scrum.org/resources/scrum-guide}, 
 tout en l’adaptant à notre situation présente avec des ressources limitées et des contraintes particulières.
 
 \section{Les événements}
@@ -49,38 +50,45 @@ Production.\\
 Pour chaque sprint la session de planning permet de déterminer:
 
 \begin{itemize}
-    \item Le ‘Quoi’: quels éléments du backlog global peuvent être embarqué dans ce sprint pour créer le Sprint backlog
-    \item Le ‘Comment’: comment chaque élément du Sprint backlog seront techniquement traités
-    \item Le ‘Pourquoi’: quel objectif pour le sprint, sachant que chaque sprint doit délivrer un produit qui peut être limité en fonctionnalités mais qui fonctionne
+    \item Le \emph{Quoi}: quels éléments du backlog global peuvent être embarqué dans ce sprint pour créer le Sprint backlog
+    \item Le \emph{Comment}: comment chaque élément du Sprint backlog seront techniquement traités
+    \item Le \emph{Pourquoi}: quel objectif pour le sprint, sachant que chaque sprint doit délivrer un produit qui peut être limité en fonctionnalités mais qui fonctionne
 \end{itemize}
 
 Les décisions sont prises de la manière suivante:
 \begin{itemize}
       \item Quoi et pourquoi :
        
-      Les propositions d'éléments à ajouter et d’objectif du sprint viennent du product owner. L'équipe de développement prend ensuite la décision de manière souveraine
-       et autonome en session de planification.
+      Les propositions d'éléments à ajouter et d’objectif du sprint viennent du product owner. 
+      L'équipe de développement prend ensuite la décision de manière souveraine et autonome 
+      en session de planification.
        \item Comment :
        
-       Chaque élément du Sprint backlog est discuté techniquement pour le décomposer en plus petites tâches qui feront l’objet de tickets. 
+       Chaque élément du Sprint backlog est discuté techniquement pour le décomposer en plus petites 
+       tâches qui feront l’objet de tickets.
        
        En cas de manque de compétences techniques, des tickets sont prévus pour la réalisation de recherches.
        
-       Cette session couvre également les questions d’architecture du programme: choix du nombre de classes, de leurs interactions…
+       Cette session couvre également les questions d’architecture du programme: choix du nombre de classes, 
+       de leurs interactions…
 
 \end{itemize}
 
 \subsection{"L'hebdo"}
 
-Compte tenu de la situation particulière, un point de contact quotidien comme préconisé par le schéma Scrum n’est pas envisageable.
- Il sera remplacé par:
+Compte tenu de la situation particulière, un point de contact quotidien comme préconisé par 
+le schéma Scrum n’est pas envisageable. Il sera remplacé par:
  \begin{itemize}
        \item Un point hebdomadaire facilité par le Scrum master pour un focus particulier sur l'échange,
         les challenges et solutions. 
        \item La revue des tâches et le statut sont quand à eux discutés à travers:
        \begin{itemize}
              \item Une communication continue sur Slack
-             \item Une mise à jour en direct des avancées sur Redmine, directement sur les tâches. Redmine apportant la visibilité nécessaire à tous les membres de l'équipe pour comprendre le statut rapidement grâce à la combinaison du diagramme Gantt, d’un tableau Kanban des tâches et d’un tableau de roadmap qui suit le pourcentage de complétude du backlog du sprint
+             \item Une mise à jour en direct des avancées sur Redmine, directement sur les tâches. 
+             Redmine apportant la visibilité nécessaire à tous les membres de l'équipe pour comprendre 
+             le statut rapidement grâce à la combinaison du diagramme Gantt, d’un tableau Kanban 
+             des tâches et d’un tableau de roadmap qui suit le pourcentage de complétude du backlog 
+             du sprint
 
        \end{itemize}
  \end{itemize}
@@ -88,19 +96,21 @@ Compte tenu de la situation particulière, un point de contact quotidien comme p
 
 \subsection{La revue du sprint}
 
-Chaque sprint se termine par une revue du produit livré à la fin du sprint. Les fonctionnalités développées sont discutées, ainsi que les challenges rencontrés.
+Chaque sprint se termine par une revue du produit livré à la fin du sprint. Les fonctionnalités 
+développées sont discutées, ainsi que les challenges rencontrés.
 L'équipe commence à se projeter également sur le prochain sprint et ce qu’il faut faire ensuite.
 
 \subsection{La retrospective}
-L’objectif de cette réunion est une introspection pour une amélioration continue notamment de la collaboration au sein de l'équipe, les processus et les outils.
+L’objectif de cette réunion est une introspection pour une amélioration continue notamment de 
+la collaboration au sein de l'équipe, les processus et les outils.
 La session est facilitée par le Scrum master et se déroule selon les principes suivants:
 
 \begin{itemize}
       \item Discussions autour de 3 blocs successivement:
       \begin{itemize}
-            \item ‘Garde’: ce que l’on considère adapté et a conserver dans le futur
-            \item ‘Start’: ce que l’on souhaite commencer a faire pour améliorer la situation
-            \item ‘Stop’: ce que l’on souhaite arrêter sur un constat d'échec
+            \item \emph{Garde}Garde: ce que l’on considère adapté et a conserver dans le futur
+            \item \emph{Start}: ce que l’on souhaite commencer a faire pour améliorer la situation
+            \item \emph{Stop}: ce que l’on souhaite arrêter sur un constat d'échec
       \end{itemize}
       \item Étapes de chaque blocs:
       \begin{itemize}
@@ -110,25 +120,234 @@ La session est facilitée par le Scrum master et se déroule selon les principes
       \end{itemize}
       \item La session se termine par la détermination du plan d'amélioration regroupant les 
       idées retenues et en ajoutant une composante de temps et responsabilité des actions
-      \item Outil utilisé pour la session: Miro (outil interactif et collaboratif permettant notamment de créer et arranger facilement des ‘post it’ représentant les points/idees)
+      \item Outil utilisé pour la session: Miro (outil interactif et collaboratif permettant 
+      notamment de créer et arranger facilement des "post it" représentant les points/idées)
 \end{itemize}
 
 \section{Les éléments de formalisation}
 
 \subsection{Cahier des charges global (et les Epics)}
+Le cahier des charges global représente la demande et le besoin de l’utilisateur. 
+Il comprend une description du/des type d’utilisateur(s). Il est constitué des fonctionnalités majeures 
+que l’utilisateur souhaite pouvoir effectuer grâce au programme. 
+
+Il est constitué de quelques “Epics” qui expliquent le type d’utilisateur, l’objectif et la raison. 
+Les epics sont rédigées sous la forme suivante:
+
+“En tant que …, je souhaite …, afin que …” 
+
+Les épics ont les statuts suivants Statut: Backlog (non planifié), À commencer, En cours, Achevée, Rejeté.\\
+
+
+
+\noindent%
+\hfill%
+\begin{minipage}{12cm}
+      \textsl{Définition d'achèvement ('Definition of Done') des epics :}
+
+      \textsl{Pour assurer une transparence et que toutes les parties prenantes aient la même définition, 
+une définition d'achèvement est formalisée ainsi:}
+\begin{enumerate}     
+      \item  \textsl{Toutes les users stories de l' epic sont achevés}
+      \item  \textsl{Les activités de refactoring ont été réalisées (pour vérification de la concordance 
+      avec les principes de développement SOLID)}
+      \item  \textsl{Les tests utilisateurs sont réalisés et leur résultat est positif}
+\end{enumerate}
+\end{minipage}
 
 \subsection{Le backlog global (et les User Stories)}
 
+Le backlog est constituée de l’ensemble d'éléments qui pourraient être construits (codés) pour arriver 
+à un produit fini idéal. Il représente des besoins très spécifiques des utilisateurs. 
+
+Il est constitué de \emph{User stories} (scénarios utilisateur) qui expliquent la même chose et 
+sont rédigées de la même manière que les epics, mais qui représentent de plus petits éléments.
+
+Une \emph{User story} représente une fonctionnalité très particulière et sa structure est la suivante:
+
+\begin{itemize}
+      \item Nom de la fonctionnalité
+      \item Contexte
+      \item Utilisateur (“En tant que”), Objectif (“je souhaite"), Raison (“afin que”)
+      \item Test utilisateur d’acceptance (plus d’explication à la suite) %TODO insérer lien
+      \item Statut: Backlog (non planifié), À commencer, En cours, Achevée, Rejeté
+      \item Sprint de rattachement (ou Backlog global si pas encore planifié au sein d’un sprint)
+      \item Priorisation (proposition de sprint)
+      \item Documentation utilisateur
+      \item Vérification de complétude (voir page \pageref{DefofDoneUS} la définition d'achèvement)
+\end{itemize}
+
+\bigskip
+
+Les user stories suivent le principe \emph{INVEST}:
+\begin{itemize}
+      \item \emph{Independant} (Indépendante) : chaque user story est indépendante des autres
+      \item \emph{Negotiable} (Négociable) : une user story décrit un besoin; la manière d’y répondre reste 
+      négociable
+      \item \emph{Valuable} (Apporte de la valeur) : chaque user story doit apporter de la valeur à l'utilisateur
+      \item \emph{Estimable} (Estimable) : une user story doit être estimable par l'équipe de développement, 
+      c’est a dire que l'équipe de développement doit avoir assez d’information pour comprendre l’effort nécessaire à la mise en oeuvre
+      \item \emph{Small} (Petit) : une user story doit être petite, c’est à dire traitable en quelques jours 
+      (difference avec un Epic)
+      \item \emph{Testable} (Testable) : une user story doit pouvoir être testable, ce qui permet de s’assurer 
+      qu’elle est assez bien définie. 
+\end{itemize}
+
+Pour assurer la cohérence avec le modèle INVEST, et notamment la valeur, l’estimabilité et la testabilité, 
+les tests unitaires d’acceptance sont décrits pour chaque user story et sont notamment un des paramètres 
+de la définition d'achèvement.\\
+
+\noindent%
+\hfill%
+\begin{minipage}{12cm}
+      \textsl{\label{DefofDoneUS}Définition d'achèvement ('Definition of Done') des user stories :}
+
+      \textsl{Pour assurer une transparence et que toutes les parties prenantes aient la même définition, 
+une définition d'achèvement est formalisée ainsi:}
+\begin{enumerate}     
+      \item  \textsl{Toutes les tâches des users stories sont achevés}
+      \item  \textsl{Les test utilisateur d’acceptance sont réalisés et leur résultat est positif 
+      (en cas de bugs, ils ont étés corrigés)}
+      \item  \textsl{La documentation utilisateur est terminée}\\
+\end{enumerate}
+\end{minipage}
+
+
+Les User stories peuvent être créées à tout moment du projet. Elles commencent toujours par être ajoutées 
+au Backlog global, notamment lors des activités de 'raffinement' en préparation du prochain sprint. 
+Elles sont ensuite ajoutées au Backlog d’un sprint particulier en session de planification. 
+Une partie importante des User stories sera créer en phase de pré-développement, mais de nombreuses 
+User stories seront également créer au fur et à mesure du temps et que le développement avance.
+
+Le backlog global est ordonné par le Product Owner, c'est-à- dire que le Product Owner propose 
+les tâches à embarquer pour chaque sprint en session de planification. 
+
+
 \subsection{Roadmap globale}
 
+La 'roadmap' (feuille de route) globale est un plan de développement du programme, pour arriver au 
+produit fini. Elle reprend les Epics et User stories de chacune des étapes pour arriver au produit final:
+\begin{itemize}
+      \item Pre-développement
+      \item Versions successives: Alpha, Beta, Release Candidate, Production
+\end{itemize}
+
+La roadmap peut également en vue très détaillée reprendre les tâches de chaque sprint.
+
+Comme expliqué plus haut, en méthodologie agile, la roadmap est vivante et se construit au fur et à mesure 
+du temps, comme expliqué plus haut. Un premier jet en lance lors de la phase de pré-développement 
+mais c’est un travail continue et la roadmap est affinée en permanence, notamment par l’ajout de User stories 
+ou de tâches permettant d’arriver à l'objectif.
+
+L’objectif est d'éviter les tâches de planification trop lourdes et trop incertaines en amont, 
+alors que l’incertitude est forte, et de planifier plutôt au fil du temps dans des conditions de 
+meilleure connaissance.
+
+Ainsi, plusieurs versions de la roadmap seront présentées au cours du projet. 
+
+
+
 \subsection{Le backlog d’un sprint (et les Tâches)}
+
+Le backlog d’un sprint est le plan de développement d’un sprint et est le résultat des discussions 
+de la session de planification. Il comprend:
+\begin{itemize}
+      \item La liste des user stories qui seront traitées dans le sprint
+      \item La décomposition des user story en une liste des tâches par user story pour la réaliser
+\end{itemize}
+
+Une tâche est un petit élément de code, une pièce du puzzle pour arriver à réaliser la user story 
+dans son ensemble.
+Toute tâche comprend une documentation technique et une définition des tests d’acceptance unitaire, 
+pour permettre au développeur de bien comprendre le résultat attendu. 
+
+\noindent%
+\hfill%
+\begin{minipage}{12cm}
+      \textsl{Définition d'achèvement ('Definition of Done') des tâches :}
+
+      \textsl{Pour assurer une transparence et que toutes les parties prenantes aient la même définition, 
+une définition d'achèvement est formalisée ainsi:}
+\begin{enumerate}     
+      \item \textsl{Le code est écrit}
+      \item \textsl{Le code a été revu par un autre développeur}
+      \item \textsl{Les test unitaires sont réalisés et leur résultat est positif (en cas de bugs, 
+      ils ont étés corrigés)}
+      \item \textsl{La documentation utilisateur est terminée}
+      \item \textsl{La documentation technique a été revue par un autre développeur}
+\end{enumerate}
+\end{minipage}
 
 \section{Les rôles}
 
 \subsection{Description des rôles}
 
+\begin{itemize}
+      \item \textbf{Le 'product owner'}
+      
+      Il est responsable de maximiser la valeur créée par le programme résultant du travail de l'équipe. 
+      Ses tâches principales consistent en:
+      \begin{itemize}
+            \item Exprimer les éléments du Backlog
+            \item Ordonner le Backlog par ordre de priorité
+            \item Assurer la clarté du backlog et que ces éléments soient bien compris de tous
+      \end{itemize}
+
+      \item \textbf{Les membres de l'équipe de développement}
+      
+      Ils sont responsables de la création du produit à l'issue de chaque sprint. 
+      Ils s’auto-organisent et n’ont pas de titre ou hiérarchie au sein de l'équipe
+
+      \item \textbf{Le 'scrum master'}
+      
+      Il aide et supporte l'utilisation de la méthodologie scrum. Ses tâches principales consistent en:
+      \begin{itemize}
+            \item Aider le product owner dans la gestion du backlog, notamment avec les techniques adaptées
+            \item Coache les membres de l'équipe de développement pour s’auto-organiser et intervient en cas de blocage
+            \item Interagit avec le reste de l’organisation (par exemple le Big Boss et le Directeur Technique) pour que 
+            l'équipe conserve son focus sur le développement
+      \end{itemize}
+
+\end{itemize}
+
 \subsection{Assignation des rôles}
 
+Compte tenu de la taille réduite de l'équipe, les membres peuvent être amenés à jouer plusieurs rôles. 
+L’organisation de l'équipe sera la suivante:\\
+
+
+\begin{tabular}{|l|p{8cm}|l|}
+      \hline
+      \rowcolor{orange} Titre & Rôle au sein de l'équipe Scrum & Nom \\
+      \hline
+      Big Boss & & Tristan COLOMBO \\
+      \hline
+      Directeur Technique & & Tristan COLOMBO \\
+      \hline
+      Chef de projet & Membre de l'équipe de développement & Bruno BOURGINE \\
+      \hline
+      Développeur & Scrum master et Product Owner et membre de l'équipe de développement & Benoit ANGER \\
+      \hline
+      Développeur & Membre de l'équipe de développement & Ismail BOULALEH \\    
+      \hline  
+\end{tabular}
+
 \section{L'approche de test}
+
+L’approche de test sera à niveaux multiples:
+\begin{itemize}
+      \item Test unitaires pour les tâches
+      \item Test utilisateurs pour les Epics et User stories
+\end{itemize}
+
+
+Dans tous les cas, les tests sont définis en amont, au moment de la rédaction des epics, user stories et tâches.
+L’objectif est de:
+
+\begin{enumerate}
+      \item permettre au développeur de bien comprendre le résultat attendu tout en lui laissant la liberté 
+      pour l’atteindre et 
+      \item d’apporter une transparence à toutes les parties prenantes.
+\end{enumerate}
 
  
