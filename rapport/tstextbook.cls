@@ -185,8 +185,9 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 \begin{center}
   \null
   \smallskip
+  
 
-  \color{white}
+  \color{black}
   \sffamily
 
   \Huge
