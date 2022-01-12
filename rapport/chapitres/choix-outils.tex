@@ -2,12 +2,46 @@
 
 \subsection{Redmine}
 
+Cet outil de gestion de projet a été choisi en premier lieu pour sa disponibilité immédiate (il n'y a pas eu d'installation
+ou de paramétrage de serveur à réaliser) mais aussi pour sa complétude en terme d'outils. Il dispose
+en effet de l'ensemble des fonctionnalités dont nous avions besoin pour ce qui est de la création, de l'ordonnancement
+et du suivi des demandes. En cela il est tout à fait adapté à la méthodologie choisie.\\
+
+Nous avons pu le paramétrer un peu plus finement de façon à ce que les caractéristiques et l'évolution des demandes
+correspondent à la terminologie employée pour détailler notre projet : type de tracker, statut des demandes, champs personnalisés\dots
+
+
 \subsection{Slack}
 
+Slack a été choisi comme outil de communication entre les membres de l'équipe afin d'établir des canaux de discussion différenciés. 
+Cela permet à l'équipe des échanges plus ciblés et donc plus efficaces, ainsi qu'une vision plus ordonnée de l'historique des communications.
+
 \subsection{Github}
+
+La plateforme Github a été choisie pour héberger et gérer l'ensemble des éléments du projet, à savoir
+le code de l'application ainsi que le rapport.
+
+Le dépot est consultable à l'adresse : \url{https://github.com/bubobou/tatamis}
 
 \section{Développement}
 
 \subsection{Langage}
 
+De part sa facilité d'assimilation et les nombreuses bibliothèques disponibles, le choix du langage de programmation
+s'est porté sur Python dans sa version 3.9.
+
 \subsection{Bibliothèques}
+
+Différentes bibliothèques nous ont parues d'emblée utiles pour aborder ce projet. Tout d'abord
+une recherche documentaire nous a menée vers la bibliothèque \textsf{facile} permettant de traiter
+de la programmation par contrainte. Même s'il ne sera pas forcément retenue dans la version finale, 
+sa disponibilité nous permet d'aborder plus sereinement notre problématique.\\
+
+Par ailleurs dans la finalité d'une application avec interface graphique, potentiellement portée sur terminal mobile,
+ nous avons envisagé l'utilisation de bibliothèques et d'utilitaires tels que :
+
+ \begin{itemize}
+     \item \textsf{PyQt}
+     \item \textsf{Kivy}
+     \item \textsf{python for android}
+ \end{itemize}
