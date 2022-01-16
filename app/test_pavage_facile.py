@@ -5,6 +5,14 @@ import seaborn as sns
 import facile
 
 def tatami(xmax, ymax):
+    """Retourne une liste de listes de coordonnées [x,y,d]
+    correspondant à chaque solution de placement
+    x : abscisse du coin en bas à gauche de chaque tatami
+    y : ordonnée du coin en bas à gauche de chaque tatami
+    d : direction du tatami
+    xmax (int) : largeur de la zone
+    ymax (int) : longueur de la zone
+    """
 
     # On ne travaille pas avec des demi-tatamis
     assert (xmax * ymax) & 1 == 0
