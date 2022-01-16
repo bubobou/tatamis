@@ -42,7 +42,7 @@ def tatami(xmax, ymax):
         facile.constraint(x[i] <= x[i+1])
         facile.constraint((x[i] != x[i+1]) | (y[i] < y[i+1]))
 
-    return facile.solve_all(x+y+d)
+    return [s.solution for s in facile.solve_all(x+y+d) if s.solution is not None]
 
 sns.set(style='whitegrid', palette='Set2')
 sns.despine()
@@ -70,6 +70,7 @@ def plot_tatami(sol, xmax, ymax):
         y = sol[i][n:2*n]
         d = sol[i][2*n:]
         plot_sol(ax[i], x, y, d, xmax, ymax)
+    plt.show()
 
 sol=tatami(6,5)
-# sol retourne un tableau de Booléens ?! ce n'est pas le résultat attendu
+plot_tatami(sol,6,5)
