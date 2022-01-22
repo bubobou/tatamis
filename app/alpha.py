@@ -1,6 +1,6 @@
                
 def nombre_de_dispositions(r:int,s:int) -> int:
-    """Retourne le nombre de pavage tatamis-parfait réalisable dans un rectangle r*s"""
+    "Retourne le nombre de pavage tatamis-parfait réalisable(s) dans un rectangle r*s"
     if r>s:
         return nombre_de_dispositions(s,r)
     elif (((r % 2) != 0) and (r>1)):
@@ -9,7 +9,8 @@ def nombre_de_dispositions(r:int,s:int) -> int:
         return c(r,s)
 
 def recherche_disposition_max(r :int, s :int) -> set:
-    """Retourne les plus grandes valeurs de r et s permettant d'obtenir au moins un pavage"""
+    """Retourne un set contenant les plus grandes largeur et longueur permettant d'obtenir
+     au moins un pavage tatamis-parfait"""
     r_max = r
     s_max = s
     while nombre_de_dispositions(r_max,s_max) == 0 :
@@ -53,10 +54,14 @@ def combinaison2(r:int,s:int) -> int:
     else:
         return combinaison1(r,s-r+2) + combinaison1(r,s-r) + eq(s,r-2) + eq(s,r)
 
-def nombre_tatamis(largeur,longueur):
+def nombre_tatamis(largeur :int,longueur :int) -> int:
+    """Retourne le nombre de tatamis nécessaires pour paver un rectangle 
+    de dimensions largeur* longueur"""
     return int(largeur*longueur/2)
 
-def nombre_tatamis_max(largeur_dojo:int,longueur_dojo:int) -> set:
+def nombre_tatamis_max(largeur_dojo:int,longueur_dojo:int) -> int:
+    """Retourne le nombre de tatamis nécessaires pour réaliser un pavage 
+    tatamis-parfait dans un rectangle de dimensions largeur * longueur"""
     largeur,longueur = recherche_disposition_max(largeur_dojo,longueur_dojo)
     return nombre_tatamis(largeur,longueur)
     
