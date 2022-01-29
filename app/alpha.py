@@ -4,10 +4,9 @@ def nombre_de_dispositions(r :int, s : int) -> int:
     if r>s:
         return nombre_de_dispositions(s,r)
     elif (((r % 2) != 0) and (r>1)):
-        return 2*c(r,s)
+        return 2*combinaison(r,s)
     else:
         return combinaison(r,s)
-
 
     
 def eq(x:int,y:int) -> int:    
