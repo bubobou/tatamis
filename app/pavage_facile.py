@@ -80,5 +80,6 @@ def plot_tatami(sol, xmax, ymax):
         plot_sol(ax[i], x, y, d, xmax, ymax)
     plt.show()
 
-sol=tatami(6,5)
-plot_tatami(sol,6,5)
+sol=tatami(7,6)
+print(sol)
+# plot_tatami(sol,6,5)
