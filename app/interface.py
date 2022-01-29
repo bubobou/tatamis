@@ -26,8 +26,8 @@ def reponse_existe_disposition(nombre_disposition: int) -> str:
 
 def reponse_nombre_disposition(nombre_disposition: int) -> str:
     "retourne la réponse à la question de savoir combien il existe de disposition"
-    if nombre_disposition == 1:
-        return f"Il existe 1 disposition possible"
+    if nombre_disposition in (0,1):
+        return f"Il existe {nombre_disposition} disposition possible"
     else :
         return f"Il existe {nombre_disposition} dispositions possibles"
 
@@ -60,9 +60,12 @@ def main() :
         elif choix == "2":
             print(reponse_nombre_disposition(nombre_disposition))
             choix = choix_fonctionnalite()
-        else :
+        elif choix == "3" and nombre_disposition :
             print(reponse_nombre_tatamis(largeur_dojo, longueur_dojo))
             choix = choix_fonctionnalite()
+        else :
+            print(reponse_existe_disposition(nombre_disposition))
+            return
     return
 
 main()
