@@ -16,12 +16,15 @@ def test_nombre_de_disposition():
     assert alpha.nombre_de_dispositions(15,2)==277
     assert alpha.nombre_de_dispositions(16,15)==2
 
-def test_disposition_max():
-    """test de la maximisation de la disposition"""
-    r,s = alpha.recherche_disposition_max(30,20)
-    for i in range(r+1,31):
-        for j in range(s,21):
-            assert alpha.nombre_de_dispositions(i,j)==0
-
 
 # execution : python3 -m pytest
+
+
+# pour version production
+#
+# def test_disposition_max():
+#     """test de la maximisation de la disposition"""
+#     r,s = alpha.recherche_disposition_max(30,20)
+#     for i in range(r+1,31):
+#         for j in range(s,21):
+#             assert alpha.nombre_de_dispositions(i,j)==0
