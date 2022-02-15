@@ -31,10 +31,10 @@ class Window(QMainWindow):
         painter = QPainter(self)
         painter.setPen(QPen(Qt.black, 2, Qt.SolidLine))
         #painter.setBrush(QBrush(Qt.red, Qt.SolidPattern))
-        painter.setBrush(QBrush(Qt.blue, Qt.DiagCrossPattern))
+        painter.setBrush(QBrush(Qt.green, Qt.SolidPattern))
         marge = 20
         
-        disp=Dispositions(7,6)
+        disp=Dispositions(17,16)
         solutions= disp.listeTatamis()
         unitW=(self.width-40)//disp.W
         unitH=(self.height-40)//disp.H
@@ -43,7 +43,7 @@ class Window(QMainWindow):
         margeH=(self.height-unit*disp.H)//2
 
         if disp.count :            
-            for tatamis in solutions[1] :
+            for tatamis in solutions[0] :
                 painter.drawRect(tatamis['x']*unit+margeW, tatamis['y']*unit+margeH, tatamis['largeur']*unit,tatamis['hauteur']*unit)
 
 
