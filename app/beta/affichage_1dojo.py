@@ -1,13 +1,19 @@
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5.QtGui import QPainter, QBrush, QPen
 from PyQt5.QtCore import Qt
 import sys
 from pavage_recursif import Dispositions
 
 
-class Window(QMainWindow):
-    def __init__(self):
+class Dojo(QWidget):
+    '''
+    La classe permettant d'afficher une disposition du dojo
+    Paramètres
+    ----------
+        (W,H) : largeur et hauteur du dojo.
+    '''
+    def __init__(self,W,H):
         super().__init__()
 
         self.title = "Pavage par tatamis"
@@ -15,6 +21,8 @@ class Window(QMainWindow):
         self.left = 100
         self.width = 800
         self.height = 600
+        self.H=H
+        self.W=W
 
 
         self.InitWindow()
@@ -29,12 +37,12 @@ class Window(QMainWindow):
 
     def paintEvent(self, e):
         painter = QPainter(self)
-        painter.setPen(QPen(Qt.black, 2, Qt.SolidLine))
+        painter.setPen(QPen(Qt.gray, 2, Qt.SolidLine))
         #painter.setBrush(QBrush(Qt.red, Qt.SolidPattern))
-        painter.setBrush(QBrush(Qt.green, Qt.SolidPattern))
+        painter.setBrush(QBrush(Qt.darkYellow, Qt.SolidPattern))
         marge = 20
         
-        disp=Dispositions(17,16)
+        disp=Dispositions(self.W,self.H)
         solutions= disp.listeTatamis()
         unitW=(self.width-40)//disp.W
         unitH=(self.height-40)//disp.H
@@ -49,5 +57,5 @@ class Window(QMainWindow):
 
 
 App = QApplication(sys.argv)
-window = Window()
+dojo = Dojo(6,13)
 sys.exit(App.exec())
