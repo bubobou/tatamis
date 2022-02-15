@@ -10,11 +10,11 @@ class Window(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.title = "PyQt5 Drawing Rectangle"
+        self.title = "Pavage par tatamis"
         self.top = 100
         self.left = 100
-        self.width = 1000
-        self.height = 800
+        self.width = 800
+        self.height = 600
 
 
         self.InitWindow()
@@ -32,14 +32,19 @@ class Window(QMainWindow):
         painter.setPen(QPen(Qt.black, 2, Qt.SolidLine))
         #painter.setBrush(QBrush(Qt.red, Qt.SolidPattern))
         painter.setBrush(QBrush(Qt.blue, Qt.DiagCrossPattern))
-
-        disp=Dispositions(3,4)
+        marge = 20
+        
+        disp=Dispositions(7,6)
         solutions= disp.listeTatamis()
-        print(disp.count)
-        if disp.count :
-            
+        unitW=(self.width-40)//disp.W
+        unitH=(self.height-40)//disp.H
+        unit = min(unitW,unitH)
+        margeW=(self.width-unit*disp.W)//2
+        margeH=(self.height-unit*disp.H)//2
+
+        if disp.count :            
             for tatamis in solutions[1] :
-                painter.drawRect(tatamis['x']*100+5, tatamis['y']*100+5, tatamis['largeur']*100,tatamis['hauteur']*100)
+                painter.drawRect(tatamis['x']*unit+margeW, tatamis['y']*unit+margeH, tatamis['largeur']*unit,tatamis['hauteur']*unit)
 
 
 
