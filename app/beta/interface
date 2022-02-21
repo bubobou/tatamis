@@ -1,0 +1,170 @@
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Feb 14 23:18:59 2022
+
+@author: benoitanger
+"""
+
+import sys
+from PyQt5.QtWidgets import QWidget, QLabel, QApplication, QPushButton, QHBoxLayout, QLineEdit, QTextEdit, QGridLayout, QInputDialog, QIntValidator
+from calcul_nombre_dispositions import *
+
+class Example(QWidget):
+
+    def __init__(self):
+        super().__init__()
+
+        self.initUI()
+
+    def initUI(self):
+       
+        self.resize(600,350)
+        self.setWindowTitle('Super Dojo Calculator')
+
+        
+        # champs de dimensions
+        longueur = QLabel('Longueur (en nombre de tatamis)')
+        largeur = QLabel('Largeur (en nombre de tatamis)')
+
+        longueurEdit = QLineEdit()
+        largeurEdit = QLineEdit()
+        #textbox.resize(280,40)
+        
+        #longueurEdit.setValidator(QIntValidator(1,20))
+        #largeurEdit.setValidator(QIntValidator(1,20))
+        self.longueurEdit = QIntValidator()
+        self.lineEdit.setValidator(self.longueurEdit)
+        
+        longueur_dojo = int(longueurEdit.text())
+        largeur_dojo = int(largeurEdit.text())
+        
+        # mise en place d'une grille pour faciliter le placements des objets
+        grid = QGridLayout()
+        grid.setSpacing(20)
+
+        grid.addWidget(longueur, 2, 0)
+        grid.addWidget(longueurEdit, 2, 1)
+
+
+        grid.addWidget(largeur, 3, 0)
+        grid.addWidget(largeurEdit, 3, 1)
+
+        # mise en place de texte pour faciliter la comprehension
+        text1 = QLabel('Entrez la dimension de votre dojo:', self)
+        grid.addWidget(text1, 1, 0)
+        
+        text2 = QLabel('Que cherchez vous?', self)
+        grid.addWidget(text2, 4, 0)
+
+        # creation des boutons
+        bouton1 = QPushButton("Savoir si il existe une disposition pour le dojo")
+        bouton2 = QPushButton("Connaître le nombre de dispositions possibles")
+        bouton3 = QPushButton("Connaître le nombre de tatamis 2x1 nécéssaires pour la taille du dojo")
+        bouton4 = QPushButton("Afficher une disposition")
+        bouton5 = QPushButton("Afficher toutes les dispositions possibles")
+        
+        # placement des boutons
+        grid.addWidget(bouton1, 5, 1)
+        grid.addWidget(bouton2, 6, 1)
+        grid.addWidget(bouton3, 6, 2)
+        grid.addWidget(bouton4, 7, 1)
+        grid.addWidget(bouton5, 7, 2)
+
+        # connecter les boutons
+        bouton1.clicked.connect(self.on_click1)
+        bouton2.clicked.connect(self.on_click2)
+        bouton3.clicked.connect(self.on_click3)
+        bouton4.clicked.connect(self.on_click4)
+        bouton5.clicked.connect(self.on_click5)
+
+        # bouton supplementaire pour fermer
+        boutonFermer = QPushButton("Fermer", self)
+        boutonFermer.setToolTip("Fermer l'application")
+        boutonFermer.clicked.connect(self.close)
+        grid.addWidget(boutonFermer, 8, 4)
+
+        
+        self.setLayout(grid)
+        self.show()
+        
+    
+
+    def reponse_existe_disposition(nombre_disposition: int) -> str:
+        "retourne la réponse à la question de savoir s'il existe au moins une disposition"
+        if  nombre_disposition  :
+            return "Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo"
+        else:
+            return "Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo"
+    
+    def reponse_nombre_disposition(nombre_disposition: int) -> str:
+        "retourne la réponse à la question de savoir combien il existe de disposition"
+        if nombre_disposition in (0,1):
+            return f"Il existe {nombre_disposition} disposition possible"
+        else :
+            return f"Il existe {nombre_disposition} dispositions possibles"
+    
+    def reponse_nombre_tatamis(largeur_dojo : int, longueur_dojo : int) -> str:
+        "retourne la réponse à la question de savoir combien de tatamis sont nécessaires"    
+        return f"Le nombre de tatamis 2x1 necessaires pour ce dojo est : {nombre_tatamis(largeur_dojo, longueur_dojo)}"  
+
+    def non_saisieLongueur (longueur_dojo) -> bool:
+        "retourne vrai si l'argument n'a pa ete saisi"    
+        try :
+            longueur_dojo
+        except ValueError as e:        
+            return True
+        return False
+    
+    def non_saisieLargeur (largeur_dojo) -> bool:
+        "retourne vrai si l'argument n'a pa ete saisi"    
+        try :
+            largeur_dojo
+        except ValueError as e:        
+            return True
+        return False
+
+    def on_click1(self):
+        if non_saisieLongueur or non_saisieLargeur:
+            QMessageBox.question(self, 'Reponse', "Saisir d'abord des dimensions entieres")
+        else:
+            nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
+            QMessageBox.question(self, 'Reponse', reponse_existe_disposition(nombre_disposition))
+        
+    def on_click2(self):
+        if non_saisieLongueur or non_saisieLargeur:
+            QMessageBox.question(self, 'Reponse', "Saisir d'abord des dimensions entieres")
+        else :
+            nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
+            QMessageBox.question(self, 'Reponse', reponse_nombre_disposition(nombre_disposition))
+        
+    def on_click3(self):
+        if non_saisieLongueur or non_saisieLargeur:
+            QMessageBox.question(self, 'Reponse', "Saisir d'abord des dimensions entieres")
+        else:
+            nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
+            QMessageBox.question(self, 'Reponse', reponse_nombre_tatamis(largeur_dojo, longueur_dojo))
+    
+    def on_click4(self):
+        if non_saisieLongueur or non_saisieLargeur:
+            QMessageBox.question(self, 'Reponse', "Saisir d'abord des dimensions entieres")
+        else:
+            Dojo(largeur_dojo, longueur_dojo)
+        
+    def on_click5(self):
+        if non_saisieLongueur or non_saisieLargeur:
+            QMessageBox.question(self, 'Reponse', "Saisir d'abord des dimensions entieres")
+        else:
+            Dispositions(largeur_dojo, longueur_dojo))
+
+
+def main():
+    app = QApplication(sys.argv)
+    ex = Example()
+    sys.exit(app.exec_())
+    
+    
+if __name__ == '__main__':
+    main()
+
