@@ -6,8 +6,12 @@ import numpy as np
 class Dispositions:
 
     def __init__(self, H, W):
-        self.H = H
-        self.W = W
+        if H < W :
+            self.H = H
+            self.W = W
+        else :
+            self.H = W
+            self.W = H
         self.count = 0
         self.solutions=[]
         self.room=self.init_room()
