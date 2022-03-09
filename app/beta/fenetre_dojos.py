@@ -6,7 +6,7 @@ class FenetreDojos(QDialog):
     "classe qui crée la fenêtre d'affichage du ou des dojos"
     def __init__(self,H,W,tous):
         super().__init__()
-        
+        print("appel fenetre dojo")
         self.H = H
         self.W = W
         self.tous = tous
