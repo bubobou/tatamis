@@ -31,7 +31,6 @@ class Dojos(QGraphicsScene):
         self.W = W
         self.tous = tous
         self.ajoutDojos()
-        
 
     def ajoutDojos(self):
         "fonction permettant d'ajouter un dojo sur la scène"        
@@ -41,13 +40,11 @@ class Dojos(QGraphicsScene):
         else :
             dojos = [placementTatamis.coordonnees[0]]
 
-        marge = 0
-        size = min(750//self.W,550//self.H)
-        
-        for dojo in dojos:            
-            self.ajoutTatamis(dojo,marge,size)
-            marge += (self.W)*size+50
-            
+        decalage = 0
+        size = 40
+        for dojo in dojos:
+            self.ajoutTatamis(dojo,decalage,size)
+            decalage += (self.H+2)*size
 
     def ajoutTatamis(self,dojo,decalage,size):
         "fonction plaçant un tatamis sur la scene d'après ses propriétés"
@@ -61,7 +58,7 @@ class VueDojo(QGraphicsView):
     def __init__(self,dojo):
         QGraphicsView.__init__(self,dojo)
         self.setBackgroundBrush(QColor(COULEUR_FOND))
-   
+        self.resize (800,600)
 
 # if __name__ == "__main__":
 #     app = QApplication(sys.argv)

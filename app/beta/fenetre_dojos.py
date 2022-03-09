@@ -6,14 +6,13 @@ class FenetreDojos(QDialog):
     "classe qui crée la fenêtre d'affichage du ou des dojos"
     def __init__(self,H,W,tous):
         super().__init__()
-        print("appel fenetre dojo")
         self.H = H
         self.W = W
         self.tous = tous
 
         self.setWindowTitle("Dispositions")
 
-        QBtn = QDialogButtonBox.Ok 
+        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
 
         self.buttonBox = QDialogButtonBox(QBtn)
         self.buttonBox.accepted.connect(self.accept)
@@ -27,4 +26,3 @@ class FenetreDojos(QDialog):
         self.layout.addWidget(vueDojo)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
-        self.resize (800,600)
