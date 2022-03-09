@@ -13,6 +13,33 @@ from PyQt5.QtGui import QIntValidator
 from calcul_nombre_dispositions import *
 from fenetre_dojos import *
 
+class MessageSaisieInvalide(QMessageBox):
+    def __init__(self):
+        super().__init__()
+        self.setIcon(QMessageBox.Warning)
+        self.setWindowTitle('Super Dojo Calculator')
+        self.setText("Erreur de saisie des dimensions")
+        self.setInformativeText("Aucune dimension ne peut avoir une valeur nulle ou vide")
+        self.setStandardButtons(QMessageBox.Ok)
+
+class MessageDemandeImpossible(QMessageBox):
+    def __init__(self):
+        super().__init__()
+        self.setIcon(QMessageBox.Warning)
+        self.setWindowTitle('Super Dojo Calculator')
+        self.setText("Demande impossible")
+        self.setInformativeText("Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo")
+        self.setStandardButtons(QMessageBox.Ok)
+
+class MessageInfo(QMessageBox):
+    def __init__(self,question,info):
+        super().__init__()
+        self.setIcon(QMessageBox.Information)
+        self.setWindowTitle('Super Dojo Calculator')
+        self.setText(question)
+        self.setInformativeText(info)
+        self.setStandardButtons(QMessageBox.Ok)
+        
 
 class Interface(QWidget):
     "Classe qui cree l'interface"
@@ -94,215 +121,113 @@ class Interface(QWidget):
         
         self.setLayout(grid)
         self.show()
-        
+
+    def set_longueur(self) :
+        "fonction qui affecte la longueur saisie en retournant 0 si celle-ci est vide"
+        if (self.longueurEdit.text()==""):
+            self.longueur_dojo = 0
+        else:
+            self.longueur_dojo = int(self.longueurEdit.text())
+
+    def set_largeur(self) :
+        "fonction qui affecte la largeur saisie en retournant 0 si celle-ci est vide"
+        if (self.largeurEdit.text()==""):
+            self.largeur_dojo = 0
+        else:
+            self.largeur_dojo = int(self.largeurEdit.text())
+
+    def valeur_vide(self):
+        "fonction qui vérifie si les valeurs saisies sont nulles"
+        self.set_largeur()
+        self.set_longueur()
+        return self.largeur_dojo==0 or self.longueur_dojo==0    
 
     def clickExiste(self):
         "fonction d'action sur le bouton Existe"
         
-        # etape de validation pour traiter les cas des dimensions nulles ou vides
-        if (self.longueurEdit.text()==""):
-            longueur_dojo = 0
+        if self.valeur_vide() :
+            message = MessageSaisieInvalide()          
+            message.exec()
+
+        # affichage de la réponse a l'utilisateur
         else:
-            longueur_dojo = int(self.longueurEdit.text())
-        
-        if (self.largeurEdit.text()==""):
-            largeur_dojo = 0
-        else:
-            largeur_dojo = int(self.largeurEdit.text())
-        
-        if (longueur_dojo==0) or (largeur_dojo==0):
-            messageErreur = QMessageBox()
-            messageErreur.setIcon(QMessageBox.Warning)
-            messageErreur.setText("Erreur de saisie des dimensions")
-            messageErreur.setInformativeText("Aucune dimension ne peut avoir une valeur nulle ou vide")
-            messageErreur.setStandardButtons(QMessageBox.Ok)
-            messageErreur.exec()
-        
-        # affichage de la reponse a l'utilisateur
-        else:
-            self.nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
-            
-            if  self.nombre_disposition  :
-                textboxValue = "Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo"
+            if nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
+                info = "Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo"
             else:
-                textboxValue = "Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo"
-        
-            message = QMessageBox()
-            message.setIcon(QMessageBox.Information)
-            message.setText("Existe-t-il une disposition pour le dojo?")
-            message.setInformativeText(textboxValue)
-            message.setStandardButtons(QMessageBox.Ok)
+                info = "Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo"
+                                  
+            message = MessageInfo("Existe-t-il une disposition pour le dojo?",info)
             message.exec()
 
         
     def clickNbDispositions(self):
         "fonction d'action sur le bouton Nombre de dispositions"
-        
-        # etape de validation pour traiter les cas des dimensions nulles ou vides
-        if (self.longueurEdit.text()==""):
-            longueur_dojo = 0
+
+        if self.valeur_vide() :
+            message = MessageSaisieInvalide()          
+            message.exec() 
+        # affichage de la réponse a l'utilisateur
         else:
-            longueur_dojo = int(self.longueurEdit.text())
-        
-        if (self.largeurEdit.text()==""):
-            largeur_dojo = 0
-        else:
-            largeur_dojo = int(self.largeurEdit.text())
-        
-        if (longueur_dojo==0) or (largeur_dojo==0):
-            messageErreur = QMessageBox()
-            messageErreur.setIcon(QMessageBox.Warning)
-            messageErreur.setText("Erreur de saisie des dimensions")
-            messageErreur.setInformativeText("Aucune dimension ne peut avoir une valeur nulle ou vide")
-            messageErreur.setStandardButtons(QMessageBox.Ok)
-            messageErreur.exec()
-         
-        # affichage de la reponse a l'utilisateur
-        else:
-            self.nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
+            nombre_disposition = nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo)
             
-            if self.nombre_disposition in (0,1):
-                textboxValue = f"Il existe {self.nombre_disposition} disposition possible"
+            if nombre_disposition in (0,1):
+                info = f"Il existe {nombre_disposition} disposition possible"
             else :
-                textboxValue = f"Il existe {self.nombre_disposition} dispositions possibles"
+                info = f"Il existe {nombre_disposition} dispositions possibles"
                          
-            message = QMessageBox()
-            message.setIcon(QMessageBox.Information)
-            message.setText("Connaître le nombre de dispositions possibles")
-            message.setInformativeText(textboxValue)
-            message.setStandardButtons(QMessageBox.Ok)
+            message = MessageInfo("Connaître le nombre de dispositions possibles",info)
             message.exec()
 
 
     def clickNbTatamis(self):
         "fonction d'action sur le bouton Nombre de tatamis"
         
-        # etape de validation pour traiter les cas des dimensions nulles ou vides
-        if (self.longueurEdit.text()==""):
-            longueur_dojo = 0
-        else:
-            longueur_dojo = int(self.longueurEdit.text())
+        if self.valeur_vide() :
+            message = MessageSaisieInvalide()          
+            message.exec()
+
+        elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo):
+            info = f"Le nombre de tatamis 2x1 nécessaires pour ce dojo est : {nombre_tatamis(self.largeur_dojo, self.longueur_dojo)}"
+            message = MessageInfo("Connaître le nombre de tatamis 2x1 nécessaires pour la taille du dojo",info)
+            message.exec()
+
+        else :
+            message = MessageDemandeImpossible()             
+            message.exec()       
         
-        if (self.largeurEdit.text()==""):
-            largeur_dojo = 0
-        else:
-            largeur_dojo = int(self.largeurEdit.text())
         
-        if (longueur_dojo==0) or (largeur_dojo==0):
-            messageErreur = QMessageBox()
-            messageErreur.setIcon(QMessageBox.Warning)
-            messageErreur.setText("Erreur de saisie des dimensions")
-            messageErreur.setInformativeText("Aucune dimension ne peut avoir une valeur nulle ou vide")
-            messageErreur.setStandardButtons(QMessageBox.Ok)
-            messageErreur.exec()
-        
-        # affichage de la reponse a l'utilisateur
-        else:
-            self.nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
-                
-            if  (self.nombre_disposition==0):
-            
-                textboxValue = "Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo"
-        
-                message = QMessageBox()
-                message.setIcon(QMessageBox.Warning)
-                message.setText("Demande impossible")
-                message.setInformativeText(textboxValue)
-                message.setStandardButtons(QMessageBox.Ok)
-                message.exec()
-            else:
-                self.nombre_tatamis = nombre_tatamis(largeur_dojo, longueur_dojo)
-                 
-                textboxValue = f"Le nombre de tatamis 2x1 nécessaires pour ce dojo est : {self.nombre_tatamis}"
-                 
-                message = QMessageBox()
-                message.setIcon(QMessageBox.Information)
-                message.setText("Connaître le nombre de tatamis 2x1 nécessaires pour la taille du dojo")
-                message.setInformativeText(textboxValue)
-                message.setStandardButtons(QMessageBox.Ok)
-                message.exec()
-            
-            
     def clickUneDisposition(self):
         "fonction d'action sur le bouton afficher une disposition"
         
-        # etape de validation pour traiter les cas des dimensions nulles ou vides
-        if (self.longueurEdit.text()==""):
-            longueur_dojo = 0
+        if self.valeur_vide() :
+            message = MessageSaisieInvalide()            
+            message.exec()
+
+        # affichage de la réponse a l'utilisateur
+
+        elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
+            fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=False)            
+            fenetre.exec()
+        
         else:
-            longueur_dojo = int(self.longueurEdit.text())
-        
-        if (self.largeurEdit.text()==""):
-            largeur_dojo = 0
-        else:
-            largeur_dojo = int(self.largeurEdit.text())
-        
-        if (longueur_dojo==0) or (largeur_dojo==0):
-            messageErreur = QMessageBox()
-            messageErreur.setIcon(QMessageBox.Warning)
-            messageErreur.setText("Erreur de saisie des dimensions")
-            messageErreur.setInformativeText("Aucune dimension ne peut avoir une valeur nulle ou vide")
-            messageErreur.setStandardButtons(QMessageBox.Ok)
-            messageErreur.exec()
-        
-        # affichage de la reponse a l'utilisateur
-        else:
-            self.nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
-                
-            if  (self.nombre_disposition==0):
-            
-                textboxValue = "Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo"
-        
-                message = QMessageBox()
-                message.setIcon(QMessageBox.Warning)
-                message.setText("Demande impossible")
-                message.setInformativeText(textboxValue)
-                message.setStandardButtons(QMessageBox.Ok)
-                message.exec()
-            else:
-                dlg = FenetreDojos(largeur_dojo,longueur_dojo,False)            
-                dlg.exec()
+            message = MessageDemandeImpossible()             
+            message.exec()            
    
         
     def clickToutesDispositions(self):
         "fonction d'action sur le bouton afficher toutes les dispositions"
-        
-        # etape de validation pour traiter les cas des dimensions nulles ou vides
-        if (self.longueurEdit.text()==""):
-            longueur_dojo = 0
-        else:
-            longueur_dojo = int(self.longueurEdit.text())
-        
-        if (self.largeurEdit.text()==""):
-            largeur_dojo = 0
-        else:
-            largeur_dojo = int(self.largeurEdit.text())
-        
-        if (longueur_dojo==0) or (largeur_dojo==0):
-            messageErreur = QMessageBox()
-            messageErreur.setIcon(QMessageBox.Warning)
-            messageErreur.setText("Erreur de saisie des dimensions")
-            messageErreur.setInformativeText("Aucune dimension ne peut avoir une valeur nulle ou vide")
-            messageErreur.setStandardButtons(QMessageBox.Ok)
-            messageErreur.exec()
-        
-        # affichage de la reponse a l'utilisateur
-        else:
-            self.nombre_disposition = nombre_de_dispositions(largeur_dojo, longueur_dojo)
-                
-            if  (self.nombre_disposition==0):
-            
-                textboxValue = "Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo"
-        
-                message = QMessageBox()
-                message.setIcon(QMessageBox.Warning)
-                message.setText("Demande impossible")
-                message.setInformativeText(textboxValue)
-                message.setStandardButtons(QMessageBox.Ok)
-                message.exec()
-            else:
-                dlg = FenetreDojos(largeur_dojo,longueur_dojo,True)            
-                dlg.exec()
+        if self.valeur_vide() :
+            message = MessageSaisieInvalide()            
+            message.exec()
+
+        # affichage de la réponse a l'utilisateur
+        elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
+            fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=True)            
+            fenetre.exec()
+
+        else :
+            message = MessageDemandeImpossible()                   
+            message.exec()      
 
 
 def main():

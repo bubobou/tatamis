@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QBrush, QColor, QPen, QPainter
 from PyQt5.QtWidgets import QApplication, QGraphicsScene, QGraphicsView, QGraphicsRectItem, QGraphicsItem
-from pavage_recursif import Dispositions
+from calcul_coordonnees_tatamis import Dispositions
 import sys
 
 COULEUR_FOND = "white"
@@ -9,7 +9,7 @@ COULEUR_CONTOUR = "gray"
 COULEUR_TATAMI = "yellow"
 
 class Tatami(QGraphicsRectItem):
-    "classe permettant d'instancier un tatamis d'après ces propriétés: position,dimensions,couleur"
+    "classe qui instancie un tatamis d'après ses propriétés: position,dimensions,couleur"
 
     _pen = QPen(QColor(COULEUR_CONTOUR))
     _pen.setCosmetic(True)
