@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QBrush, QColor, QPen, QPainter
 from PyQt5.QtWidgets import QApplication, QGraphicsScene, QGraphicsView, QGraphicsRectItem, QGraphicsItem
-from pavage_recursif import Dispositions
+from calcul_coordonnees_tatamis import Dispositions
 import sys
 
 COULEUR_FOND = "white"
@@ -35,16 +35,17 @@ class Dojos(QGraphicsScene):
     def ajoutDojos(self):
         "fonction permettant d'ajouter un dojo sur la scène"        
         placementTatamis = Dispositions(self.W,self.H)
+        print(placementTatamis.count)
         if self.tous :
             dojos = placementTatamis.coordonnees
         else :
             dojos = [placementTatamis.coordonnees[0]]
 
         decalage = 0
-        size = 40
+        size = min(750//self.W,550//self.H)
         for dojo in dojos:
             self.ajoutTatamis(dojo,decalage,size)
-            decalage += (self.H+2)*size
+            decalage += (self.W)*size+50
 
     def ajoutTatamis(self,dojo,decalage,size):
         "fonction plaçant un tatamis sur la scene d'après ses propriétés"
@@ -58,7 +59,7 @@ class VueDojo(QGraphicsView):
     def __init__(self,dojo):
         QGraphicsView.__init__(self,dojo)
         self.setBackgroundBrush(QColor(COULEUR_FOND))
-        self.resize (800,600)
+        #self.resize (800,600)
 
 # if __name__ == "__main__":
 #     app = QApplication(sys.argv)

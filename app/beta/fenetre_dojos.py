@@ -21,8 +21,10 @@ class FenetreDojos(QDialog):
         self.layout = QVBoxLayout()
         
         dojos = Dojos(self.H,self.W,tous)
+        
         vueDojo = VueDojo(dojos)
 
         self.layout.addWidget(vueDojo)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
+        self.resize (800,600)
