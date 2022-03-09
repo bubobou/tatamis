@@ -36,9 +36,9 @@ class Dojos(QGraphicsScene):
         "fonction permettant d'ajouter un dojo sur la scène"        
         placementTatamis = Dispositions(self.W,self.H)
         if self.tous :
-            dojos = placementTatamis.listeTatamis()
+            dojos = placementTatamis.coordonnees
         else :
-            dojos = [placementTatamis.listeTatamis()[0]]
+            dojos = [placementTatamis.coordonnees[0]]
 
         decalage = 0
         size = 40
@@ -60,9 +60,9 @@ class VueDojo(QGraphicsView):
         self.setBackgroundBrush(QColor(COULEUR_FOND))
         self.resize (800,600)
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    dojos = Dojos(7,12,True)
-    vueDojo = VueDojo(dojos)
-    vueDojo.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     app = QApplication(sys.argv)
+#     dojos = Dojos(7,12,True)
+#     vueDojo = VueDojo(dojos)
+#     vueDojo.show()
+#     sys.exit(app.exec_())

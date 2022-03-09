@@ -11,6 +11,7 @@ import sys
 from PyQt5.QtWidgets import QWidget, QLabel, QApplication, QPushButton, QLineEdit, QGridLayout, QMessageBox
 from PyQt5.QtGui import QIntValidator
 from calcul_nombre_dispositions import *
+from fenetre_dojos import *
 
 
 class Interface(QWidget):
@@ -259,8 +260,8 @@ class Interface(QWidget):
                 message.setStandardButtons(QMessageBox.Ok)
                 message.exec()
             else:
-                print("OK")
-                #Dojos(largeur_dojo, longueur_dojo,True)
+                dlg = FenetreDojos(largeur_dojo,longueur_dojo,False)            
+                dlg.exec()
    
         
     def clickToutesDispositions(self):
@@ -300,8 +301,8 @@ class Interface(QWidget):
                 message.setStandardButtons(QMessageBox.Ok)
                 message.exec()
             else:
-                print("OK")
-                #Dispositions(largeur_dojo, longueur_dojo,True)
+                dlg = FenetreDojos(largeur_dojo,longueur_dojo,True)            
+                dlg.exec()
 
 
 def main():

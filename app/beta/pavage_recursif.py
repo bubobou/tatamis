@@ -4,6 +4,7 @@ import datetime
 import numpy as np
 
 class Dispositions:
+    "classe qui calcul les coordonnées des tatamis d'après les dimensions du dojo"
 
     def __init__(self, H, W):
         if H < W :
@@ -12,11 +13,18 @@ class Dispositions:
         else :
             self.H = W
             self.W = H
-        self.count = 0
-        self.solutions=[]
+
         self.room=self.init_room()
 
+        self.count = 0        
+        
+        self.solutions=[]
+        self.setTatami_rowscan(1,1,1)
+                
+        self.coordonnees=self.listeTatamis()
+
     def init_room(self):
+        "fonction qui créé une matrice de 0 de dimension H*W"
         room = np.zeros((self.H+2, self.W+2))
         room[0,:] = -1
         room[self.H+1,:] = -1
@@ -26,14 +34,15 @@ class Dispositions:
 
     def setTatami_rowscan(self,h,w,idx)->int:
         '''
-        Parameters
+        Paramètres
         ----------
-        (h,w) : The current exploration point. h represents row number, w represents col number.
-        idx   : The identifier index of Tatami to be arranged.
+        (h,w) : La position courante d'exploration du dojo. h correspond au numéro de la ligne,
+        w correspond au numéro de la colonne.
+        idx   : le numéro d'identification du Tatami en courant de positionnement.
 
-        increment: 
-            The number of total arrangement from the input condition (count :int).
-            The list of arrangement  (solutions : list)
+        Incrémentation: 
+            Le nombre total de dispositions possibles (count :int).
+            La liste contenant toutes les dispositions  (solutions : list)
 
         '''        
                
@@ -67,11 +76,6 @@ class Dispositions:
                 self.room[h+1,w] = 0
 
     
-
-    def calculPlacement(self):         
-        self.setTatami_rowscan(1,1,1)      
-        return self.count
-
     def listeTatamis(self):
         self.setTatami_rowscan(1,1,1) 
         dispositions=[]
@@ -90,8 +94,7 @@ class Dispositions:
 
 # tStart = time.perf_counter()
 # disp=Dispositions(4,5)
-# disp.setTatami_rowscan(1,1,1)
+
 # tCost  = time.perf_counter() - tStart
 # print('count = {0}, tCost = {1:6.3f}(sec)'.format(disp.count,tCost))
-# for solution in disp.solutions:
-#     print(solution, '\n')
+# print(disp.coordonnees)

@@ -4,6 +4,7 @@ from PyQt5.QtGui import QIntValidator
 from calcul_nombre_dispositions import *
 
 
+
 class Example(QWidget):
 
     def __init__(self):
