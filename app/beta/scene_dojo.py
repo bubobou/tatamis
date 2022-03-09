@@ -9,6 +9,7 @@ COULEUR_CONTOUR = "gray"
 COULEUR_TATAMI = "yellow"
 
 class Tatami(QGraphicsRectItem):
+    "classe permettant d'instancier un tatamis d'après ces propriétés: position,dimensions,couleur"
 
     _pen = QPen(QColor(COULEUR_CONTOUR))
     _pen.setCosmetic(True)
@@ -21,6 +22,7 @@ class Tatami(QGraphicsRectItem):
         self.setBrush(self.brush)
 
 class Dojos(QGraphicsScene):
+    "classe créant un seul ou tous les dojos possibles d'après les dimensions données"
     
     def __init__(self,H,W,tous=False):
         QGraphicsScene.__init__(self)
@@ -30,7 +32,8 @@ class Dojos(QGraphicsScene):
         self.tous = tous
         self.ajoutDojos()
 
-    def ajoutDojos(self):        
+    def ajoutDojos(self):
+        "fonction permettant d'ajouter un dojo sur la scène"        
         placementTatamis = Dispositions(self.W,self.H)
         if self.tous :
             dojos = placementTatamis.listeTatamis()
@@ -44,11 +47,13 @@ class Dojos(QGraphicsScene):
             decalage += (self.H+2)*size
 
     def ajoutTatamis(self,dojo,decalage,size):
+        "fonction plaçant un tatamis sur la scene d'après ses propriétés"
         for element in dojo:
                 tatami = Tatami(element['x']*size,decalage+element['y']*size,element['largeur']*size,element['hauteur']*size)
                 self.addItem(tatami)
 
 class VueDojo(QGraphicsView):
+    "classe permettant d'instancier la vue contenant les dojos"
     
     def __init__(self,dojo):
         QGraphicsView.__init__(self,dojo)
