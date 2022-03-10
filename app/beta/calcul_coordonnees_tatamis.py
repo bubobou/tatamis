@@ -13,13 +13,11 @@ class Dispositions:
         else :
             self.H = W
             self.W = H
-
-        self.room=self.init_room()
-
-        self.count = 0        
-        
+      
+        self.count = 0 
         self.solutions=[]
-        self.setTatami_rowscan(1,1,1)
+        self.room=self.init_room()
+        #self.setTatami_rowscan(1,1,1)
                 
         self.coordonnees=self.listeTatamis()
 
@@ -93,8 +91,6 @@ class Dispositions:
 # décommenter les lignes pour tester la classe Disposition
 
 # tStart = time.perf_counter()
-# disp=Dispositions(4,5)
-
+# disp=Dispositions(20,19)
 # tCost  = time.perf_counter() - tStart
 # print('count = {0}, tCost = {1:6.3f}(sec)'.format(disp.count,tCost))
-# print(disp.coordonnees)
