@@ -16,8 +16,7 @@ class Dispositions:
       
         self.count = 0 
         self.solutions=[]
-        self.room=self.init_room()
-        #self.setTatami_rowscan(1,1,1)
+        self.room=self.init_room()        
                 
         self.coordonnees=self.listeTatamis()
 
@@ -75,6 +74,7 @@ class Dispositions:
 
     
     def listeTatamis(self):
+        ''' fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position'''
         self.setTatami_rowscan(1,1,1) 
         dispositions=[]
         for array in self.solutions :

@@ -11,9 +11,10 @@ import sys
 from PyQt5.QtWidgets import QWidget, QLabel, QApplication, QPushButton, QLineEdit, QGridLayout, QMessageBox
 from PyQt5.QtGui import QIntValidator
 from calcul_nombre_dispositions import *
-from fenetre_dojos import *
+from dojo import *
 
 class MessageSaisieInvalide(QMessageBox):
+    "classe qui affiche un message pour avertir que la saisie est invalide"
     def __init__(self):
         super().__init__()
         self.setIcon(QMessageBox.Warning)
@@ -23,6 +24,7 @@ class MessageSaisieInvalide(QMessageBox):
         self.setStandardButtons(QMessageBox.Ok)
 
 class MessageDemandeImpossible(QMessageBox):
+    "classe qui affiche un message pour avertir qu'il n'existe pas de solutions"
     def __init__(self):
         super().__init__()
         self.setIcon(QMessageBox.Warning)
@@ -32,6 +34,7 @@ class MessageDemandeImpossible(QMessageBox):
         self.setStandardButtons(QMessageBox.Ok)
 
 class MessageInfo(QMessageBox):
+    "classe qui créée un message avec une question et une info passées en paramètres"
     def __init__(self,question,info):
         super().__init__()
         self.setIcon(QMessageBox.Information)
