@@ -1,8 +1,7 @@
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Feb 14 23:18:59 2022
+Created on Tue Mar 22 15:58:19 2022
 
 @author: benoitanger
 """
@@ -61,8 +60,8 @@ class Interface(QWidget):
 
         
         # champs de dimensions
-        longueur = QLabel('Longueur (en nombre de tatamis entre 1 et 25)')
-        largeur = QLabel('Largeur (en nombre de tatamis entre 1 et 25)')
+        longueur = QLabel('Longueur (entre 1 et 25)')
+        largeur = QLabel('Largeur (entre 1 et 25)')
 
         # choix des limites de validation des saisies de dimension
         validator = QIntValidator(1, 25, self)
@@ -88,7 +87,7 @@ class Interface(QWidget):
         grid.addWidget(self.largeurEdit, 3, 1)
 
         # mise en place de texte pour faciliter la comprehension
-        textDimension = QLabel('Entrez la dimension de votre dojo:', self)
+        textDimension = QLabel("Entrez la dimension de votre dojo:\n (en valeur relative de tatamis standards 2x1)", self)
         grid.addWidget(textDimension, 1, 0)
         
         textFonctionalite = QLabel('Que cherchez vous?', self)
@@ -242,4 +241,3 @@ def main():
     
 if __name__ == '__main__':
     main()
-
