@@ -1,7 +1,7 @@
 
 from calcul_nombre_dispositions import *
 
-def recherche_disposition_max(r :int, s :int) -> set:
+def recherche_disposition_max(r :int, s :int) -> tuple:
     """Retourne un set contenant les plus grandes largeur et longueur permettant d'obtenir
      au moins un pavage tatamis-parfait"""
     r_max = r
