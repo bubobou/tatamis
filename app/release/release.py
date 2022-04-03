@@ -25,19 +25,29 @@ def multiples(nombre: int) ->list :
     '''
     Retourne une liste contenant les couples de multiples d'un nombre, avec une valeur minimale de 3 pour un élément
     '''
-    res = []
+    resultat = []
     mini = 2
     for w in range(1, nombre//mini) :
         h = nombre//w
-        if w*h == nombre and (w,h) not in res :
-            res.append(h,w)
-    return res
+        if w*h == nombre and (w,h) not in resultat :
+            resultat.append(h,w)
+    return resultat
 
-def multiples_alternatifs(nombre) :
-    res = multiples(nombre)
-    while len(res)==0 and nombre > 3:
-        nombre =-1
-    return res
+def multiples_inf(nombre) :    
+    while nombre > 3:
+        resultat = multiples(nombre)
+        if len(resultat) != 0:
+            return resultat
+        else :
+            nombre -= 1
+    return resultat
+
+def recherche_disposition(nombre):
+    dimensions = multiples_inf(nombre)
+    dispositions = []
+    for d in dimensions :
+        dispositions.append(recherche_disposition_max(d))
+    return dispositions
 
     
 ### Interface ###
