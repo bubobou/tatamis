@@ -27,50 +27,53 @@ def multiples(nombre: int) ->list :
     '''
     resultat = []
     mini = 2
-    for w in range(1, nombre//mini) :
+    for w in range(mini, nombre//mini) :
         h = nombre//w
         if w*h == nombre and (w,h) not in resultat :
-            resultat.append(h,w)
+            resultat.append((h,w))
     return resultat
 
-def multiples_inf(nombre) :    
+
+def multiples_inf(nombre) :
+    resultats = []    
     while nombre > 3:
         resultat = multiples(nombre)
         if len(resultat) != 0:
             return resultat
         else :
-            nombre -= 1
+            nombre -= 1              
     return resultat
 
 def recherche_disposition(nombre):
-    dimensions = multiples_inf(nombre)
+    dimensions = multiples_inf(nombre)    
     dispositions = []
-    for d in dimensions :
-        dispositions.append(recherche_disposition_max(d))
+    for h,w in dimensions :
+        dispositions.append(recherche_disposition_max(h,w))
     return dispositions
 
+
     
-### Interface ###
+# ### Interface ###
 
 
    
-def affichage_solution():
-    """Propose l'affichage du nombre de solutions et du nombre de tatamis nécessaires"""
-    aff_nombre = input("Souhaitez-vous connaître le nombre de dispositions ? O->Oui")
-    if aff_nombre.upper() != "O":
-        exit()
-    else:    
-        print(f"Il existe {nombre_disposition} disposition(s) possible(s)")
-        print(f"Le nombre de tatamis 2x1 utilisables pour ce dojo est : {nombre_tatamis(largeur_dojo,longueur_dojo)} ")
+# def affichage_solution():
+#     """Propose l'affichage du nombre de solutions et du nombre de tatamis nécessaires"""
+#     aff_nombre = input("Souhaitez-vous connaître le nombre de dispositions ? O->Oui")
+#     if aff_nombre.upper() != "O":
+#         exit()
+#     else:    
+#         print(f"Il existe {nombre_disposition} disposition(s) possible(s)")
+#         print(f"Le nombre de tatamis 2x1 utilisables pour ce dojo est : {nombre_tatamis(largeur_dojo,longueur_dojo)} ")
 
-def affichage_solution_alt():
-    """Propose d'afficher une solution alternative de dimensions moindre et le nombre de tatamis correspondant"""
-    aff_autre = input("Souhaitez-vous connaître le nombre de dispositions avec des dimensions plus petites? O->Oui")
-    if aff_autre.upper() != "O":
-        exit()
-    else:
-        largeur_max,longueur_max=recherche_disposition_max(largeur_dojo,longueur_dojo)
-        nombre_disposition = nombre_de_dispositions(largeur_max, longueur_max)
-        print(f"Il existe {nombre_disposition} disposition(s) possible(s) avec les dimensions : {largeur_max}x{longueur_max}")
-        print(f"Le nombre de tatamis 2x1 utilisables pour ce dojo est :{nombre_tatamis(largeur_max,longueur_max)}" )
+# def affichage_solution_alt():
+#     """Propose d'afficher une solution alternative de dimensions moindre et le nombre de tatamis correspondant"""
+#     aff_autre = input("Souhaitez-vous connaître le nombre de dispositions avec des dimensions plus petites? O->Oui")
+#     if aff_autre.upper() != "O":
+#         exit()
+#     else:
+#         largeur_max,longueur_max=recherche_disposition_max(largeur_dojo,longueur_dojo)
+#         nombre_disposition = nombre_de_dispositions(largeur_max, longueur_max)
+#         print(f"Il existe {nombre_disposition} disposition(s) possible(s) avec les dimensions : {largeur_max}x{longueur_max}")
+#         print(f"Le nombre de tatamis 2x1 utilisables pour ce dojo est :{nombre_tatamis(largeur_max,longueur_max)}" )
 
