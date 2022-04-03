@@ -37,7 +37,6 @@ class Dojos(QGraphicsScene):
     def ajoutDojos(self):
         "fonction permettant d'ajouter un dojo sur la scène"        
         placementTatamis = Dispositions(self.W,self.H)
-        print(placementTatamis.count)
         if self.tous :
             dojos = placementTatamis.coordonnees
         else :
