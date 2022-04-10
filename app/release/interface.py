@@ -410,14 +410,15 @@ class Interface(QWidget):
 
 
     def clickSolutionAPartirDim(self):
-        "fonction d'action sur le bouton Solution Etant Donne Nb Tatamis"
+        "fonction d'action sur le bouton Solution Étant Donne Nb Tatamis"
         
         if self.tatamis_vide() :
             message = MessageSaisieInvalideNbTatamis()          
             message.exec()
         
         else :
-            info = f"TBD"
+            dim = recherche_disposition(self.nb_tatamis)
+            info = affichage_dimension(dim)
             message = MessageInfo("Solution étant donné le nombre de tatamis saisi",info)
             message.exec()
             
