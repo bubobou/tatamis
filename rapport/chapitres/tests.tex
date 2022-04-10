@@ -59,19 +59,57 @@ appelées par des fonctions de test dédiées qui vérifie la concordance des va
     \renewcommand{\arraystretch}{1.2}
     {\setlength{\tabcolsep}{1.5 mm}
         \begin{tabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
-            id                                                                                                       & Sujet                                                                                                                                  & Test d'acceptance                                                                                                                                                                   & Méthode de test & Résultat \\ \hline
-            \multirow{2}{0.6cm}{509}                                                                                 & \multirow{2}{5.5cm}{US Créer la fonction permettant de calculer le nombre de solutions au problème étant donné les dimensions du dojo} & 1. Quand la fonction est exécutée, elle retourne le nombre de dispositions possibles conformément a l'article de Ruskey et Woodcock de 2009                                         & Automatisé      & OK       \\ \cline{3-5}
-                                                                                                                     &                                                                                                                                        & 2. Quand la fonction est executee en inverstant la longueur et la largeur, elle retourne le nombre de dispositions possibles conformément a l'article de Ruskey et Woodcock de 2009 & Automatisé      & OK       \\ \hline
+            id                                                                                                       & Sujet                                                                                                                                  & Test d'acceptance                                                                                                                                                                  & Méthode de test & Résultat \\ \hline
+            \multirow{2}{0.6cm}{509}                                                                                 & \multirow{2}{5.5cm}{US Créer la fonction permettant de calculer le nombre de solutions au problème étant donné les dimensions du dojo} & 1. Quand la fonction est exécutée, elle retourne le nombre de dispositions possibles conformément a l'article de Ruskey et Woodcock de 2009                                        & Automatisé      & OK       \\ \cline{3-5}
+                                                                                                                     &                                                                                                                                        & 2. Quand la fonction est exécutée en inversant la longueur et la largeur, elle retourne le nombre de dispositions possibles conformément a l'article de Ruskey et Woodcock de 2009 & Automatisé      & OK       \\ \hline
 
             509                                                                                                      & EPIC Développer pour un gestionnaire de dojo un outil simple lui permettant de saisir les dimensions du dojo et
-            de savoir si un solution existe, le nombre de tatamis nécessaires et le nombre de dispositions possibles & \cellcolor{tsyellow} cf. tests utilisateurs des US                                                                                     &                                                                                                                                                                                     &                            \\ \hline
-            \multirow{2}{0.6cm}{480}                                                                                 & \multirow{2}{5.5cm}{US Calculer le nombre de tatamis nécessaires}                                                                      & 1. Etant donne que l'utilisateur saisie des dimensions de dojo avec une solution qui existe, quand il saisie 3, il obtient le nombre de tatamis nécessaires                         & Automatisé      & OK       \\ \cline{3-5}
-                                                                                                                     &                                                                                                                                        & 2. Étant donne que l'utilisateur saisie des dimensions de dojo avec aucune disposition possible, quand il saisie 3, il obtient un message indiquant l'absence de solution           & Automatisé      & OK       \\ \hline
+            de savoir si un solution existe, le nombre de tatamis nécessaires et le nombre de dispositions possibles & \cellcolor{tsyellow} cf. tests utilisateurs des US                                                                                     &                                                                                                                                                                                    &                            \\ \hline
+            \multirow{2}{0.6cm}{480}                                                                                 & \multirow{2}{5.5cm}{US Calculer le nombre de tatamis nécessaires}                                                                      & 1. Étant donne que l'utilisateur saisit des dimensions de dojo avec une solution qui existe, quand il saisie 3, il obtient le nombre de tatamis nécessaires                        & Automatisé      & OK       \\ \cline{3-5}
+                                                                                                                     &                                                                                                                                        & 2. Étant donne que l'utilisateur saisit des dimensions de dojo avec aucune disposition possible, quand il saisie 3, il obtient un message indiquant l'absence de solution          & Automatisé      & OK       \\ \hline
         \end{tabular}}
 \end{adjustwidth}
 
 
 \section{Version Beta}
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{tabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
+            id                       & Sujet                                                                   & Test d'acceptance                                                                                             & Méthode de test & Résultat \\ \hline
+            \multirow{2}{0.6cm}{539} & \multirow{2}{5.5cm}{TACHE Cliquer pour avoir accès aux fonctionnalités} & Quand l'application est lancée, les boutons s'affichent                                                       & Manuel          & OK       \\ \cline{3-5}
+                                     &                                                                         & Quand l'utilisateur clique sur un bouton, la fonctionnalité est activée.                                      & Manuel          & OK       \\ \hline
+            \multirow{3}{0.6cm}{538} & \multirow{3}{5.5cm}{TACHE Valider les dimensions}                       & Quand l'application est lancée, seules des valeurs entières peuvent être entrées                              & Manuel          & OK       \\ \cline{3-5}
+                                     &                                                                         & Quand l'application est lancée, les valeurs entrables sont restreintes aux valeurs dans un intervalle défini. & Manuel          & OK       \\ \cline{3-5}
+                                     &                                                                         & Quand l'utilisateur omet ou entre 0 pour au moins une dimension, un message d'erreur s'affiche.               & Manuel          & OK       \\ \hline
+        \end{tabular}}
+\end{adjustwidth}
+
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{tabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
+            id                       & Sujet                                                                                           & Test d'acceptance                                                                                                                                                & Méthode de test & Résultat \\ \hline
+            537                      & TACHE Offrir la possibilité d'entrer des dimensions de dojo                                     & Quand l'application est lancée, une fenêtre s'ouvre avec la possibilité d'entrer les dimensions.                                                                 & Manuel          & OK       \\ \hline
+            536                      & TACHE Créer la fonction permettant d'afficher toutes les solutions                              & Quand la fonction reçoit en input les coordonnées des tatamis pour une disposition dimensions, alors elle retourne un graph avec toutes les solutions possibles" & Manuel          & OK       \\ \hline
+            535                      & TACHE Créer la fonction permettant d'afficher une seule solution                                & Quand la fonction reçoit en input les coordonnées des tatamis pour une disposition dimensions, alors elle retourne un graph avec une solution possible"          & Manuel          & OK       \\ \hline
+            534                      & TACHE Créer la fonction permettant de calculer les coordonnées des tatamis pour une disposition & Quand la fonction reçoit en input les dimensions d'un dojo, alors elle retourne les coordonnées des tatamis pour une disposition"                                & Manuel          & OK       \\ \hline
+            533                      & TACHE Créer la fonction permettant de choisir d'afficher toutes les solutions                   & Étant donné les inputs des dimensions d'un dojo, quand cette fonction est choisie, elle retourne un graph avec toutes les solutions possibles"                   & Manuel          & OK       \\ \hline
+            532                      & US Disposer d'une interface d'affichage ergonomique                                             & Quand le programme est lancé, il ouvre une interface ergonomique"                                                                                                & Manuel          & OK       \\ \hline
+            531                      & TACHE Créer une classe de fenêtre type permettant d'avoir un affichage reproductible            & Quand l'application est lancée, une fenêtre s'ouvre avec les bonnes (adaptées à l'écran) et memes dimensions"                                                    & Manuel          & OK       \\ \hline
+            530                      & TACHE Créer la fonction permettant de choisir d'afficher une seule solution                     & Étant donné les inputs des dimensions d'un dojo, quand cette fonction est choisie, elle retourne un graph avec une seule solution possible"                      & Manuel          & OK       \\ \hline
+            \multirow{2}{0.6cm}{519} & \multirow{2}{5.5cm}{EPIC Permettre au gestionnaire de dojo de visualiser les solutions}         & cf. tests utilisateurs des US                                                                                                                                    &                 & OK       \\ \cline{3-5}
+                                     &                                                                                                 & Le nombre de solution du programme donne le meme nombre de solution que le calcul de coordonnées Tatamis                                                         & Automatisé      & OK       \\ \hline
+            478                      & US Afficher visuellement toutes les dispositions possibles                                      & Étant donné des dimensions d'un dojo saisies, quand il sélectionne cette option, il obtient visuellement toutes les dispositions possibles"                      & Manuel          & OK       \\ \hline
+            476                      & US Afficher visuellement une disposition possible                                               & Étant donné des dimensions d'un dojo saisies, quand il sélectionne cette option, il obtient visuellement une disposition possible"                               & Manuel          & OK       \\ \hline
+        \end{tabular}}
+\end{adjustwidth}
 
 
 
