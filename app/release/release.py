@@ -21,40 +21,55 @@ def nombre_tatamis_max(largeur_dojo:int,longueur_dojo:int) -> int:
     return nombre_tatamis(largeur,longueur)
     
 
-def multiples(nombre: int) ->list :
+def multiples(nombre: int,mini=2) ->list :
     '''
-    Retourne une liste contenant les couples de multiples d'un nombre, avec une valeur minimale de 3 pour un élément
+    Retourne une liste contenant les couples de multiples d'un nombre, avec une valeur de facteur minimale
     '''
     resultat = []
-    mini = 2
     for w in range(mini, nombre//mini) :
         h = nombre//w
         if w*h == nombre :
             resultat.append((h,w))
+        
     return resultat
 
 
-def multiples_inf(nombre) :
-    facteurs = []    
-    while nombre > 3 :
-        resultat = multiples(nombre)
+def multiples_inf(nombre,ratio=3,rendement=0.75) :
+    facteurs = []
+    nb = nombre    
+    while nb > 3 :
+        resultat = multiples(nb)
         if len(resultat) != 0:
-            facteurs.append(resultat)
-        else :
-            nombre -= 1              
+            for h,w in resultat :
+                if h/w < ratio and w/h < ratio and w*h > rendement*nombre:
+                    facteurs.append((h,w))
+        nb -= 1              
     return facteurs
 
 
 def recherche_disposition(nombre):
-    dimensions = multiples_inf(nombre)    
+    aire = nombre*2
+    dimensions = multiples_inf(aire)    
     dispositions = []
     for h,w in dimensions :
         dispositions.append(recherche_disposition_max(h,w))
+
+    nb_disp = len(dispositions)-1 # élimination des doublons : à extraire dans une fonction
+
+    for i in range(nb_disp,0,-1):
+        tab = dispositions[:i]
+        if ((dispositions[i][1],dispositions[i][0]) in tab) or (dispositions[i] in tab ) :
+            dispositions.pop(i)
+
     return dispositions
 
-
-    
 # ### Interface ###
+
+def affichage_dimension(dispositions):
+    affichage = ""
+    for h,w in dispositions :
+        affichage += f"{h} x {w} \n"
+    return affichage
 
 
    
