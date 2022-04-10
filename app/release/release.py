@@ -29,20 +29,21 @@ def multiples(nombre: int) ->list :
     mini = 2
     for w in range(mini, nombre//mini) :
         h = nombre//w
-        if w*h == nombre and (w,h) not in resultat :
+        if w*h == nombre :
             resultat.append((h,w))
     return resultat
 
 
 def multiples_inf(nombre) :
-    resultats = []    
-    while nombre > 3:
+    facteurs = []    
+    while nombre > 3 :
         resultat = multiples(nombre)
         if len(resultat) != 0:
-            return resultat
+            facteurs.append(resultat)
         else :
             nombre -= 1              
-    return resultat
+    return facteurs
+
 
 def recherche_disposition(nombre):
     dimensions = multiples_inf(nombre)    

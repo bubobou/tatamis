@@ -383,5 +383,11 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{booktabs}
 \RequirePackage{url}
-\RequirePackage{colortbl}
+\RequirePackage{chngpage}
 
+% Table
+
+\RequirePackage{colortbl}
+\RequirePackage{array}
+\RequirePackage{multirow}
+\RequirePackage{longtable}
