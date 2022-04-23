@@ -419,7 +419,7 @@ class Interface(QWidget):
         else :
             dim = recherche_disposition(self.nb_tatamis)
             info = affichage_dimension(dim)
-            message = MessageInfo("Solution étant donné le nombre de tatamis saisi",info)
+            message = MessageInfo("Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi",info)
             message.exec()
             
             

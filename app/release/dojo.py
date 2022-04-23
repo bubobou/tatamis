@@ -8,7 +8,7 @@ from calcul_coordonnees_tatamis import Dispositions
 
 COULEUR_FOND = "white"
 COULEUR_CONTOUR = "gray"
-COULEUR_TATAMI = "yellow"
+COULEUR_TATAMI = QColor('#87C1AF')
 
 class Tatami(QGraphicsRectItem):
     "classe permettant d'instancier un tatamis d'après ces propriétés: position,dimensions,couleur"
@@ -59,6 +59,8 @@ class VueDojo(QGraphicsView):
     
     def __init__(self,dojo):
         QGraphicsView.__init__(self,dojo)
+       
+
         self.setBackgroundBrush(QColor(COULEUR_FOND))
         #self.resize (800,600)
 
@@ -89,10 +91,15 @@ class FenetreDojos(QDialog):
 
         self.layout = QVBoxLayout()
         
-        dojos = Dojos(self.H,self.W,tous)
-        
+        dojos = Dojos(self.H,self.W,tous)        
         vueDojo = VueDojo(dojos)
 
+        aire = int(self.H*self.W)
+        nombre = int(aire/2)
+        info = QLabel(f"Dojo de dimension : {self.H} x {self.W}   |   Surface : {aire} m²   |   {nombre} tatamis")
+
+
+        self.layout.addWidget(info)
         self.layout.addWidget(vueDojo)
         self.layout.addWidget(self.buttonBox)
         self.setLayout(self.layout)
