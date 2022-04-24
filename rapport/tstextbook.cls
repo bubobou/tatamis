@@ -151,7 +151,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 %--------------------------------------------------------------------------
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage{titletoc}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 
 \titlecontents{chapter}[0cm]
 {\addvspace{14pt}\large\sffamily\bfseries}
@@ -391,3 +391,5 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 \RequirePackage{array}
 \RequirePackage{multirow}
 \RequirePackage{longtable}
+\newenvironment{smalltabular}{\small \tabular}{\endtabular}
+\newenvironment{testtabular}{\footnotesize\sffamily \tabular}{\endtabular}

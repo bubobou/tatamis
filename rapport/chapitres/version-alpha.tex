@@ -1,0 +1,74 @@
+\section{Backlog/roadmap du sprint Alpha}
+
+\section{Tests}
+
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
+            id                                                                             & Sujet                                                                                & Test d'acceptance                                                                                        & Méthode de test & Résultat \\ \hline
+            518                                                                            & TACHE Utiliser la fonction pour renvoyer la réponse au gestionnaire de dojo          &
+            Quand le programme est lancé et que l'utilisateur saisi comme attendu,
+            une réponse lui est renvoyée dans la console                                   & Manuel                                                                               & OK                                                                                                                                    \\ \hline
+            517                                                                            & TACHE Créer une fonction permettant de calculer le nombre de tatamis nécessaires
+            étant donné des dimensions de dojo et qu'une solution existe                   &
+            Quand la fonction est exécutée, elle retourne le nombre de tatamis nécessaires &
+            Automatisé                                                                     & OK                                                                                                                                                                                                                           \\ \hline
+            \multirow{3}{0.6cm}{516}                                                       & \multirow{3}{5.5cm}{TACHE Permettre au gestionnaire de dojo de poser cette question} & 1. Quand le programme est lancé, il demande a l'utilisateur la largeur du dojo                           & Automatisé      & OK       \\ \cline{3-5}
+                                                                                           &                                                                                      & 2. Quand le programme est lancé, il demande a l'utilisateur la longueur du dojo                          & Automatisé      & OK       \\ \cline{3-5}
+                                                                                           &                                                                                      & 3. Quand le programme est lancé, une option est disponible pour l'utilisateur pour poser cette question. & Automatisé      & OK       \\ \hline
+        \end{testtabular}}
+\end{adjustwidth}
+
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
+            id                       & Sujet                                                                                                                                         & Test d'acceptance                                                                                                                                                                                                          & Méthode de test & Résultat \\ \hline
+            515                      & TACHE Créer une fonction permettant de calculer le nombre de tatamis nécessaires étant donné des dimensions de dojo et qu'une solution existe & Quand la fonction est executée, elle retourne le nombre de tatamis nécessaires                                                                                                                                             & Automatisé      & OK       \\ \hline
+
+            \multirow{3}{0.6cm}{514} & \multirow{3}{5.5cm}{TACHE Permettre au gestionnaire de dojo de poser cette question}                                                          & 1. Quand le programme est lancé, il demande à l'utilisateur la largeur du dojo                                                                                                                                             & Automatisé      & OK       \\ \cline{3-5}
+                                     &                                                                                                                                               & 2. Quand le programme est lancé, il demande à l'utilisateur la longueur du dojo                                                                                                                                            & Automatisé      & OK       \\ \cline{3-5}
+                                     &                                                                                                                                               & 3. Quand le programme est lancé, une option est disponible pour l'utilisateur pour poser cette question.                                                                                                                   & Automatisé      & OK       \\ \hline
+            \multirow{2}{0.6cm}{513} & \multirow{2}{5.5cm}{US Comprendre le nombre de dispositions possibles}                                                                        & \cellcolor{tsgrey} 1. Étant donné que l'utilisateur saisie des dimensions de dojo, quand il saisie 2, il obtient le nombre conformément à l'article de Ruskey et Woodcock de 2009                                        & Automatisé      & OK       \\ \cline{3-5}
+                                     &                                                                                                                                               & \cellcolor{tsgrey} 2. Étant donné que l'utilisateur saisie des dimensions de dojo en inversant la longueur et la largeur, quand il saisie 2, il obtient le nombre conformement a l'article de Ruskey et Woodcock de 2009 & Automatisé      & OK       \\ \hline
+
+            512                      & TACHE Utiliser la fonction pour renvoyer la réponse au gestionnaire de dojo	Alpha                                                              & Quand le programme est lancé et que l'utilisateur saisie comme attendu, une réponse lui est renvoyée dans la console                                                                                                       & Automatisé      & OK       \\ \hline
+            \multirow{2}{0.6cm}{511} & \multirow{2}{5.5cm}{TACHE Demander les dimensions et permettre au gestionnaire de dojo de les saisir}                                         & 1. Quand le programme est lancée, il demande a l'utilisateur la largeur du dojo                                                                                                                                            & Automatisé      & OK       \\ \cline{3-5}
+                                     &                                                                                                                                               & 2. Quand le programme est lancé, il demande a l'utilisateur la longueur du dojo                                                                                                                                            & Automatisé      & OK       \\ \hline
+            \multirow{2}{0.6cm}{510} & \multirow{2}{5.5cm}{US Comprendre si une solution existe}                                                                                     & \cellcolor{tsgrey} 1. Etant donné que l'utilisateur saisie des dimensions de dojo n'ayant pas de solution, quand il saisie 1, il obtient 'Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo'     & Automatisé      & OK       \\ \cline{3-5}
+                                     &                                                                                                                                               & \cellcolor{tsgrey} 2. Étant donné que l'utilisateur saisie des dimensions de dojo ayant au moins une disposition, quand il saisie 1, il obtient 'Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo'   & Automatisé      & OK       \\ \hline
+        \end{testtabular}}
+\end{adjustwidth}
+
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
+            id                                                                                                       & Sujet                                                                                                                                  & Test d'acceptance                                                                                                                                                                  & Méthode de test & Résultat \\ \hline
+            \multirow{2}{0.6cm}{509}                                                                                 & \multirow{2}{5.5cm}{US Créer la fonction permettant de calculer le nombre de solutions au problème étant donné les dimensions du dojo} & 1. Quand la fonction est exécutée, elle retourne le nombre de dispositions possibles conformément a l'article de Ruskey et Woodcock de 2009                                        & Automatisé      & OK       \\ \cline{3-5}
+                                                                                                                     &                                                                                                                                        & 2. Quand la fonction est exécutée en inversant la longueur et la largeur, elle retourne le nombre de dispositions possibles conformément a l'article de Ruskey et Woodcock de 2009 & Automatisé      & OK       \\ \hline
+
+            509                                                                                                      & EPIC Développer pour un gestionnaire de dojo un outil simple lui permettant de saisir les dimensions du dojo et
+            de savoir si un solution existe, le nombre de tatamis nécessaires et le nombre de dispositions possibles & \cellcolor{tsgrey} cf. tests utilisateurs des US                                                                                     &                                                                                                                                                                                    &                            \\ \hline
+            \multirow{2}{0.6cm}{480}                                                                                 & \multirow{2}{5.5cm}{US Calculer le nombre de tatamis nécessaires}                                                                      & 1. Étant donne que l'utilisateur saisit des dimensions de dojo avec une solution qui existe, quand il saisie 3, il obtient le nombre de tatamis nécessaires                        & Automatisé      & OK       \\ \cline{3-5}
+                                                                                                                     &                                                                                                                                        & 2. Étant donne que l'utilisateur saisit des dimensions de dojo avec aucune disposition possible, quand il saisie 3, il obtient un message indiquant l'absence de solution          & Automatisé      & OK       \\ \hline
+        \end{testtabular}}
+\end{adjustwidth}
+
+
+
+\section{Documentation utilisateur Alpha}
+
+\section{Explication des algorithmes et choix de programmation}
+
+\section{Challenges rencontrés et apprentissage}
