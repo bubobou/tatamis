@@ -39,7 +39,6 @@ class MessageInfo(QMessageBox):
         self.setInformativeText(info)
         self.setStandardButtons(QMessageBox.Ok)
         self.setStyleSheet("background-color:#F48289 ;color: white;padding: 4px;")
-
         
 
 class Interface(QWidget):
@@ -411,7 +410,7 @@ class Interface(QWidget):
         else :
             dim = recherche_disposition(self.nb_tatamis)
             info = affichage_dimension(dim)
-            message = MessageInfo("Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi",info)
+            message = MessageInfo("Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi \nCes propositions satisfont aux conditions suivantes: \n   - un ratio maximum de 3 entre la longueur et la largeur\n   - une utilisation de minimum 75% des tatamis saisis",info)
             message.exec()
             
             
