@@ -6,7 +6,7 @@ import numpy as np
 class Dispositions:
     "classe qui calcul les coordonnées des tatamis d'après les dimensions du dojo"
 
-    def __init__(self, H, W):
+    def __init__(self, H, W, symetrie=True):
         if H < W :
             self.H = H
             self.W = W
@@ -16,7 +16,10 @@ class Dispositions:
       
         self.count = 0 
         self.solutions=[]
-        self.room=self.init_room()        
+        self.symetrie = symetrie
+        self.room=self.init_room() 
+        self.grille=self.init_grille()
+        self.grilles=[]       
                 
         self.coordonnees=self.listeTatamis()
 
@@ -29,7 +32,12 @@ class Dispositions:
         room[:,self.W+1] = -1
         return room
 
-    def setTatami_rowscan(self,h,w,idx)->int:
+
+    def init_grille(self):
+        grille = np.zeros((self.H, self.W),int)
+        return grille
+
+    def setTatami_rowscan(self,h,w,idx):
         '''
         Paramètres
         ----------
@@ -44,8 +52,9 @@ class Dispositions:
         '''        
                
         if   h == self.H + 1:
-            self.count = self.count + 1        
-            self.solutions.append(self.room.copy())
+            self.add_room()
+            # self.count = self.count + 1        
+            # self.solutions.append(self.room.copy())
             
         elif w == self.W + 1: 
             # Reach the right boundary, go to explore the next row from the left 
@@ -67,10 +76,55 @@ class Dispositions:
             if self.room[h+1,w]==0:
                 # Vertical arrangement is allowed
                 self.room[h,w]   = idx
-                self.room[h+1,w] = idx            
+                self.room[h+1,w] = idx
+                self.grille[h-1,w-1] = 1  
+                self.grille[h,w-1] = 1             
                 self.setTatami_rowscan(h, w+1, idx+1)        
                 self.room[h,w]   = 0
                 self.room[h+1,w] = 0
+                self.grille[h-1,w-1] = 0 
+                self.grille[h,w-1] = 0
+
+    def add_room(self):
+        if self.symetrie :
+            self.solutions.append(self.room.copy())
+            self.count = self.count + 1
+
+        elif self.existe_symetrie(self.grille) :
+            print(self.grille)
+            self.grilles.append(self.encode(self.grille))
+            self.solutions.append(self.room.copy())
+            self.count = self.count + 1
+            
+
+    def encode(self,grille):
+        mot = ""
+        for v in grille.flatten():
+            mot += str(v)
+        return mot
+
+    def symetrie_verticale(self,grille):
+        return grille[::-1]
+
+
+    def symetrie_horizontale(self,grille):
+        s = []
+        for ligne in grille :
+            symetrie = ligne[::-1]
+            s.append(symetrie)
+        return np.array(s)
+
+    def existe_symetrie(self,grille):               
+        grilleSymH = self.symetrie_horizontale(grille)
+        motSymH = self.encode(grilleSymH)
+
+        grilleSymV = self.symetrie_verticale(grille)
+        motSymV = self.encode(grilleSymV)
+
+        mot = self.encode(grille)
+
+        return mot not in self.grilles and motSymH not in self.grilles and motSymV not in self.grilles  
+
 
     
     def listeTatamis(self):

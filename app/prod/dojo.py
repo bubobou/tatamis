@@ -26,7 +26,7 @@ class Tatami(QGraphicsRectItem):
 class Dojos(QGraphicsScene):
     "classe créant un seul ou tous les dojos possibles d'après les dimensions données"
     
-    def __init__(self,H,W,tous=False):
+    def __init__(self,H,W,tous=0):
         QGraphicsScene.__init__(self)
 
         self.H = H
@@ -36,11 +36,25 @@ class Dojos(QGraphicsScene):
 
     def ajoutDojos(self):
         "fonction permettant d'ajouter un dojo sur la scène"        
-        placementTatamis = Dispositions(self.W,self.H)
-        if self.tous :
-            dojos = placementTatamis.coordonnees
+        # placementTatamis = Dispositions(self.W,self.H)
+        # if self.tous :
+        #     dojos = placementTatamis.coordonnees
+        # else :
+        #     dojos = [placementTatamis.coordonnees[0]]
+
+        if self.tous == 0 :
+            dispositions = Dispositions(self.W, self.H, True)
+            dojos = dispositions.coordonnees
+        elif self.tous == 1 :
+            dojos = [Dispositions(self.W, self.H, True).coordonnees[0]]
         else :
-            dojos = [placementTatamis.coordonnees[0]]
+            dispositions = Dispositions(self.W, self.H, False)
+            dojos = dispositions.coordonnees
+            print(dispositions.grilles)
+
+
+
+
 
         decalage = 0
         size = min(750//self.W,550//self.H)

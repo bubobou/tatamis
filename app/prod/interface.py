@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from calcul_nombre_dispositions import *
 from dojo import *
 from PyQt5 import QtCore
-from release import *
+from prod import *
 
 
 class MessageSaisieInvalide(QMessageBox):
@@ -220,8 +220,10 @@ class Interface(QWidget):
         boutonFonctionaliteExiste.clicked.connect(self.clickExiste)
         boutonFonctionaliteNbDispositions.clicked.connect(self.clickNbDispositions)
         boutonFonctionaliteNbTatamis.clicked.connect(self.clickNbTatamis)
-        boutonFonctionaliteUneDisposition.clicked.connect(self.clickUneDisposition)
-        boutonFonctionaliteToutesDispositions.clicked.connect(self.clickToutesDispositions)
+        boutonFonctionaliteUneDisposition.clicked.connect(lambda: self.clickDisposition(1)) # la fonction lambda permet de passer un argument dans clickDisposition
+        boutonFonctionaliteToutesDispositions.clicked.connect(lambda: self.clickDisposition(0))
+        boutonFonctionaliteSansSymetrieAffichage.clicked.connect(lambda: self.clickDisposition(2))
+        boutonFonctionaliteSansSymetrieNbDispo.clicked.connect(self.clickSansSymetrieNbDispo)
         boutonFonctionaliteSolutionAPartirDim.clicked.connect(self.clickSolutionAPartirDim)
         boutonFonctionaliteSolutionMini.clicked.connect(self.clickSolutionMini)
         boutonFonctionaliteSolutionDemi.clicked.connect(self.clickSolutionDemi)
@@ -356,40 +358,74 @@ class Interface(QWidget):
             message = MessageDemandeImpossible()             
             message.exec()       
         
+    # refactoring : les deux fonctions ci-dessous ont été remplacée par une seule (clickDisposition)
+    # def clickUneDisposition(self):
+    #     "fonction d'action sur le bouton afficher une disposition"
         
-    def clickUneDisposition(self):
-        "fonction d'action sur le bouton afficher une disposition"
-        
-        if self.valeur_vide() :
-            message = MessageSaisieInvalide()            
-            message.exec()
+    #     if self.valeur_vide() :
+    #         message = MessageSaisieInvalide()            
+    #         message.exec()
 
-        # affichage de la réponse a l'utilisateur
+    #     # affichage de la réponse a l'utilisateur
 
-        elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
-            fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=False)            
-            fenetre.exec()
+    #     elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
+    #         fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=1)            
+    #         fenetre.exec()
         
-        else:
-            message = MessageDemandeImpossible()             
-            message.exec()            
+    #     else:
+    #         message = MessageDemandeImpossible()             
+    #         message.exec()            
    
         
-    def clickToutesDispositions(self):
-        "fonction d'action sur le bouton afficher toutes les dispositions"
+    # def clickToutesDispositions(self):
+    #     "fonction d'action sur le bouton afficher toutes les dispositions"
+    #     if self.valeur_vide() :
+    #         message = MessageSaisieInvalide()            
+    #         message.exec()
+
+    #     # affichage de la réponse a l'utilisateur
+    #     elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
+    #         fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=1)
+                       
+    #         fenetre.exec()
+
+    #     else :
+    #         message = MessageDemandeImpossible()                   
+    #         message.exec()
+
+    def clickDisposition(self,tous):
+        "fonction d'action sur le bouton afficher les dispositions"
         if self.valeur_vide() :
             message = MessageSaisieInvalide()            
             message.exec()
 
         # affichage de la réponse a l'utilisateur
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
-            fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=True)
+            fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous)
                        
             fenetre.exec()
 
         else :
             message = MessageDemandeImpossible()                   
-            message.exec()      
+            message.exec()
+
+    def clickSansSymetrieNbDispo(self):
+        if self.valeur_vide() :
+            message = MessageSaisieInvalide()          
+            message.exec()
+
+        elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo):
+            nombre = nombre_dispo_uniques(self.largeur_dojo, self.longueur_dojo)            
+            info = f"Le nombre disposition(s) sans symétrie pour ce dojo est : {nombre}"
+            message = MessageInfo("Connaître le nombre de disposition(s) sans symétrie horizontale et/ou verticale pour ce dojo",info)
+            message.exec()
+
+        else :
+            message = MessageDemandeImpossible()             
+            message.exec()
+
+
+          
 
 
     def clickSolutionAPartirDim(self):
