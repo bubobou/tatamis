@@ -401,7 +401,8 @@ class Interface(QWidget):
 
         # affichage de la réponse a l'utilisateur
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
-            fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous)
+            W,H = dimension_max(self.largeur_dojo, self.longueur_dojo)
+            fenetre = FenetreDojos(W,H,tous)
                        
             fenetre.exec()
 

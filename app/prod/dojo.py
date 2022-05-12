@@ -7,8 +7,10 @@ from calcul_coordonnees_tatamis import Dispositions
 
 
 COULEUR_FOND = "white"
-COULEUR_CONTOUR = "gray"
-COULEUR_TATAMI = QColor('#87C1AF')
+COULEURS = {'vertpale':'#87C1AF','bleufonce':'#00989E','bleuclair':'#565656','gris':'#565656','rose':'#FAC2C1','orange':'#E27D60','jaune':'#FDD0AF','violet':'#C38D9E'}
+COULEUR_CONTOUR = QColor(COULEURS['gris'])
+COULEUR_TATAMI = QColor(COULEURS['rose'])
+
 
 class Tatami(QGraphicsRectItem):
     "classe permettant d'instancier un tatamis d'après ces propriétés: position,dimensions,couleur"
@@ -36,12 +38,7 @@ class Dojos(QGraphicsScene):
 
     def ajoutDojos(self):
         "fonction permettant d'ajouter un dojo sur la scène"        
-        # placementTatamis = Dispositions(self.W,self.H)
-        # if self.tous :
-        #     dojos = placementTatamis.coordonnees
-        # else :
-        #     dojos = [placementTatamis.coordonnees[0]]
-
+       
         if self.tous == 0 :
             dispositions = Dispositions(self.W, self.H, True)
             dojos = dispositions.coordonnees
@@ -50,17 +47,14 @@ class Dojos(QGraphicsScene):
         else :
             dispositions = Dispositions(self.W, self.H, False)
             dojos = dispositions.coordonnees
-            print(dispositions.grilles)
-
-
-
 
 
         decalage = 0
         size = min(750//self.W,550//self.H)
         for dojo in dojos:
             self.ajoutTatamis(dojo,decalage,size)
-            decalage += (self.W)*size+50
+            decalage += 50 +(self.W)*size
+
 
     def ajoutTatamis(self,dojo,decalage,size):
         "fonction plaçant un tatamis sur la scene d'après ses propriétés"
@@ -74,16 +68,7 @@ class VueDojo(QGraphicsView):
     def __init__(self,dojo):
         QGraphicsView.__init__(self,dojo)
        
-
         self.setBackgroundBrush(QColor(COULEUR_FOND))
-        #self.resize (800,600)
-
-# if __name__ == "__main__":
-#     app = QApplication(sys.argv)
-#     dojos = Dojos(7,12,True)
-#     vueDojo = VueDojo(dojos)
-#     vueDojo.show()
-#     sys.exit(app.exec_())
 
 
 

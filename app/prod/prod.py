@@ -78,4 +78,11 @@ def affichage_dimension(dispositions):
         affichage += f"{h} x {w} \n"
     return affichage
 
+### Largeur dimension max ###
+
+def dimension_max(W,H):
+    if W < H :
+        W, H = H, W
+    return W,H
+            
 

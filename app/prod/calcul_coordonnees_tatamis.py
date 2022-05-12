@@ -7,12 +7,9 @@ class Dispositions:
     "classe qui calcul les coordonnées des tatamis d'après les dimensions du dojo"
 
     def __init__(self, H, W, symetrie=True):
-        if H < W :
-            self.H = H
-            self.W = W
-        else :
-            self.H = W
-            self.W = H
+        
+        self.H = H
+        self.W = W
       
         self.count = 0 
         self.solutions=[]
@@ -91,7 +88,6 @@ class Dispositions:
             self.count = self.count + 1
 
         elif self.existe_symetrie(self.grille) :
-            print(self.grille)
             self.grilles.append(self.encode(self.grille))
             self.solutions.append(self.room.copy())
             self.count = self.count + 1
