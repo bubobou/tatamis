@@ -4,7 +4,35 @@ import datetime
 import numpy as np
 
 class Dispositions:
-    "classe qui calcul les coordonnées des tatamis d'après les dimensions du dojo"
+    """La classe Dispositions permet d'obtenir les coordonnées possibles des tatamis d'après les dimensions du dojo
+    
+    Paramètres
+    ----------
+    H : int
+        Longueur du dojo
+    W : int
+        Largeur du dojo
+
+    Attributs
+    ---------
+    H : int
+        Longueur du dojo
+    W : int
+        Largeur du dojo
+    count : int
+        Nombre de dispositions possibles
+    room : list of list of int
+        Matrice modélisant l'état de pavage du dojo
+    coordonnes : list of dict
+        Liste contenant les cacatéristiques des tatamis pour une disposition possible
+
+    Méthodes
+    --------
+    init_room
+    setTatami_rowscan
+    listeTatamis   
+    
+    """
 
     def __init__(self, H, W):
         if H < W :
@@ -31,15 +59,21 @@ class Dispositions:
 
     def setTatami_rowscan(self,h,w,idx)->int:
         '''
+        Fonction parcourant récursivement la matrice représentant le dojo et paçant les tatamis lorsque cela est possible
+
         Paramètres
         ----------
         (h,w) : La position courante d'exploration du dojo. h correspond au numéro de la ligne,
         w correspond au numéro de la colonne.
         idx   : le numéro d'identification du Tatami en courant de positionnement.
 
-        Incrémentation: 
-            Le nombre total de dispositions possibles (count :int).
-            La liste contenant toutes les dispositions  (solutions : list)
+        Incrémente
+        ---------- 
+        Le nombre total de dispositions possibles (count :int).
+
+        Modifie
+        -------
+        La liste contenant toutes les dispositions  (solutions : list)
 
         '''        
                
@@ -74,7 +108,14 @@ class Dispositions:
 
     
     def listeTatamis(self):
-        ''' fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position'''
+        """ fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position
+
+        retourne
+        --------
+        liste de liste de dictionnaire
+                Vide si aucune disposition n'est trouvée
+            
+        """
         self.setTatami_rowscan(1,1,1) 
         dispositions=[]
         for array in self.solutions :
@@ -87,10 +128,4 @@ class Dispositions:
                         tatamis.append(dict(id=int(array[i,j]),x=j-1,y=i-1,largeur=1,hauteur=2))
             dispositions.append(tatamis)
         return dispositions
-    
-# décommenter les lignes pour tester la classe Disposition
-
-# tStart = time.perf_counter()
-# disp=Dispositions(20,19)
-# tCost  = time.perf_counter() - tStart
-# print('count = {0}, tCost = {1:6.3f}(sec)'.format(disp.count,tCost))
+  
