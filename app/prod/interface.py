@@ -165,7 +165,7 @@ class Interface(QWidget):
         boutonFonctionaliteNbTatamis = QPushButton("Connaître le nombre de tatamis 2x1 nécessaires pour la taille du dojo")
         boutonFonctionaliteUneDisposition = QPushButton("Afficher une disposition")
         boutonFonctionaliteToutesDispositions = QPushButton("Afficher toutes les dispositions possibles")
-        boutonFonctionaliteSolutionAPartirDim = QPushButton("Obtenir une solution etant donne un nombre de tatamis")
+        boutonFonctionaliteSolutionAPartirDim = QPushButton("Obtenir une solution étant donné un nombre de tatamis")
         boutonFonctionaliteSansSymetrieNbDispo = QPushButton("Connaître le nombre de dispositions possibles sans symétries")
         boutonFonctionaliteSansSymetrieAffichage = QPushButton("Afficher toutes les dispositions possibles sans symétries")
         boutonFonctionaliteSolutionMini = QPushButton("Quelle taille maximum de dojo pour avoir un solution ?")
@@ -296,6 +296,12 @@ class Interface(QWidget):
             message = MessageSaisieInvalide()          
             message.exec()
 
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
+            message.exec()
+
         # affichage de la réponse a l'utilisateur
         else:
             surface = self.largeur_dojo * self.longueur_dojo
@@ -309,6 +315,12 @@ class Interface(QWidget):
         
         if self.valeur_vide() :
             message = MessageSaisieInvalide()          
+            message.exec()
+
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
 
         # affichage de la réponse a l'utilisateur
@@ -328,6 +340,12 @@ class Interface(QWidget):
         if self.valeur_vide() :
             message = MessageSaisieInvalide()          
             message.exec() 
+        
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
+            message.exec()
             
         # affichage de la réponse a l'utilisateur
         else:
@@ -348,6 +366,12 @@ class Interface(QWidget):
         if self.valeur_vide() :
             message = MessageSaisieInvalide()          
             message.exec()
+        
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
+            message.exec()
 
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo):
             info = f"Le nombre de tatamis 2x1 nécessaires pour ce dojo est : {nombre_tatamis(self.largeur_dojo, self.longueur_dojo)}"
@@ -357,46 +381,17 @@ class Interface(QWidget):
         else :
             message = MessageDemandeImpossible()             
             message.exec()       
-        
-    # refactoring : les deux fonctions ci-dessous ont été remplacée par une seule (clickDisposition)
-    # def clickUneDisposition(self):
-    #     "fonction d'action sur le bouton afficher une disposition"
-        
-    #     if self.valeur_vide() :
-    #         message = MessageSaisieInvalide()            
-    #         message.exec()
-
-    #     # affichage de la réponse a l'utilisateur
-
-    #     elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
-    #         fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=1)            
-    #         fenetre.exec()
-        
-    #     else:
-    #         message = MessageDemandeImpossible()             
-    #         message.exec()            
-   
-        
-    # def clickToutesDispositions(self):
-    #     "fonction d'action sur le bouton afficher toutes les dispositions"
-    #     if self.valeur_vide() :
-    #         message = MessageSaisieInvalide()            
-    #         message.exec()
-
-    #     # affichage de la réponse a l'utilisateur
-    #     elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
-    #         fenetre = FenetreDojos(self.largeur_dojo,self.longueur_dojo,tous=1)
-                       
-    #         fenetre.exec()
-
-    #     else :
-    #         message = MessageDemandeImpossible()                   
-    #         message.exec()
 
     def clickDisposition(self,tous):
         "fonction d'action sur le bouton afficher les dispositions"
         if self.valeur_vide() :
             message = MessageSaisieInvalide()            
+            message.exec()
+        
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
 
         # affichage de la réponse a l'utilisateur
@@ -414,6 +409,12 @@ class Interface(QWidget):
         if self.valeur_vide() :
             message = MessageSaisieInvalide()          
             message.exec()
+        
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
+            message.exec()
 
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo):
             nombre = nombre_dispo_uniques(self.largeur_dojo, self.longueur_dojo)            
@@ -427,8 +428,6 @@ class Interface(QWidget):
 
 
           
-
-
     def clickSolutionAPartirDim(self):
         "fonction d'action sur le bouton Solution Étant Donne Nb Tatamis"
         
@@ -436,6 +435,12 @@ class Interface(QWidget):
             message = MessageSaisieInvalide() 
             message.setText("Erreur de saisie du nombre de tatamis")
             message.setInformativeText("Le nombre de tatamis ne peut avoir une valeur nulle ou vide")         
+            message.exec()
+        
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.nb_tatamis > 300 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Le nombre de tatamis saisi ne peut excéder 300")  
             message.exec()
 
         elif (self.nb_tatamis<3) :
@@ -457,7 +462,13 @@ class Interface(QWidget):
         if self.valeur_vide() :
             message = MessageSaisieInvalide()            
             message.exec()
-            
+
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
+            message.exec()
+
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
             message = MessageDemandeImpossible()       
             message.setInformativeText("Il existe au moins une disposition possible avec des tatamis 2x1 pour ce dojo")      
@@ -480,6 +491,12 @@ class Interface(QWidget):
         
         if self.valeur_vide() :
             message = MessageSaisieInvalide()            
+            message.exec()
+
+        # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
+        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+            message = MessageSaisieInvalide() 
+            message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
             
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo) :
