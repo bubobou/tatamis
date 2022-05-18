@@ -55,7 +55,8 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
 
 \bigskip
 
-Les tests automatisés sont définis dans le fichier \texttt{testbeta.py}. Ils peuvent être reproduits en l'exécutant avec ligne de commande \texttt{python3 -m pytest}.
+Les tests automatisés sont définis dans le fichier \texttt{testbeta.py}. Ils peuvent être reproduits en l'exécutant avec ligne de commande 
+\texttt{python3 -m pytest}.
 
 \section{Documentation utilisateur Beta}
 
@@ -280,9 +281,12 @@ Lorsque la ligne atteinte correspond au bord bas du tatamis, le pavage est compl
 L’auteur précise qu’un tel parcours peut comporter une profondeur considérable selon les dimensions de la pièce
 à paver et que selon les cas on peut donc atteindre rapidement la profondeur de récursivité maximale.\\
 
-L'illustration d'un parcours de recherche pour un pavage (4$\times$3) est proposée en annexe.\\
+L'illustration d'un parcours de recherche pour un pavage (4$\times$3) est donnée ci-dessous.\\
 
-%TODO metre une référence et un lien vers l'annexe
+\begin{adjustwidth}{-1.5cm}{0cm}
+\includegraphics[width=19cm]{images/arbre4x3.pdf}
+\end{adjustwidth}
+
 
 En testant le programme en Python proposé par l’auteur, nous atteignons effectivement une limite de calcul,
 mais celle-ci nous permet néanmoins de traiter des dojos plus grands que la solution évoquée précédemment.
@@ -354,6 +358,21 @@ L'évaluation a conclu aux résultats suivants:\\
             Grille disponible
             \\ \hline
 
+            \cellcolor{lightgray} Disponibilité de la documentation et ressources en ligne & 20 000 questions sur Stackoverflow
+
+            & 45 000 questions sur Stackoverflow
+            & 1 500 questions sur Stackoverflow
+            & 12 000 questions sur Stackoverflow
+            & 7 000 questions sur Stackoverflow
+            \\ \hline
+
+            \cellcolor{lightgray} Connaissances préalables et simplicité & Connaissances préalables de l'équipe & Peu de connaissances
+            Mais facile a comprendre
+            & Non & Non  & Non
+            \\ \hline
+
+
+
         \end{testtabular}
 
     }
@@ -420,7 +439,39 @@ Pour ce faire voilà les principales questions qui ont été étudiées et  choi
 
 \subsubsection*{Interface et messages de retour:}
 
-%TODO: intégrer illustrations
+
+\begin{itemize}
+     
+
+    \item Interface :
+
+\begin{center}
+    \includegraphics[scale=0.25]{images/betaInterface.png}
+\end{center}
+
+
+\item Exemple de message de retour (succès):
+
+\begin{center}
+    \includegraphics[scale=0.25]{images/betaRetourSucces.png}
+\end{center}
+
+
+\item Exemple de message indiquant à l’utilisateur que la demande est impossible avec les dimensions saisies:
+
+\begin{center}
+    \includegraphics[scale=0.25]{images/betaImpossible.png}
+\end{center}
+
+
+\item Exemple de message d’erreur en cas de non saisie ou saisie nulle de dimensions:
+
+\begin{center}
+    \includegraphics[scale=0.25]{images/betaErreurSaisie.png}
+\end{center}
+
+
+\end{itemize}
 
 \subsection{Choix de la structure du programme}
 
@@ -429,26 +480,26 @@ Dans la continuité des choix fait en version Alpha, nous avons mis en applicati
 
 \begin{itemize}
     \item Un fichier a une fonction principale
-          Dans cette version beta, nous sommes passés de 2 fichiers (un fichier de front-end interface.py et un fichier de back-end alpha.py) à
+          Dans cette version beta, nous sommes passés de 2 fichiers (un fichier de front-end \texttt{interface.py} et un fichier de back-end \texttt{alpha.py}) à
           4 fichiers du fait de la croissance des fonctionnalités et des besoins de calculs en back-end. Nous avons donc:
           \begin{itemize}
-              \item interface.py: fichier qui continue à contenir toutes les fonctionnalités de front-end, c’est à dire l’interface utilisateur
-              \item calcul\_coordonnees\_tatamis.py: classe qui calcule les coordonnées des tatamis d'après les dimensions du dojo.
+              \item \texttt{interface.py}: fichier qui continue à contenir toutes les fonctionnalités de front-end, c’est à dire l’interface utilisateur
+              \item \texttt{calcul\_coordonnees\_tatamis.py}: classe qui calcule les coordonnées des tatamis d'après les dimensions du dojo.
                     Cette classe contient la fonction permettant de calculer une solution de pavage, d’après le code trouvé sur la publication
                     citée dans la partie 4.1, à laquelle a été adjointe une fonction permettant d’obtenir les coordonnées des tatamis dans le plan.
-              \item calcul\_nombre\_dispositions.py: fichier qui reprend les fonctions de calculs (basiques) de back-end de la version alpha.
-              \item dojo.py : classe permettant d'instancier un tatamis d'après ces propriétés: position, dimensions, couleur. L’affichage
+              \item \texttt{calcul\_nombre\_dispositions.py}: fichier qui reprend les fonctions de calculs (basiques) de back-end de la version alpha.
+              \item \texttt{dojo.py} : classe permettant d'instancier un tatamis d'après ces propriétés: position, dimensions, couleur. L’affichage
                     des solutions graphiques se faisant dans une fenêtre à part et utilisant des fonctions particulières, cela justifiait
                     l’existence d’une classe spécifique.
           \end{itemize}
-    \item Chaque fonction a un seul usage. Plusieurs exemples peuvent être cités dans le fichier interface.py: de nombreuses
-          fonctions à fonctionnalité très limitée mais réutilisables ont été créées comme par exemple
+    \item Chaque fonction a un seul usage. Plusieurs exemples peuvent être cités dans le fichier \texttt{interface.py}: de nombreuses
+          fonctions à fonctionnalité très limitée mais réutilisables ont été créées comme par exemple \texttt{set\_longueur()}, \texttt{set\_largeur()}, 
+          \texttt{valeur\_vide(self)}, \texttt{clickExiste()} (leur fonctionnalité est documentée dans le code et donc non-reprise dans ce rapport)
+
     \item Dans la mesure du possible des fonctions ou classes génériques sont créées puis réutilisées.
-          Un bon exemple a cela sont les classes génériques de l’interface: MessageSaisieInvalide, MessageDemandeImpossible et MessageInfo.
+          Un bon exemple a cela sont les classes génériques de l’interface: \texttt{MessageSaisieInvalide}, \texttt{MessageDemandeImpossible} et \texttt{MessageInfo}.
 \end{itemize}
 
-
-%TODO : à compléter/corriger la mise ne forme
 
 
 \section{Challenges rencontrés et apprentissage}
@@ -489,4 +540,27 @@ Les deux challenges principaux de cette version ont été les suivants:
 
 \section{Apprentissage}
 
-%TODO : apprentissage à compléter
+Les deux principaux apprentissages sont les suivants:
+
+\begin{enumerate}
+    \item Importance des recherches
+    
+    Les challenges techniques importants à surmonter nous ont permis de confirmer l’importance de faire des recherches et 
+    planifier la solution avant d’implémenter. Cela évite de perdre du temps à essayer des implémentations mal pensées. 
+    La réussite de cette version nous apprend également qu’avec des recherches, des problèmes qui semblent difficiles 
+    peuvent être surmontés.
+    \item Planifier du sprint et de la charge de travail
+    
+    Si cela était à refaire, nous aurions sûrement été moins ambitieux pour la version Beta en décalant des User Stories 
+    à la version Release Candidate. Le travail sur cette version nous fait réaliser à la fois l'importance de bien "quantifier" 
+    le volume de travail des User Stories, mais en même temps la difficulté à le faire. En effet, en particulier en ce début de projet, 
+    il reste difficile d’estimer avec précision la charge de travail nécessaire à l'implémentation des User Stories.
+    
+    \item Promotion en classe
+    
+    La version alpha comporte essentiellement des algorithmes écrits sous forme de fonctions. Du fait de la complexification 
+    des challenges et de l’ajout d’une interface graphique, la programmation objet s’est imposée à nous. Tout d’abord de part 
+    l’utilisation de la bibliothèque PyQt et des fonctionnalités qu’il a fallu développées en s’appuyant sur celle-ci, et ensuite 
+    de part les caractéristiques des solutions nécessitant d’être encapsulées et de disposer d’attribut et de fonctionnalités propres. 
+
+\end{enumerate}
