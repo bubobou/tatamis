@@ -1,5 +1,12 @@
 \section{Backlog/roadmap du sprint Alpha}
 
+L’objectif de ce sprint est de poser les fondations et délivrer les fonctionnalités de bases attendues par l’utilisateur, 
+c'est-à- dire la compréhension des dispositions possibles et impossibles.
+
+Pour ce faire le backlog suivant a été "embarqué" dans cette version et a résulté en la roadmap suivante:
+
+%TODO insérer roadmap
+
 \section{Tests}
 
 
@@ -67,8 +74,119 @@
 
 
 
+\bigskip
+
+Les tests automatisés sont définis dans le fichier \texttt{test\_alpha.py} et \texttt{test\_interface.py}. Ils peuvent être reproduits 
+en l'exécutant avec ligne de commande \texttt{python3 -m pytest}.
+
+
 \section{Documentation utilisateur Alpha}
+
+\subsection{Prérequis}
+%TODO faire mise en page
+Configuration et installations requises:
+
+\begin{itemize}
+    \item Python 3.9 ou supérieur
+    \item Librairies Python: aucune
+\end{itemize}
+
+\subsection{Comment trouver le nombre de tatamis nécessaires pour remplir un dojo?}
+
+Lancer le programme dans un Terminal (ligne de commande: python3 interface.py)
+Entrer (dans le Terminal) la longueur et la largeur du dojo en suivant les questions posées par le programme. Nb: Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+Répondre ‘3’ à la question du programme “Que cherchez vous?”
+Interpréter la réponse:
+Réponse : “Le nombre de tatamis 2x1 nécessaires pour ce dojo est : [Nombre]”. Interprétation: il existe au moins une disposition possible et vous aurez besoin d’exactement [Nombre] tatamis pour remplir le dojo.
+Réponse : “Il n'existe pas de disposition possible avec des tatamis 2x1 pour ce dojo”. Interprétation: il n’existe aucune disposition possible de tatamis 2 x 1 pour remplir le dojo.
+
+\subsection{Comment savoir s’il existe une disposition possible de tatamis pour un dojo donné?}
+
+Lancer le programme dans un Terminal (ligne de commande: python3 interface.py)
+Entrer (dans le Terminal) la longueur et la largeur du dojo en suivant les questions posées par le programme. Nb: Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+Répondre ‘1’ à la question du programme “Que cherchez vous?”
+Interpréter la réponse:
+Réponse : “Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo”. Interprétation: il existe au moins une disposition possible.
+Réponse : “Il n’existe pas de disposition possible avec des tatamis 2x1 pour ce dojo”. Interprétation: il n’existe aucune disposition possible de tatamis 2 x 1 pour remplir le dojo. Il est dans ce cas probable de devoir utiliser des demi-tatamis pour remplir pleinement le dojo.
+
+
+\subsection{Comment savoir combien il existe de dispositions possibles de tatamis pour un dojo donné?}
+
+Lancer le programme dans un Terminal (ligne de commande: python3 interface.py)
+Entrer (dans le Terminal) la longueur et la largeur du dojo en suivant les questions posées par le programme. Nb: Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+Répondre ‘2’ à la question du programme “Que cherchez vous?”
+Interpréter la réponse:
+a. Réponse : “Il existe [Nombre] dispositions possibles”. Interprétation: des dispositions existent pour ce dojo et il y en a [Nombre].
+b. Réponse : “Il existe 0 disposition possible”. Interprétation: il n’existe pas de disposition pour ce dojo.
+
 
 \section{Explication des algorithmes et choix de programmation}
 
+\subsection{Algorithme pour les calculs de nombre de dispositions}
+
+Nous avons tenté deux approches pour répondre à ces fonctionnalités de base:
+1. Exploitation de la bibliothèque facile écrite en python pour résoudre des problèmes en programmation par contrainte. 
+La publication de Xavier Olive (ref) proposant une application de cette  bibliothèque au problème qui nous concerne, 
+nous avons explorer la possibilité d’adapter le programme proposé dans la publication. Si le nombre de dispositions 
+proposées lors des calculs pour des dimensions de dojo données est tout à fait cohérent avec les valeurs trouvées 
+dans les autres publications traitant de ce problème, il nous est rapidement apparu que les dimensions étaient limités, 
+et que le temps de calcul n’était pas satisfaisant.
+
+2. Application de l’approche proposée par Dean Hickerson (Filling rectangular rooms with Tatami mats, 2002): %TODO ajouter note bas de page
+nous avons codé le programme mathématique qu’il décrit en python.
+
+La méthode 2 a finalement été retenue car elle a l’avantage d'être très légère et rapide en exécution. 
+Elle peut notamment calculer rapidement des réponses même si les dimensions sont grandes (nous n’avons d’ailleurs par 
+limites les dimensions saisies a un certain nombre).
+
+
+\subsection{Choix de programmation Interface}
+
+Pour faire à l'essentiel, il a été choisi d'utiliser le terminal pour les interactions entre l'utilisateur et le programme. 
+Ce n’est évidemment pas idéal, mais cela a permis de rapidement traiter la partie interface pour se concentrer sur 
+les fonctionnalités et les calculs mathématiques permettant d’y répondre.
+
+\subsection{Choix de la structure du programme}
+
+Il nous semble important de suivre et mettre en application des principes SOLID, et en particulier du 
+‘Single Responsibility Principle’ et ‘Open-Closed Principle’. 
+A ce stade, vu la simplicité du programme, ce n’est pas forcément nécessaire ni applicable de manière évidente, 
+mais nous souhaitons construire des fondations solides pour la suite:
+Un fichier a une fonction principale
+Dans cette version alpha, nous avons 2 fichiers (un fichier de front-end interface.py et un fichier de back-end alpha.py) :
+interface.py : fichier contient toutes les fonctionnalités de front-end, c’est à dire l’interface utilisateur
+alpha.py : fichier qui reprend les fonctions de calculs (basiques) de back-end
+
+
 \section{Challenges rencontrés et apprentissage}
+
+\subsection{Challenges rencontrés et solutions appliquées}
+
+Les deux challenges principaux de cette version ont été les suivants:
+Challenges techniques
+Bien que pas très exigeante techniquement, cette version pose les fonctionnalités de base sur lesquelles 
+les versions suivantes reposent. En ce qui concerne les algorithmes, le challenge principal a été la recherche 
+de la documentation qui prend du temps. Mais bien que cela ait demandé du temps, nous avons eu la chance de 
+trouver beaucoup de documentation de bonne qualité sur le sujet des tatamis. Il nous a ensuite été relativement 
+facile d'implémenter et tester les solutions trouvées.
+Challenges organisationnels
+Bien que la coopération au sein de l'équipe ait débuté en phase de pré-développement, ce sprint était le premier 
+qui impliquait un travail réel sur le code qui pose forcément de nouveaux challenges. Nous avons par ailleurs perdu 
+définitivement un membre de l'équipe, impliquant inévitablement plus de travail de la part des membres restants. 
+Pour nous permettre de bien avancer, nous avons mis en application les principes organisationnels suivants:
+Sessions de travail régulières (hebdomadaires) pour discuter des points ouverts et répartir les tâches. 
+Fréquence plutôt élevée pour garder un bon rythme de travail et éviter les accoups.
+Retranscription écrite claire des tâches à effectuer avec les dates butoires (et dépendances de tâches lors qu’il y en a) 
+avec un Compte Rendu écrit pour chaque session de travail
+Communication entre les sessions de travail (par Slack), notamment pour les discussions sur l'exécution des tâches 
+pré-requises à d'autres tâches dépendantes.
+Travail personnel entre les session pour accomplir les tâches
+Par ailleurs, pour gérer le code, github (intégré à Slack pour recevoir les notifications lors des updates) a été utilisé. 
+
+\subsection{Apprentissage}
+
+Les enseignements principaux de ce sprint sont les suivants:
+Le choix de méthodologie agile confirmé comme étant la bonne approche pour travailler sur le projet. 
+La perte d’un membre de l'équipe aurait notamment été plus difficile à gérer si tout avait été planifié de manière rigide au départ
+Le bon fonctionnement de la coopération et organisation choisie (régularité des sessions de travail, documentation des sessions 
+de travail avec des tâches et dates butoires claires,...)
