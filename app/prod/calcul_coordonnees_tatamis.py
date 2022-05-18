@@ -4,7 +4,23 @@ import datetime
 import numpy as np
 
 class Dispositions:
-    "classe qui calcul les coordonnées des tatamis d'après les dimensions du dojo"
+    """Classe qui modélise un dojo et permet de caractériser les solutions de pavage tatamis-parfait
+
+        Attributs:
+            (H : int) : la hauteur du dojo
+
+            (W : int) : la largeur du dojo
+
+            (count : int) : le nombre de dispositions possibles
+
+            (solution : list) : liste contenant les dispositions (room) satisfaisant le pavage tatamis-parfait
+
+            (room : np.array) : matrice modélisant le placement des tatamis avec leur numéro
+
+            (grille : np.array) : grille modélisant le placement des tatamis d'après leur position horizontale ou verticale
+
+            (coordonnees : list) : liste des dictionnaires décrivant les caractéristiques des tatamis de chaque solution
+    """
 
     def __init__(self, H, W, symetrie=True):
         
@@ -21,7 +37,7 @@ class Dispositions:
         self.coordonnees=self.listeTatamis()
 
     def init_room(self):
-        "fonction qui créé une matrice de 0 de dimension H*W"
+        "Fonction qui créé une matrice de 0 de dimension H*W, bordée par le nombre '-1' à ses extrémités"
         room = np.zeros((self.H+2, self.W+2))
         room[0,:] = -1
         room[self.H+1,:] = -1
@@ -31,22 +47,19 @@ class Dispositions:
 
 
     def init_grille(self):
+        "Fonction qui créé une matrice de 0 de dimension H*W"
         grille = np.zeros((self.H, self.W),int)
         return grille
 
-    def setTatami_rowscan(self,h,w,idx):
-        '''
-        Paramètres
-        ----------
-        (h,w) : La position courante d'exploration du dojo. h correspond au numéro de la ligne,
-        w correspond au numéro de la colonne.
-        idx   : le numéro d'identification du Tatami en courant de positionnement.
+    def setTatami_rowscan(self,h:int,w:int,idx:int):
+        """Fonction qui parcours la grille modélisant le tatami et qui vérifie si un tatami peut être déposé
 
-        Incrémentation: 
-            Le nombre total de dispositions possibles (count :int).
-            La liste contenant toutes les dispositions  (solutions : list)
+            Paramètres:
+                (h :int),(w :int) : les coordonnées de la position courante d'exploration de la grille. h correspond au numéro de la ligne,
+                w correspond au numéro de la colonne.
 
-        '''        
+                (idx :int)  : le numéro d'identification du Tatami en courant de positionnement.
+        """     
                
         if   h == self.H + 1:
             self.add_room()
@@ -83,34 +96,67 @@ class Dispositions:
                 self.grille[h,w-1] = 0
 
     def add_room(self):
+        """Fonction qui ajoute une solution de pavage à la liste des solutions """
         if self.symetrie :
             self.solutions.append(self.room.copy())
             self.count = self.count + 1
 
-        elif self.existe_symetrie(self.grille) :
+        elif self.verifie_symetrie(self.grille) :
             self.grilles.append(self.encode(self.grille))
             self.solutions.append(self.room.copy())
             self.count = self.count + 1
             
 
     def encode(self,grille):
+        """Fonction réduisant une matrice n x n en chaîne de caractères
+
+            Paramètre :
+                (grille : np.array) : matrice modélisant une solution de pavage
+
+            Return :
+                (mot : Str) : chaîne de caractères contenant les valeurs de la matrice 'grille' ordonnées par colonne puis par ligne
+        """
         mot = ""
-        for v in grille.flatten():
-            mot += str(v)
+        for value in grille.flatten():
+            mot += str(value)
         return mot
 
     def symetrie_verticale(self,grille):
+        """Fonction qui réalise une symétrie verticale de la grille passée en paramètre
+
+            Paramètre :
+                (grille : np.array) : matrice modélisant une solution de pavage
+
+            Return :
+                (np.array) : matrice modélisant une solution de pavage
+        """
         return grille[::-1]
 
 
     def symetrie_horizontale(self,grille):
+        """Fonction qui réalise une symétrie horizontale de la grille passée en paramètre
+
+            Paramètre:
+                (grille : np.array) : matrice modélisant une solution de pavage
+
+            Return :
+                (np.array) : matrice modélisant une solution de pavage
+        """
         s = []
         for ligne in grille :
             symetrie = ligne[::-1]
             s.append(symetrie)
         return np.array(s)
 
-    def existe_symetrie(self,grille):               
+    def verifie_symetrie(self,grille) -> bool:
+        """Fonction qui vérifie si une grille symétrique à la grille passée en paramètre n'a pas déjà été répertoriée parmi les grilles déjà validées
+
+            Paramètre :
+                (grille: np.array) : solution de pavage du dojo
+
+            Return :
+                (Bool) : True si un symétrique de la grille n'a pas été répertorié, False sinon
+        """               
         grilleSymH = self.symetrie_horizontale(grille)
         motSymH = self.encode(grilleSymH)
 
@@ -123,8 +169,8 @@ class Dispositions:
 
 
     
-    def listeTatamis(self):
-        ''' fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position'''
+    def listeTatamis(self) -> list:
+        """Fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position"""
         self.setTatami_rowscan(1,1,1) 
         dispositions=[]
         for array in self.solutions :

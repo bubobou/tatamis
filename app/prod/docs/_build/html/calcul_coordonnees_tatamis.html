@@ -18,7 +18,9 @@
         <script src="_static/translations.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Recherche" href="search.html" /> 
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="calcul_nombre_dispositions module" href="calcul_nombre_dispositions.html" />
+    <link rel="prev" title="prod" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -36,11 +38,18 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">calcul_coordonnees_tatamis module</a></li>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">prod</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">calcul_coordonnees_tatamis module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calcul_nombre_dispositions.html">calcul_nombre_dispositions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dojo.html">dojo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interface.html">interface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prod.html">prod module</a></li>
 </ul>
-</div>
+</li>
+</ul>
+
         </div>
       </div>
     </nav>
@@ -55,6 +64,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">prod</a> &raquo;</li>
       <li>calcul_coordonnees_tatamis module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/calcul_coordonnees_tatamis.rst.txt" rel="nofollow"> Afficher la source de la page</a>
@@ -71,48 +81,61 @@
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">calcul_coordonnees_tatamis.</span></span><span class="sig-name descname"><span class="pre">Dispositions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symetrie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions" title="Lien permanent vers cette définition"></a></dt>
 <dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>classe qui calcul les coordonnées des tatamis d’après les dimensions du dojo</p>
+<p>Classe qui modélise un dojo et permet de caractériser les solutions de pavage tatamis-parfait</p>
+<dl>
+<dt>Attributs:</dt><dd><p>(H : int) : la hauteur du dojo</p>
+<p>(W : int) : la largeur du dojo</p>
+<p>(count : int) : le nombre de dispositions possibles</p>
+<p>(solution : list) : liste contenant les dispositions (room) satisfaisant le pavage tatamis-parfait</p>
+<p>(room : np.array) : matrice modélisant le placement des tatamis avec leur numéro</p>
+<p>(grille : np.array) : grille modélisant le placement des tatamis d’après leur position horizontale ou verticale</p>
+<p>(coordonnees : list) : liste des dictionnaires décrivant les caractéristiques des tatamis de chaque solution</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.add_room">
 <span class="sig-name descname"><span class="pre">add_room</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.add_room" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui ajoute une solution de pavage à la liste des solutions</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.encode">
 <span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grille</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.encode" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.existe_symetrie">
-<span class="sig-name descname"><span class="pre">existe_symetrie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grille</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.existe_symetrie" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
+<dd><p>Fonction réduisant une matrice n x n en chaîne de caractères</p>
+<dl class="simple">
+<dt>Paramètre :</dt><dd><p>(grille : np.array) : matrice modélisant une solution de pavage</p>
+</dd>
+<dt>Return :</dt><dd><p>(mot : Str) : chaîne de caractères contenant les valeurs de la matrice “grille” ordonnées par colonne puis par ligne</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.init_grille">
 <span class="sig-name descname"><span class="pre">init_grille</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.init_grille" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui créé une matrice de 0 de dimension H*W</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.init_room">
 <span class="sig-name descname"><span class="pre">init_room</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.init_room" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>fonction qui créé une matrice de 0 de dimension H*W</p>
+<dd><p>Fonction qui créé une matrice de 0 de dimension H*W, bordée par le nombre “-1” à ses extrémités</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.listeTatamis">
-<span class="sig-name descname"><span class="pre">listeTatamis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.listeTatamis" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position</p>
+<span class="sig-name descname"><span class="pre">listeTatamis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.listeTatamis" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui renvoie une liste de tatamis décrits par un dictionnaire contenant leur largeur, hauteur et position</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.setTatami_rowscan">
-<span class="sig-name descname"><span class="pre">setTatami_rowscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.setTatami_rowscan" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>(h,w) : La position courante d’exploration du dojo. h correspond au numéro de la ligne,
-w correspond au numéro de la colonne.
-idx   : le numéro d’identification du Tatami en courant de positionnement.</p>
-<dl class="simple">
-<dt>Incrémentation: </dt><dd><p>Le nombre total de dispositions possibles (count :int).
-La liste contenant toutes les dispositions  (solutions : list)</p>
+<span class="sig-name descname"><span class="pre">setTatami_rowscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.setTatami_rowscan" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui parcours la grille modélisant le tatami et qui vérifie si un tatami peut être déposé</p>
+<dl>
+<dt>Paramètres:</dt><dd><p>(h :int),(w :int) : les coordonnées de la position courante d’exploration de la grille. h correspond au numéro de la ligne,
+w correspond au numéro de la colonne.</p>
+<p>(idx :int)  : le numéro d’identification du Tatami en courant de positionnement.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -120,12 +143,38 @@ La liste contenant toutes les dispositions  (solutions : list)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.symetrie_horizontale">
 <span class="sig-name descname"><span class="pre">symetrie_horizontale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grille</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.symetrie_horizontale" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui réalise une symétrie horizontale de la grille passée en paramètre</p>
+<dl class="simple">
+<dt>Paramètre:</dt><dd><p>(grille : np.array) : matrice modélisant une solution de pavage</p>
+</dd>
+<dt>Return :</dt><dd><p>(np.array) : matrice modélisant une solution de pavage</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.symetrie_verticale">
 <span class="sig-name descname"><span class="pre">symetrie_verticale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grille</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.symetrie_verticale" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
+<dd><p>Fonction qui réalise une symétrie verticale de la grille passée en paramètre</p>
+<dl class="simple">
+<dt>Paramètre :</dt><dd><p>(grille : np.array) : matrice modélisant une solution de pavage</p>
+</dd>
+<dt>Return :</dt><dd><p>(np.array) : matrice modélisant une solution de pavage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="calcul_coordonnees_tatamis.Dispositions.verifie_symetrie">
+<span class="sig-name descname"><span class="pre">verifie_symetrie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grille</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#calcul_coordonnees_tatamis.Dispositions.verifie_symetrie" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui vérifie si une grille symétrique à la grille passée en paramètre n’a pas déjà été répertoriée parmi les grilles déjà validées</p>
+<dl class="simple">
+<dt>Paramètre :</dt><dd><p>(grille: np.array) : solution de pavage du dojo</p>
+</dd>
+<dt>Return :</dt><dd><p>(Bool) : True si un symétrique de la grille n’a pas été répertorié, False sinon</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -134,7 +183,10 @@ La liste contenant toutes les dispositions  (solutions : list)</p>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pied de page">
+        <a href="modules.html" class="btn btn-neutral float-left" title="prod" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Précédent</a>
+        <a href="calcul_nombre_dispositions.html" class="btn btn-neutral float-right" title="calcul_nombre_dispositions module" accesskey="n" rel="next">Suivant <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
