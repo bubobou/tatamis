@@ -3,7 +3,7 @@ from calcul_nombre_dispositions import *
 from calcul_coordonnees_tatamis import *
 
 def recherche_disposition_max(r :int, s :int) -> tuple:
-    """Retourne un set contenant les plus grandes largeur et longueur permettant d'obtenir
+    """Retourne un tuple contenant les plus grandes largeur et longueur permettant d'obtenir
      au moins un pavage tatamis-parfait"""
     r_max = r
     s_max = s
@@ -23,9 +23,16 @@ def nombre_tatamis_max(largeur_dojo:int,longueur_dojo:int) -> int:
     
 
 def multiples(nombre: int,mini=2) ->list :
-    '''
-    Retourne une liste contenant les couples de multiples d'un nombre, avec une valeur de facteur minimale
-    '''
+    """Fonction qui extrait les couples de multiples d'un entier, avec une valeur de multiple minimale 
+    
+        Paramètres :
+            nombre (int) : l'entier dont il faut extraire les multiples
+
+            mini (int) : le multiple minimal
+
+        Return :
+            resultat (list) : une liste de couple (tuple) de multiples
+    """
     resultat = []
     for w in range(mini, nombre//mini) :
         h = nombre//w
@@ -36,6 +43,18 @@ def multiples(nombre: int,mini=2) ->list :
 
 
 def multiples_inf(nombre,ratio=3,rendement=0.75) :
+    """Fonction qui sélectionne les multiples d'entiers inférieurs à un entier selon un critère de ratio et de rendement
+        
+        Paramètres :
+            nombre (int) : l'entier dont il faut extraire les multiples
+
+            ratio (int) : le ratio maximal entre les multiples
+
+            rendement (float) : la proportion minimale que représente le produit des multiples par rapport à l'entier "nombre"
+
+        Return :
+            resultat (list) : une liste de couple (tuple) de multiples
+    """
     facteurs = []
     nb = nombre    
     while nb > 3 :
@@ -48,10 +67,12 @@ def multiples_inf(nombre,ratio=3,rendement=0.75) :
     return facteurs
 
 
-def recherche_disposition(nombre):
+def recherche_disposition(nombre: int) -> list:
     aire = nombre*2
     dimensions = multiples_inf(aire)    
     dispositions = []
+
+    #%TODO  refactoring du reste de la fonction
     for h,w in dimensions :
         dispositions.append(recherche_disposition_max(h,w))
 
