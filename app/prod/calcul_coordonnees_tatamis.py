@@ -157,15 +157,18 @@ class Dispositions:
             Return :
                 (Bool) : True si un symétrique de la grille n'a pas été répertorié, False sinon
         """               
-        grilleSymH = self.symetrie_horizontale(grille)
-        motSymH = self.encode(grilleSymH)
+        grilleSymHorizontale = self.symetrie_horizontale(grille)
+        noSymH  = self.encode(grilleSymHorizontale) not in self.grilles
 
-        grilleSymV = self.symetrie_verticale(grille)
-        motSymV = self.encode(grilleSymV)
+        grilleSymVerticale = self.symetrie_verticale(grille)
+        noSymV = self.encode(grilleSymVerticale) not in self.grilles
 
-        mot = self.encode(grille)
+        grilleSymCentrale = self.symetrie_verticale(self.symetrie_horizontale(grille))
+        noSymC = self.encode(grilleSymCentrale) not in self.grilles
 
-        return mot not in self.grilles and motSymH not in self.grilles and motSymV not in self.grilles  
+        noSym = self.encode(grille) not in self.grilles
+
+        return noSym and noSymC and noSymH and noSymV 
 
 
     
