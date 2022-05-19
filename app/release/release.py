@@ -2,7 +2,7 @@
 from calcul_nombre_dispositions import *
 
 def recherche_disposition_max(r :int, s :int) -> tuple:
-    """Retourne un set contenant les plus grandes largeur et longueur permettant d'obtenir
+    """Retourne un tuple contenant les plus grandes largeur et longueur permettant d'obtenir
      au moins un pavage tatamis-parfait"""
     r_max = r
     s_max = s
@@ -22,9 +22,7 @@ def nombre_tatamis_max(largeur_dojo:int,longueur_dojo:int) -> int:
     
 
 def multiples(nombre: int,mini=2) ->list :
-    '''
-    Retourne une liste contenant les couples de multiples d'un nombre, avec une valeur de facteur minimale
-    '''
+    """"Retourne une liste contenant les couples de multiples d'un nombre, avec une valeur de facteur minimale"""
     resultat = []
     for w in range(mini, nombre//mini) :
         h = nombre//w
@@ -63,33 +61,10 @@ def recherche_disposition(nombre):
 
     return dispositions
 
-# ### Interface ###
+### Interface ###
 
 def affichage_dimension(dispositions):
     affichage = ""
     for h,w in dispositions :
         affichage += f"{h} x {w} \n"
     return affichage
-
-
-   
-# def affichage_solution():
-#     """Propose l'affichage du nombre de solutions et du nombre de tatamis nécessaires"""
-#     aff_nombre = input("Souhaitez-vous connaître le nombre de dispositions ? O->Oui")
-#     if aff_nombre.upper() != "O":
-#         exit()
-#     else:    
-#         print(f"Il existe {nombre_disposition} disposition(s) possible(s)")
-#         print(f"Le nombre de tatamis 2x1 utilisables pour ce dojo est : {nombre_tatamis(largeur_dojo,longueur_dojo)} ")
-
-# def affichage_solution_alt():
-#     """Propose d'afficher une solution alternative de dimensions moindre et le nombre de tatamis correspondant"""
-#     aff_autre = input("Souhaitez-vous connaître le nombre de dispositions avec des dimensions plus petites? O->Oui")
-#     if aff_autre.upper() != "O":
-#         exit()
-#     else:
-#         largeur_max,longueur_max=recherche_disposition_max(largeur_dojo,longueur_dojo)
-#         nombre_disposition = nombre_de_dispositions(largeur_max, longueur_max)
-#         print(f"Il existe {nombre_disposition} disposition(s) possible(s) avec les dimensions : {largeur_max}x{longueur_max}")
-#         print(f"Le nombre de tatamis 2x1 utilisables pour ce dojo est :{nombre_tatamis(largeur_max,longueur_max)}" )
-
