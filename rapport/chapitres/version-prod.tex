@@ -1,24 +1,39 @@
 \section{Backlog/roadmap du sprint Production}
 
-L’objectif de ce sprint est de finaliser en augmentant encore la valeur donné à l'utilisateur par: 
+L’objectif de ce sprint est de finaliser en augmentant encore la valeur donné à l'utilisateur par:
 Ajout de deux fonctionnalités concernant les dispositions symétriques. L’objectif étant d'éliminer ces dispositions symétriques qui apportent peu, voire prêtent à confusion pour l’utilisateur.
-Dernière amélioration mineure de l’interface, surtout sur le visuel, pour aligner le design des messages de réponse à celui de l’interface principale.
+Dernière amélioration mineure de l’interface, surtout sur le visuel, pour aligner le design des messages de réponse à celui de l’interface principale.\\
 
 Pour ce faire le backlog suivant a été \emph{embarqué} dans cette version et a résulté en la roadmap suivante:
 
 \section{Tests}
 
-Les tests réalisés pour cette version et leurs résultats sont les suivants:
+Les tests réalisés pour cette version et leurs résultats sont les suivants:\\
 
-%TODO inclure tableaux tests
 
-Par ailleurs, étant donné qu’il s’agit de la dernière version pour mise en production, 
-il est important de tester l’ensemble des fonctionnalités du programme. Des tests de non régression 
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
+            id  & Sujet                                                                                                  & Test d'acceptance                                                                                                                                                                                        & Méthode de test & Résultat \\ \hline
+            523 & US Comprendre le nombre de dispositions possibles excluant les dispositions symétriques                & Étant donné que l'utilisateur saisie des dimensions valides de dojo, il obtient le nombre de solutions possibles en excluant les solutions symétriques                                                   & Manuel          & OK       \\ \hline
+            524 & US Afficher visuellement toutes les dispositions possibles excluant les dispositions symétriques       & \cellcolor{tsgrey} Étant donné des dimensions d'un dojo saisies, quand il sélectionne cette option, il obtient visuellement toutes les dispositions possibles en excluant les solutions symétriques      & Manuel          & OK       \\ \hline
+        \end{testtabular}}
+\end{adjustwidth}
+
+\bigskip
+
+Par ailleurs, étant donné qu’il s’agit de la dernière version pour mise en production,
+il est important de tester l’ensemble des fonctionnalités du programme. Des tests de non régression
 ont été effectués:
 
 %TODO inclure tableaux tests non regression
 
+\bigskip
 Erreur sur validation des saisies:
+
 Une erreur a été constaté suivant les versions utilisés de PyQt:
 \begin{itemize}
     \item Version 5.9.7: la validation de la saisie des données fonctionne (comportement attendu)
@@ -34,6 +49,6 @@ Configuration et installations requises:
 \begin{itemize}
     \item Python 3.9 ou supérieur
     \item Librairies Python: datetime, numpy, PyQt5.QtCore, PyQt5.QtGui, PyQt5.QtWidgets, sys, time.
-     (Idéalement la version 5.9.7 de PyQt) 
+          (Idéalement la version 5.9.7 de PyQt)
     \item Installer les polices Nexa (light et bold) (fichiers otf fournis)
 \end{itemize}
