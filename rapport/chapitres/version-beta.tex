@@ -86,10 +86,10 @@ Configuration et installations requises:
               un message d’erreur “Erreur de saisie des dimensions. Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
     \item Interpréter la réponse:
           \begin{enumerate}
-              \item  Réponse: “Le nombre de tatamis 2x1 nécessaires pour ce dojo est : [Nombre]”.
-                    Interprétation: il existe au moins une disposition possible et vous aurez besoin d’exactement [Nombre] tatamis pour remplir le dojo.
-              \item  Réponse: “Le nombre de tatamis 2x1 nécessaires pour ce dojo est :
-                    Aucune disposition possible de tatamis 2x1 pour ce dojo”. Interprétation:
+              \item  \textbf{Réponse}: “Le nombre de tatamis 2x1 nécessaires pour ce dojo est : [Nombre]”.
+                    \textbf{Interprétation}: il existe au moins une disposition possible et vous aurez besoin d’exactement [Nombre] tatamis pour remplir le dojo.
+              \item  \textbf{Réponse}: “Le nombre de tatamis 2x1 nécessaires pour ce dojo est :
+                    Aucune disposition possible de tatamis 2x1 pour ce dojo”. \textbf{Interprétation}:
                     il n’existe aucune disposition possible de tatamis 2 x 1 pour remplir le dojo.
           \end{enumerate}
 \end{enumerate}
@@ -113,10 +113,10 @@ Configuration et installations requises:
               Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
     \item Interpréter la réponse:
           \begin{enumerate}
-              \item Réponse: “Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo”.
-                    Interprétation: il existe au moins une disposition possible.
-              \item Réponse: “Il n’existe pas de disposition possible avec des tatamis 2x1 pour ce dojo”.
-                    Interprétation: il n’existe aucune disposition possible de tatamis 2 x 1 pour remplir le dojo.
+              \item \textbf{Réponse}: “Il existe au moins une disposition avec des tatamis 2x1 pour ce dojo”.
+                    \textbf{Interprétation}: il existe au moins une disposition possible.
+              \item \textbf{Réponse}: “Il n’existe pas de disposition possible avec des tatamis 2x1 pour ce dojo”.
+                    \textbf{Interprétation}: il n’existe aucune disposition possible de tatamis 2 x 1 pour remplir le dojo.
                     Il est dans ce cas probable de devoir utiliser des demi-tatamis pour remplir pleinement le dojo.
           \end{enumerate}
 
@@ -142,11 +142,11 @@ Configuration et installations requises:
           }
     \item Interpréter la réponse:
           \begin{enumerate}
-              \item Réponse: “Il existe [Nombre] dispositions possibles”.
-                    Interprétation : il existe des dispositions pour ce dojo et [Nombre] est
+              \item \textbf{Réponse}: “Il existe [Nombre] dispositions possibles”.
+                    \textbf{Interprétation} : il existe des dispositions pour ce dojo et [Nombre] est
                     le nombre de dispositions possibles pour remplir le dojo.
-              \item Réponse: “Il existe 0 disposition possible”.
-                    Interprétation: la demande est non pertinente car il n’existe pas de disposition possible
+              \item \textbf{Réponse}: “Il existe 0 disposition possible”.
+                    \textbf{Interprétation}: la demande est non pertinente car il n’existe pas de disposition possible
                     de tatamis 2x1 pour les dimensions du dojo.
           \end{enumerate}
 \end{enumerate}
@@ -248,7 +248,7 @@ Après une recherche un peu plus poussée, il s'est avéré que ce problème de 
 fait l'objet d'une question dans un livre édité en chinois et dont la traduction anglaise proposée pour le titre
 est : "Programmer's algorithm interesting topic". Les problèmes traités dans ce livre le sont initialement en Ruby et Javascript,
 néanmoins un internaute chinois propose une interprétation de l'algorithme en python sur une note de
-blog\footnote{https://blog.csdn.net/chenxy\_bwave/article/details/120364982}.
+blog\footnote{https://blog.csdn.net/chenxy\_bwave/article/details/120364982}\label{chenxy}.
 Celle-ci ayant été traduite en anglais\footnote{https://www.fatalerrors.org/a/programmer-s-algorithm-interesting-topic-q32-laying-method-of-tatami.html},
 nous avons pu en prendre plus facilement connaissance et ainsi en exploiter les idées.\\
 
@@ -475,8 +475,8 @@ Pour ce faire voilà les principales questions qui ont été étudiées et  choi
 
 \subsection{Choix de la structure du programme}
 
-Dans la continuité des choix fait en version Alpha, nous avons mis en application des principes SOLID, et en particulier du
-"Single Responsibility Principle" et "Open-Closed Principle":
+Dans la continuité des choix fait en version Alpha, nous avons mis en application des principes \emph{SOLID}, et en particulier du
+\emph{Single Responsibility Principle} et \emph{Open-Closed Principle}:
 
 \begin{itemize}
     \item Un fichier a une fonction principale
@@ -486,7 +486,7 @@ Dans la continuité des choix fait en version Alpha, nous avons mis en applicati
               \item \texttt{interface.py}: fichier qui continue à contenir toutes les fonctionnalités de front-end, c’est à dire l’interface utilisateur
               \item \texttt{calcul\_coordonnees\_tatamis.py}: classe qui calcule les coordonnées des tatamis d'après les dimensions du dojo.
                     Cette classe contient la fonction permettant de calculer une solution de pavage, d’après le code trouvé sur la publication
-                    citée dans la partie 4.1, à laquelle a été adjointe une fonction permettant d’obtenir les coordonnées des tatamis dans le plan.
+                    citée dans la partie \ref{chenxy}, à laquelle a été adjointe une fonction permettant d’obtenir les coordonnées des tatamis dans le plan.
               \item \texttt{calcul\_nombre\_dispositions.py}: fichier qui reprend les fonctions de calculs (basiques) de back-end de la version alpha.
               \item \texttt{dojo.py} : classe permettant d'instancier un tatamis d'après ces propriétés: position, dimensions, couleur. L’affichage
                     des solutions graphiques se faisant dans une fenêtre à part et utilisant des fonctions particulières, cela justifiait
