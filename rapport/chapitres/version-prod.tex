@@ -1,1 +1,39 @@
-\section{Backlog/roadmap du sprint Prod}
+\section{Backlog/roadmap du sprint Production}
+
+L’objectif de ce sprint est de finaliser en augmentant encore la valeur donné à l'utilisateur par: 
+Ajout de deux fonctionnalités concernant les dispositions symétriques. L’objectif étant d'éliminer ces dispositions symétriques qui apportent peu, voire prêtent à confusion pour l’utilisateur.
+Dernière amélioration mineure de l’interface, surtout sur le visuel, pour aligner le design des messages de réponse à celui de l’interface principale.
+
+Pour ce faire le backlog suivant a été \emph{embarqué} dans cette version et a résulté en la roadmap suivante:
+
+\section{Tests}
+
+Les tests réalisés pour cette version et leurs résultats sont les suivants:
+
+%TODO inclure tableaux tests
+
+Par ailleurs, étant donné qu’il s’agit de la dernière version pour mise en production, 
+il est important de tester l’ensemble des fonctionnalités du programme. Des tests de non régression 
+ont été effectués:
+
+%TODO inclure tableaux tests non regression
+
+Erreur sur validation des saisies:
+Une erreur a été constaté suivant les versions utilisés de PyQt:
+\begin{itemize}
+    \item Version 5.9.7: la validation de la saisie des données fonctionne (comportement attendu)
+    \item Version 5.12.2: la validation fonctionne partiellement (cela limite bien le type d'entrée - uniquement des entiers, et limite le nombre de chiffres, mais cela ne limite pas à 25 ou 300 comme attendu; cela limite uniquement à respectivement 99 et 999). Pour corriger ce changement de comportement de QIntValidator, un nouveau message d’erreur a été mis en place.
+\end{itemize}
+
+\section{Documentation Utilisateur Production}
+
+\subsection{Prérequis}
+
+Configuration et installations requises:
+
+\begin{itemize}
+    \item Python 3.9 ou supérieur
+    \item Librairies Python: datetime, numpy, PyQt5.QtCore, PyQt5.QtGui, PyQt5.QtWidgets, sys, time.
+     (Idéalement la version 5.9.7 de PyQt) 
+    \item Installer les polices Nexa (light et bold) (fichiers otf fournis)
+\end{itemize}
