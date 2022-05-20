@@ -8,9 +8,26 @@ L’objectif de ce sprint est de donner bien plus de valeur à l'utilisateur par
 
 Pour ce faire le backlog suivant a été "embarqué" dans cette version et a résulté en la roadmap suivante:
 
+\begin{center}
+    \includegraphics[width=17cm]{images/roadmap-beta-part1.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=17cm]{images/roadmap-beta-part2.png}
+\end{center}
+
+\bigskip
+
+Et ici présenté en diagramme de Gantt:
+
+\begin{center}
+    \includegraphics[width=17cm]{images/tatamis-gantt-beta.png}
+\end{center}
 
 \section{Tests}
 
+Les tests réalisés pour cette version et leurs résultats sont les suivants:
+\medskip
 
 \noindent%
 \begin{adjustwidth}{-1.5cm}{0cm}
@@ -19,7 +36,7 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
     {\setlength{\tabcolsep}{1.5 mm}
 
         \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
-            id                       & Sujet                                                                   & Test d'acceptance                                                                                             & Méthode de test & Résultat \\ \hline
+            \rowcolor{tssteelblue} \textcolor{white}{id}                        & \textcolor{white}{Sujet}                                                                   & \textcolor{white}{Test d'acceptance }                                                                                            & \textcolor{white}{Méthode de test} & \textcolor{white}{Résultat} \\ \hline
             \multirow{2}{0.6cm}{539} & \multirow{2}{5.5cm}{TACHE Cliquer pour avoir accès aux fonctionnalités} & Quand l'application est lancée, les boutons s'affichent                                                       & Manuel          & OK       \\ \cline{3-5}
             &                                                                         & Quand l'utilisateur clique sur un bouton, la fonctionnalité est activée.                                      & Manuel          & OK       \\ \hline
             \multirow{3}{0.6cm}{538} & \multirow{3}{5.5cm}{TACHE Valider les dimensions}                       & Quand l'application est lancée, seules des valeurs entières peuvent être entrées                              & Manuel          & OK       \\ \cline{3-5}
@@ -36,7 +53,7 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
     {\setlength{\tabcolsep}{1.5 mm}
 
         \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
-            id                       & Sujet                                                                                           & Test d'acceptance                                                                                                                                                & Méthode de test & Résultat \\ \hline
+            \rowcolor{tssteelblue} \textcolor{white}{id}                        & \textcolor{white}{Sujet}                                                                   & \textcolor{white}{Test d'acceptance }                                                                                            & \textcolor{white}{Méthode de test} & \textcolor{white}{Résultat} \\ \hline
             537                      & TACHE Offrir la possibilité d'entrer des dimensions de dojo                                     & Quand l'application est lancée, une fenêtre s'ouvre avec la possibilité d'entrer les dimensions.                                                                 & Manuel          & OK       \\ \hline
             536                      & TACHE Créer la fonction permettant d'afficher toutes les solutions                              & Quand la fonction reçoit en input les coordonnées des tatamis pour une disposition dimensions, alors elle retourne un graph avec toutes les solutions possibles" & Manuel          & OK       \\ \hline
             535                      & TACHE Créer la fonction permettant d'afficher une seule solution                                & Quand la fonction reçoit en input les coordonnées des tatamis pour une disposition dimensions, alors elle retourne un graph avec une solution possible"          & Manuel          & OK       \\ \hline
@@ -46,7 +63,7 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
             531                      & TACHE Créer une classe de fenêtre type permettant d'avoir un affichage reproductible            & Quand l'application est lancée, une fenêtre s'ouvre avec les bonnes (adaptées à l'écran) et memes dimensions"                                                    & Manuel          & OK       \\ \hline
             530                      & TACHE Créer la fonction permettant de choisir d'afficher une seule solution                     & Étant donné les inputs des dimensions d'un dojo, quand cette fonction est choisie, elle retourne un graph avec une seule solution possible"                      & Manuel          & OK       \\ \hline
             \multirow{2}{0.6cm}{519} & \multirow{2}{5.5cm}{EPIC Permettre au gestionnaire de dojo de visualiser les solutions}         & cf. tests utilisateurs des US                                                                                                                                    &                 & OK       \\ \cline{3-5}
-            &                                                                                                 & Le nombre de solution du programme donne le meme nombre de solution que le calcul de coordonnées Tatamis                                                         & Automatisé      & OK       \\ \hline
+            &                                                                                                 & Le nombre de solution du programme donne le même nombre de solution que le calcul de coordonnées Tatamis                                                         & Automatisé      & OK       \\ \hline
             478                      & US Afficher visuellement toutes les dispositions possibles                                      & Étant donné des dimensions d'un dojo saisies, quand il sélectionne cette option, il obtient visuellement toutes les dispositions possibles"                      & Manuel          & OK       \\ \hline
             476                      & US Afficher visuellement une disposition possible                                               & Étant donné des dimensions d'un dojo saisies, quand il sélectionne cette option, il obtient visuellement une disposition possible"                               & Manuel          & OK       \\ \hline
         \end{testtabular}
@@ -55,7 +72,7 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
 
 \bigskip
 
-Les tests automatisés sont définis dans le fichier \texttt{testbeta.py}. Ils peuvent être reproduits en l'exécutant avec ligne de commande 
+Les tests automatisés sont définis dans le fichier \texttt{testbeta.py}. Ils peuvent être reproduits en l'exécutant avec ligne de commande
 \texttt{python3 -m pytest}.
 
 \section{Documentation utilisateur Beta}
@@ -284,7 +301,7 @@ L’auteur précise qu’un tel parcours peut comporter une profondeur considér
 L'illustration d'un parcours de recherche pour un pavage (4$\times$3) est donnée ci-dessous.\\
 
 \begin{adjustwidth}{-1.5cm}{0cm}
-\includegraphics[width=19cm]{images/arbre4x3.pdf}
+    \includegraphics[width=19cm]{images/arbre4x3.pdf}
 \end{adjustwidth}
 
 
@@ -388,15 +405,32 @@ de la librairie par rapport à Tkinter, c’est PyQt5 qui a finalement été cho
 \subsubsection{Choix concernant la disposition des éléments de l’interface}
 
 Deux options ont été étudiées:
-Positionnement spécifique de chaque élément de l’interface (par la fonction \texttt{move()} de PyQt5)
-Avantage:    Flexibilité (possibilité de placer très précisément chaque objet sur les axes abscisse et ordonnées de la fenêtre)
-Inconvenient:    Fastidieux (nécessite de placer chaque objet avec ses coordonnées et les modifications de disposition - notamment par l’ajout d’objet - s’en trouve très longs à exécuter)
-Positionnement par la mise en place et utilisation d’une grille (invisible à l'utilisateur) pour placer les éléments (par la sous-librairie QGridLayout de PyQt5)
-Avantages:    Rapidité à coder (possibilité de placer très précisément chaque objet sur les axes abscisse et ordonnées de la fenêtre)
-Bon alignement obtenu très facilement obtenu (car la grille assure le bon alignement)
-Inconvenient:    Moins de flexibilité pour placer précisément les objets
 
-Étant donné les avantages importants de l’option 2 et le fait que l’interface pour notre programme pouvait facilement être mise en place sous forme d’une grille, l’option 2 a été choisie.
+\begin{enumerate}
+    \item Positionnement spécifique de chaque élément de l’interface (par la fonction \texttt{move()} de PyQt5).
+    \begin{itemize}
+        \item \emph{Avantage} : Flexibilité (possibilité de placer très précisément chaque objet sur les axes 
+        abscisse et ordonnées de la fenêtre).
+        \item \emph{Inconvénient} : Fastidieux (nécessite de placer chaque objet avec ses coordonnées et les 
+        modifications de disposition - notamment par l’ajout d’objet - s’en trouve très longs à exécuter).
+    \end{itemize}
+    \item Positionnement par la mise en place et utilisation d’une grille (invisible à l'utilisateur) pour placer 
+    les éléments (par la sous-librairie QGridLayout de PyQt5).
+    \begin{itemize}
+        \item \emph{Avantage} : Rapidité à coder (possibilité de placer très précisément chaque objet sur les 
+        axes des abscisses et des ordonnées de la fenêtre).
+        
+        Bon alignement obtenu très facilement obtenu (car la grille assure le bon alignement).
+
+        \item \emph{Inconvénient} :  Moins de flexibilité pour placer précisément les objets.
+
+    \end{itemize}
+
+
+\end{enumerate}
+
+Étant donné les avantages importants de l’option 2 et le fait que l’interface pour notre programme pouvait facilement 
+être mise en place sous forme d’une grille, l’option 2 a été choisie.
 
 
 \subsubsection{Choix concernant l’intuitivité de l’interface}
@@ -441,34 +475,34 @@ Pour ce faire voilà les principales questions qui ont été étudiées et  choi
 
 
 \begin{itemize}
-     
+
 
     \item Interface :
 
-\begin{center}
-    \includegraphics[scale=0.25]{images/betaInterface.png}
-\end{center}
+          \begin{center}
+              \includegraphics[width=16cm]{images/betaInterface.png}
+          \end{center}
 
 
-\item Exemple de message de retour (succès):
+    \item Exemple de message de retour (succès):
 
-\begin{center}
-    \includegraphics[scale=0.25]{images/betaRetourSucces.png}
-\end{center}
-
-
-\item Exemple de message indiquant à l’utilisateur que la demande est impossible avec les dimensions saisies:
-
-\begin{center}
-    \includegraphics[scale=0.25]{images/betaImpossible.png}
-\end{center}
+          \begin{center}
+              \includegraphics[scale=0.25]{images/betaRetourSucces.png}
+          \end{center}
 
 
-\item Exemple de message d’erreur en cas de non saisie ou saisie nulle de dimensions:
+    \item Exemple de message indiquant à l’utilisateur que la demande est impossible avec les dimensions saisies:
 
-\begin{center}
-    \includegraphics[scale=0.25]{images/betaErreurSaisie.png}
-\end{center}
+          \begin{center}
+              \includegraphics[scale=0.25]{images/betaImpossible.png}
+          \end{center}
+
+
+    \item Exemple de message d’erreur en cas de non saisie ou saisie nulle de dimensions:
+
+          \begin{center}
+              \includegraphics[scale=0.25]{images/betaErreurSaisie.png}
+          \end{center}
 
 
 \end{itemize}
@@ -493,7 +527,7 @@ Dans la continuité des choix fait en version Alpha, nous avons mis en applicati
                     l’existence d’une classe spécifique.
           \end{itemize}
     \item Chaque fonction a un seul usage. Plusieurs exemples peuvent être cités dans le fichier \texttt{interface.py}: de nombreuses
-          fonctions à fonctionnalité très limitée mais réutilisables ont été créées comme par exemple \texttt{set\_longueur()}, \texttt{set\_largeur()}, 
+          fonctions à fonctionnalité très limitée mais réutilisables ont été créées comme par exemple \texttt{set\_longueur()}, \texttt{set\_largeur()},
           \texttt{valeur\_vide(self)}, \texttt{clickExiste()} (leur fonctionnalité est documentée dans le code et donc non-reprise dans ce rapport)
 
     \item Dans la mesure du possible des fonctions ou classes génériques sont créées puis réutilisées.
@@ -509,7 +543,7 @@ Dans la continuité des choix fait en version Alpha, nous avons mis en applicati
 Les deux challenges principaux de cette version ont été les suivants:
 \begin{enumerate}
     \item Challenges techniques
-    
+
           Comme on peut le constater plus dans la section sur les choix de programmation, il s’agit de la version la plus complexe techniquement.
           D’un point de vue de l’algorithme, l’affichage des dispositions a été un gros challenge technique.
           D’un point de vue de l’interface, beaucoup de choix structurants ont été nécessaires, avec des essais et révisions.
@@ -521,46 +555,46 @@ Les deux challenges principaux de cette version ont été les suivants:
               \item Revue des choix avant implémentation
           \end{itemize}
     \item Challenges organisationnels et charge de travail
-    
-    La charge de travail de cette version a été sous-estimée au moment de la planification et de la décision des "User story" à embarquer 
-    dans cette version. En effet, la lourdeur de cette version, combinée aux choix techniques importants à faire, et à une équipe 
-    de taille réduite (2 personnes) a été un challenge important.
-    
-    L’organisation de l'équipe et du travail est ce qui nous a permis de faire face à ce problème et de respecter le calendrier prévu. 
-    Les clés de l’organisation sont restées:
-    \begin{itemize}
-        \item Sessions de travail pour discuter des points ouverts et repartir les taches
-        \item Retranscription écrite claire des tâches à effectuer avec les dates butoir
-        \item Communication entre les sessions de travail (par Slack)
-        \item Travail personnel entre les session pour accomplir les tâches
-    \end{itemize}
+
+          La charge de travail de cette version a été sous-estimée au moment de la planification et de la décision des "User story" à embarquer
+          dans cette version. En effet, la lourdeur de cette version, combinée aux choix techniques importants à faire, et à une équipe
+          de taille réduite (2 personnes) a été un challenge important.
+
+          L’organisation de l'équipe et du travail est ce qui nous a permis de faire face à ce problème et de respecter le calendrier prévu.
+          Les clés de l’organisation sont restées:
+          \begin{itemize}
+              \item Sessions de travail pour discuter des points ouverts et repartir les taches
+              \item Retranscription écrite claire des tâches à effectuer avec les dates butoir
+              \item Communication entre les sessions de travail (par Slack)
+              \item Travail personnel entre les session pour accomplir les tâches
+          \end{itemize}
 
 \end{enumerate}
 
 
-\section{Apprentissage}
+\subsection{Apprentissage}
 
 Les deux principaux apprentissages sont les suivants:
 
 \begin{enumerate}
     \item Importance des recherches
-    
-    Les challenges techniques importants à surmonter nous ont permis de confirmer l’importance de faire des recherches et 
-    planifier la solution avant d’implémenter. Cela évite de perdre du temps à essayer des implémentations mal pensées. 
-    La réussite de cette version nous apprend également qu’avec des recherches, des problèmes qui semblent difficiles 
-    peuvent être surmontés.
+
+          Les challenges techniques importants à surmonter nous ont permis de confirmer l’importance de faire des recherches et
+          planifier la solution avant d’implémenter. Cela évite de perdre du temps à essayer des implémentations mal pensées.
+          La réussite de cette version nous apprend également qu’avec des recherches, des problèmes qui semblent difficiles
+          peuvent être surmontés.
     \item Planifier du sprint et de la charge de travail
-    
-    Si cela était à refaire, nous aurions sûrement été moins ambitieux pour la version Beta en décalant des User Stories 
-    à la version Release Candidate. Le travail sur cette version nous fait réaliser à la fois l'importance de bien "quantifier" 
-    le volume de travail des User Stories, mais en même temps la difficulté à le faire. En effet, en particulier en ce début de projet, 
-    il reste difficile d’estimer avec précision la charge de travail nécessaire à l'implémentation des User Stories.
-    
+
+          Si cela était à refaire, nous aurions sûrement été moins ambitieux pour la version Beta en décalant des User Stories
+          à la version Release Candidate. Le travail sur cette version nous fait réaliser à la fois l'importance de bien "quantifier"
+          le volume de travail des User Stories, mais en même temps la difficulté à le faire. En effet, en particulier en ce début de projet,
+          il reste difficile d’estimer avec précision la charge de travail nécessaire à l'implémentation des User Stories.
+
     \item Promotion en classe
-    
-    La version alpha comporte essentiellement des algorithmes écrits sous forme de fonctions. Du fait de la complexification 
-    des challenges et de l’ajout d’une interface graphique, la programmation objet s’est imposée à nous. Tout d’abord de part 
-    l’utilisation de la bibliothèque PyQt et des fonctionnalités qu’il a fallu développées en s’appuyant sur celle-ci, et ensuite 
-    de part les caractéristiques des solutions nécessitant d’être encapsulées et de disposer d’attribut et de fonctionnalités propres. 
+
+          La version alpha comporte essentiellement des algorithmes écrits sous forme de fonctions. Du fait de la complexification
+          des challenges et de l’ajout d’une interface graphique, la programmation objet s’est imposée à nous. Tout d’abord de part
+          l’utilisation de la bibliothèque PyQt et des fonctionnalités qu’il a fallu développées en s’appuyant sur celle-ci, et ensuite
+          de part les caractéristiques des solutions nécessitant d’être encapsulées et de disposer d’attribut et de fonctionnalités propres.
 
 \end{enumerate}
