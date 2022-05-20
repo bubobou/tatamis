@@ -22,13 +22,15 @@ def nombre_tatamis_max(largeur_dojo:int,longueur_dojo:int) -> int:
     return nombre_tatamis(largeur,longueur)
     
 
-def multiples(nombre: int,mini=2) ->list :
-    """Fonction qui extrait les couples de multiples d'un entier, avec une valeur de multiple minimale 
+def multiples(nombre: int, ratio : int, mini=2) ->list :
+    """Fonction qui extrait les couples de multiples d'un entier, avec une valeur de multiple minimale et un ratio à respecter
     
         Paramètres :
             nombre (int) : l'entier dont il faut extraire les multiples
 
             mini (int) : le multiple minimal
+
+            ratio (int) : le ratio à ne pas excéder entre les deux multiples
 
         Return :
             resultat (list) : une liste de couple (tuple) de multiples
@@ -36,54 +38,84 @@ def multiples(nombre: int,mini=2) ->list :
     resultat = []
     for w in range(mini, nombre//mini) :
         h = nombre//w
-        if w*h == nombre :
+        if w*h == nombre and verif_ratio(h,w,ratio):
             resultat.append((h,w))
         
     return resultat
 
+def verif_ratio(h,w, ratio) -> bool:
+    """Fonction qui vérifie si le quotient entre deux entier n'excède un ratio donné"""
+    return h/w < ratio and w/h < ratio
 
-def multiples_inf(nombre,ratio=3,rendement=0.75) :
-    """Fonction qui sélectionne les multiples d'entiers inférieurs à un entier selon un critère de ratio et de rendement
-        
+def recherche_dimensions(nombreTatamis : int, ratio=3, rendement=0.75 ) -> list:
+    """Fonction qui recherche les dimensions possibles pour un dojo état donné un nombre de tatamis
+    
         Paramètres :
-            nombre (int) : l'entier dont il faut extraire les multiples
+            nombreTatamis (int) : le nombre de tatamis donné
 
-            ratio (int) : le ratio maximal entre les multiples
+            ratio (int) : la valeur maximale du quotient entre la longueur et largeur
 
-            rendement (float) : la proportion minimale que représente le produit des multiples par rapport à l'entier "nombre"
+            rendement (float) : le taux d'utilisation minimale de tatamis par rapport au nombre donné
 
         Return :
-            resultat (list) : une liste de couple (tuple) de multiples
+            dimensionsPossibles (list) : tableau des couples (longueur, largeur) permettant un pavage du dojo 
+            avec le nombre de tatamis donné et les contraintes imposées 
     """
-    facteurs = []
-    nb = nombre    
-    while nb > 3 :
-        resultat = multiples(nb)
-        if len(resultat) != 0:
-            for h,w in resultat :
-                if h/w < ratio and w/h < ratio and w*h > rendement*nombre:
-                    facteurs.append((h,w))
-        nb -= 1              
-    return facteurs
+    aire_max = nombreTatamis*2
+    aire = aire_max
+    dimensionsPossibles = []
+    while aire > aire_max*rendement :
+        listDimensions = multiples(aire, ratio)
+        if len(listDimensions) != 0:
+            for longueur, largeur in listDimensions :
+                if nombre_de_dispositions(longueur, largeur) and ((largeur, longueur) not in dimensionsPossibles):
+                    dimensionsPossibles.append((longueur, largeur))
+        aire -=1
+    return dimensionsPossibles
+
+# def multiples_inf(nombre,ratio=3,rendement=0.75) :
+#     """Fonction qui sélectionne les multiples d'entiers inférieurs à un entier selon un critère de ratio et de rendement
+        
+#         Paramètres :
+#             nombre (int) : l'entier dont il faut extraire les multiples
+
+#             ratio (int) : le ratio maximal entre les multiples
+
+#             rendement (float) : la proportion minimale que représente le produit des multiples par rapport à l'entier "nombre"
+
+#         Return :
+#             resultat (list) : une liste de couple (tuple) de multiples
+#     """
+#     facteurs = []
+#     nb = nombre    
+#     while nb > 3 :
+#         resultat = multiples(nb)
+#         if len(resultat) != 0:
+#             for h,w in resultat :
+#                 if h/w < ratio and w/h < ratio and w*h > rendement*nombre:
+#                     facteurs.append((h,w))
+#         nb -= 1              
+#     return facteurs
 
 
-def recherche_disposition(nombre: int) -> list:
-    aire = nombre*2
-    dimensions = multiples_inf(aire)    
-    dispositions = []
+# def recherche_disposition(nombre: int) -> list:
+#     aire = nombre*2
+#     dimensions = multiples_inf(aire)    
+#     dispositions = []
 
-    #%TODO  refactoring du reste de la fonction
-    for h,w in dimensions :
-        dispositions.append(recherche_disposition_max(h,w))
+#   
+#     for h,w in dimensions :
+#         dispositions.append(recherche_disposition_max(h,w))
 
-    nb_disp = len(dispositions)-1 # élimination des doublons : à extraire dans une fonction
+#     nb_disp = len(dispositions)-1 # élimination des doublons : à extraire dans une fonction
 
-    for i in range(nb_disp,0,-1):
-        tab = dispositions[:i]
-        if ((dispositions[i][1],dispositions[i][0]) in tab) or (dispositions[i] in tab ) :
-            dispositions.pop(i)
+#     for i in range(nb_disp,0,-1):
+#         tab = dispositions[:i]
+#         if ((dispositions[i][1],dispositions[i][0]) in tab) or (dispositions[i] in tab ) :
+#             dispositions.pop(i)
 
-    return dispositions
+#     return dispositions
+
 
 
 ### Symetrie ###

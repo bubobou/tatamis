@@ -166,9 +166,9 @@ class Interface(QWidget):
         boutonFonctionaliteUneDisposition = QPushButton("Afficher une disposition")
         boutonFonctionaliteToutesDispositions = QPushButton("Afficher toutes les dispositions possibles")
         boutonFonctionaliteSolutionAPartirDim = QPushButton("Obtenir une solution étant donné un nombre de tatamis")
-        boutonFonctionaliteSansSymetrieNbDispo = QPushButton("Connaître le nombre de dispositions possibles sans symétries")
-        boutonFonctionaliteSansSymetrieAffichage = QPushButton("Afficher toutes les dispositions possibles sans symétries")
-        boutonFonctionaliteSolutionMini = QPushButton("Quelle taille maximum de dojo pour avoir un solution ?")
+        boutonFonctionaliteSansSymetrieNbDispo = QPushButton("Connaître le nombre de dispositions possibles sans symétrie")
+        boutonFonctionaliteSansSymetrieAffichage = QPushButton("Afficher toutes les dispositions possibles sans symétrie")
+        boutonFonctionaliteSolutionMini = QPushButton("Quelle taille maximum de dojo pour avoir une solution ?")
         boutonFonctionaliteSolutionDemi = QPushButton("Existe-t-il une solution avec un/des demi-tatamis ?")
 
         # couleur, police et style des boutons
@@ -417,7 +417,8 @@ class Interface(QWidget):
             message.exec()
 
         elif nombre_de_dispositions(self.largeur_dojo, self.longueur_dojo):
-            nombre = nombre_dispo_uniques(self.largeur_dojo, self.longueur_dojo)            
+            #nombre = nombre_dispo_uniques(self.largeur_dojo, self.longueur_dojo)    
+            nombre = Dispositions(self.largeur_dojo, self.longueur_dojo, False).count        
             info = f"Le nombre disposition(s) sans symétrie pour ce dojo est : {nombre}"
             message = MessageInfo("Connaître le nombre de disposition(s) sans symétrie horizontale et/ou verticale pour ce dojo",info)
             message.exec()
@@ -450,7 +451,7 @@ class Interface(QWidget):
             message.exec() 
         
         else :
-            dim = recherche_disposition(self.nb_tatamis)
+            dim = recherche_dimensions(self.nb_tatamis)
             info = affichage_dimension(dim)
             message = MessageInfo("Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi \nCes propositions satisfont aux conditions suivantes: \n   - un ratio maximum de 3 entre la longueur et la largeur\n   - une utilisation de minimum 75% des tatamis saisis",info)
             message.exec()
