@@ -72,7 +72,7 @@ class Interface(QWidget):
         largeur = QLabel('Largeur (entre 1 et 25) :')
         largeur.setAlignment(Qt.AlignVCenter | Qt.AlignRight)
 
-        nbTatamisDispo = QLabel('Nombre de tatamis 2x1 disponibles (entre 1 et 300) :')        
+        nbTatamisDispo = QLabel('Nombre de tatamis 2x1 disponibles (entre 3 et 300) :')        
         nbTatamisDispo.setAlignment(Qt.AlignVCenter | Qt.AlignRight)
 
 
@@ -230,19 +230,19 @@ class Interface(QWidget):
 
 
         # commentaires sur les boutons et champs
-        boutonFonctionaliteSurface.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteExiste.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteNbDispositions.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteNbTatamis.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteUneDisposition.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteToutesDispositions.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteSolutionAPartirDim.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteSolutionMini.setToolTip("Cliquer pour accèder à cette fonctionalité")
-        boutonFonctionaliteSolutionDemi.setToolTip("Cliquer pour accèder à cette fonctionalité")
+        boutonFonctionaliteSurface.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteExiste.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteNbDispositions.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteNbTatamis.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteUneDisposition.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteToutesDispositions.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteSolutionAPartirDim.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteSolutionMini.setToolTip("Cliquer pour accéder à cette fonctionalité")
+        boutonFonctionaliteSolutionDemi.setToolTip("Cliquer pour accéder à cette fonctionalité")
 
         self.longueurEdit.setToolTip("Entrer la longeur du dojo (nombre entier entre 1 et 25)")
         self.largeurEdit.setToolTip("Entrer la largeur du dojo (nombre entier entre 1 et 25)")
-        self.nbTatamisDispoEdit.setToolTip("Entrer le nomnre de tatamis disponibles (nombre entier entre 1 et 300)")
+        self.nbTatamisDispoEdit.setToolTip("Entrer le nombre de tatamis disponibles (nombre entier entre 3 et 300)")
 
 
         # bouton supplementaire pour fermer
