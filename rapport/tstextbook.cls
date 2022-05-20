@@ -89,7 +89,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
            {\parbox[t][1.6cm][t]{\paperwidth}
            {\huge\bfseries\sffamily\flushleft\thechapter. #1}};
       % Chapter contents
-      \draw[anchor=west,inner sep=0pt] (8.8cm,-7cm) node
+      \draw[anchor=west,inner sep=0pt] (8.8cm,-6cm) node
            [tssteelblue,
             ultra thick,
             fill=white,
@@ -100,13 +100,13 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
             rounded corners,
             inner sep=0pt]
            (0,0)
-           {\hspace{1cm}\parbox[t][5.1cm][t]{11cm}
+           {\hspace{1cm}\parbox[t][4.8cm][t]{11cm}
            {\vspace{-1cm}\huge\bfseries\sffamily\flushleft
             \textcolor{black}{\sffamily\minitoc}}};
     \end{tikzpicture}
   };
 \end{tikzpicture}
-\vspace{7.5cm}
+\vspace{6cm}
 }
 
 % Unnumbered chapters (without minitoc)
@@ -151,7 +151,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 %--------------------------------------------------------------------------
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage{titletoc}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{2}
 
 \titlecontents{chapter}[0cm]
 {\addvspace{14pt}\large\sffamily\bfseries}
@@ -163,6 +163,17 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 {\addvspace{6pt}\sffamily\bfseries}
 {\contentslabel[\thecontentslabel]{1.25cm}}{}
 {\sffamily\hfill\color{black}\thecontentspage}[]
+
+\titlecontents{subsection}[0cm]
+{\addvspace{6pt}\sffamily}
+{\contentslabel[\thecontentslabel]{1.25cm}}{}
+{\sffamily\hfill\color{black}\thecontentspage}[]
+
+% \titlecontents{subsubsection}[0cm]
+% {\addvspace{6pt}\sffamily}
+% %{\contentslabel[\thecontentslabel]{1.25cm}}{}
+% {\sffamily\hfill\color{grey}\thecontentspage}[]
+
 
 % Front matter
 %--------------------------------------------------------------------------
@@ -182,25 +193,44 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 
 % Title page
 \BgThispage
-\begin{center}
-  \null
-  \smallskip
+
+
+\begin{tikzpicture}[remember picture,overlay]
+  \node at (current page.north west)
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    
+    % Title
+    \draw[anchor=west, inner sep=0pt] (-0.1cm,-6cm) node
+         [black,
+          ultra thick,
+          fill=tsorange!10,
+          fill opacity=.6,
+          inner sep=10pt]
+         (0,0)
+         {\parbox[t][1.6cm][t]{\paperwidth}         
+         {\Huge\sffamily\scshape\centering #1}};
+   
+  \end{tikzpicture}
+};
+\end{tikzpicture}
+
+
+
+\begin{tikzpicture}[overlay]
   
-
-  \color{black}
-  \sffamily
-
-  \Huge
-  \textsc{\@tstitle}
-
-  \bigskip
-  \smallskip
-
-  \LARGE
-  \textsc{\@tsauthor} \\[1em]
-  \Large
-  \textsc{\@tspublished}
-\end{center}
+  % Author
+  \draw[anchor=south west, inner sep=0pt] (0cm,5cm) node
+       [black,
+        ultra thick,
+        fill=tsorange!10,
+        fill opacity=.6,
+        inner sep=10pt]
+       (0,0)
+       {\parbox[t][1cm][t]{\paperwidth}         
+       {\huge\sffamily\scshape\flushleft #2}};
+ 
+\end{tikzpicture}
 
 \pagebreak
 
