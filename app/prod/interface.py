@@ -297,7 +297,7 @@ class Interface(QWidget):
             message.exec()
 
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -318,7 +318,7 @@ class Interface(QWidget):
             message.exec()
 
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -342,7 +342,7 @@ class Interface(QWidget):
             message.exec() 
         
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -368,7 +368,7 @@ class Interface(QWidget):
             message.exec()
         
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -389,7 +389,7 @@ class Interface(QWidget):
             message.exec()
         
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -411,7 +411,7 @@ class Interface(QWidget):
             message.exec()
         
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -438,7 +438,7 @@ class Interface(QWidget):
             message.exec()
         
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.nb_tatamis > 300 :
+        elif self.nb_tatamis > 300 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Le nombre de tatamis saisi ne peut excéder 300")  
             message.exec()
@@ -464,7 +464,7 @@ class Interface(QWidget):
             message.exec()
 
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
@@ -494,7 +494,7 @@ class Interface(QWidget):
             message.exec()
 
         # Validation supplementaire pour les versions 5.12.2 de PyQt (compte tenu de l evolution de QIntValidator qui ne bloque plus les valeurs saisies de la meme maniere)
-        if self.largeur_dojo > 25 or self.longueur_dojo > 25 :
+        elif self.largeur_dojo > 25 or self.longueur_dojo > 25 :
             message = MessageSaisieInvalide() 
             message.setInformativeText("Ni la longueur ni la largeur ne peuvent excéder 25")  
             message.exec()
