@@ -1,10 +1,30 @@
 \section{Backlog/roadmap du sprint Production}
 
 L’objectif de ce sprint est de finaliser en augmentant encore la valeur donné à l'utilisateur par:
-Ajout de deux fonctionnalités concernant les dispositions symétriques. L’objectif étant d'éliminer ces dispositions symétriques qui apportent peu, voire prêtent à confusion pour l’utilisateur.
-Dernière amélioration mineure de l’interface, surtout sur le visuel, pour aligner le design des messages de réponse à celui de l’interface principale.\\
+Ajout de deux fonctionnalités concernant les dispositions symétriques. L’objectif étant d'éliminer ces dispositions
+symétriques qui apportent peu, voire prêtent à confusion pour l’utilisateur.
+Dernière amélioration mineure de l’interface, surtout sur le visuel, pour aligner le design des messages de réponse
+à celui de l’interface principale.\\
 
 Pour ce faire le backlog suivant a été \emph{embarqué} dans cette version et a résulté en la roadmap suivante:
+
+
+\begin{center}
+    \includegraphics[width=17cm]{images/roadmap-prod-part1.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=17cm]{images/roadmap-prod-part2.png}
+    \includegraphics[width=17cm]{images/roadmap-prod-part3.png}
+\end{center}
+
+\bigskip
+
+Et ici présenté en diagramme de Gantt:
+
+\begin{center}
+    \includegraphics[width=17cm]{images/tatamis-gantt-prod.png}
+\end{center}
 
 \section{Tests}
 
@@ -17,7 +37,7 @@ Les tests réalisés pour cette version et leurs résultats sont les suivants:\\
     \renewcommand{\arraystretch}{1.2}
     {\setlength{\tabcolsep}{1.5 mm}
         \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
-            id  & Sujet                                                                                                  & Test d'acceptance                                                                                                                                                                                        & Méthode de test & Résultat \\ \hline
+            \rowcolor{tssteelblue} \textcolor{white}{id}                        & \textcolor{white}{Sujet}                                                                   & \textcolor{white}{Test d'acceptance (en gris : test utilisateur)}                                                                                            & \textcolor{white}{Méthode de test} & \textcolor{white}{Résultat} \\ \hline
             523 & US Comprendre le nombre de dispositions possibles excluant les dispositions symétriques                & Étant donné que l'utilisateur saisie des dimensions valides de dojo, il obtient le nombre de solutions possibles en excluant les solutions symétriques                                                   & Manuel          & OK       \\ \hline
             524 & US Afficher visuellement toutes les dispositions possibles excluant les dispositions symétriques       & \cellcolor{tsgrey} Étant donné des dimensions d'un dojo saisies, quand il sélectionne cette option, il obtient visuellement toutes les dispositions possibles en excluant les solutions symétriques      & Manuel          & OK       \\ \hline
         \end{testtabular}}
@@ -25,11 +45,72 @@ Les tests réalisés pour cette version et leurs résultats sont les suivants:\\
 
 \bigskip
 
-Par ailleurs, étant donné qu’il s’agit de la dernière version pour mise en production,
-il est important de tester l’ensemble des fonctionnalités du programme. Des tests de non régression
-ont été effectués:
+Par ailleurs, étant donné qu’il s’agit de la dernière version pour mise en production, il est important de tester
+l’ensemble des fonctionnalités du programme. Des tests de non régression ont été effectués:\\
 
-%TODO inclure tableaux tests non regression
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{5cm}|m{5cm}|m{1.5cm}|m{1.5cm}|m{1.5cm}|m{3cm}|} \hline
+            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}   & \textcolor{white}{Rédacteur cahier de tests}   & \textcolor{white}{Méthode de test}  & \textcolor{white}{Testeur} & \textcolor{white}{Résultat} \\ \hline
+            Champs de saisie \emph{Longueur} - test de saisie $>$ 25 (26)&Saisie impossible&Benoit&Manuel&Benoit&OK avec version 5.9.7 de PyQt \tabularnewline & & & & & KO avec version 5.12.2 de PyQt \\ \hline
+            Champs de saisie \emph{Largeur} - test de saisie $>$  25 (26)&Saisie impossible&Benoit&Manuel&Benoit&OK avec version 5.9.7 de PyQt \tabularnewline & & & & & KO avec version 5.12.2 de PyQt\\ \hline
+            Champs de saisie \emph{Nombre de tatamis disponibles} - test de saisie $>$ 300 (301)&Saisie impossible&Benoit&Manuel&Benoit&OK avec version 5.9.7 de PyQt \tabularnewline & & & & & KO avec version 5.12.2 de PyQt\\ \hline
+            Champs de saisie \emph{Longueur} - test de saisie nulle (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
+            Champs de saisie \emph{Longueur} - test d'absence de saisie (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
+            Champs de saisie \emph{Largeur} - test de saisie nulle (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
+            Champs de saisie \emph{Largeur} - test d'absence de saisie (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
+            Champs de saisie \emph{Nombre de tatamis disponibles} - test de saisie nulle puis cliquer sur le bouton "Obtenir une solution etant donne un nombre de tatamis"&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
+            Champs de saisie \emph{Nombre de tatamis disponibles} - test d'absence de saisie puis cliquer sur le bouton "Obtenir une solution etant donne un nombre de tatamis"&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
+            Fonctionnalité "Afficher la surface du dojo" en saisissant des dimensions valides (3,1)&Réponse: La surface du dojo est 3.&Benoit&Manuel&Benoit&OK\\ \hline
+        \end{testtabular}}
+\end{adjustwidth}
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{5cm}|m{5cm}|m{1.5cm}|m{1.5cm}|m{1.5cm}|m{3cm}|} \hline
+            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}   & \textcolor{white}{Rédacteur cahier de tests}   & \textcolor{white}{Méthode de test}  & \textcolor{white}{Testeur} & \textcolor{white}{Résultat} \\ \hline
+            Fonctionnalité "Savoir si il existe une disposition pour ce dojo" en saisissant des dimensions ou il existe (3,4)&Réponse: Il existe au moins une disposition avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Savoir si il existe une disposition pour ce dojo" en saisissant des dimensions ou il n'existe pas (3,1)&Réponse: Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de dispositions possibles" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Il existe 0 disposition possible&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de dispositions possibles" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Il existe 4 dispositions possibles&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Le nombre de tatamis 2 $\times$ 1 nécessaires pour ce dojo est : 6&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Quelle taille maximum de dojo pour avoir une solution?" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: La taille maximale est (1, 2)&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Quelle taille maximum de dojo pour avoir une solution?" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Demande impossible Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Existe-t-il une solutions avec des demi-tatamis?" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Oui&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Existe-t-il une solutions avec des demi-tatamis?" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Demande impossible Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Afficher une disposition" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Affichage d'une disposition avec les indications "Dojo de dimension : 4 x 3 $|$ Surface: 12 $m^2$ $|$ 6 tatamis"&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Afficher une disposition" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+
+        \end{testtabular}}
+\end{adjustwidth}
+
+\noindent%
+\begin{adjustwidth}{-1.5cm}{0cm}
+
+    \renewcommand{\arraystretch}{1.2}
+    {\setlength{\tabcolsep}{1.5 mm}
+        \begin{testtabular}{|m{5cm}|m{5cm}|m{1.5cm}|m{1.5cm}|m{1.5cm}|m{3cm}|} \hline
+            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}   & \textcolor{white}{Rédacteur cahier de tests}   & \textcolor{white}{Méthode de test}  & \textcolor{white}{Testeur} & \textcolor{white}{Résultat} \\ \hline
+            Fonctionnalité "Afficher toutes les dispositions possibles" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Affichage de 4 dispositions avec les indications "Dojo de dimension : 4 x 3 $|$ Surface: 12 $m^2$ $|$ 6 tatamis"&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Afficher toutes les dispositions possibles" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+            Fonctionnalité "Obtenir une solution étant donne un nombre de tatamis" en saisissant une dimension valide (23)&Réponse: Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi. Ces propositions satisfont aux conditions suivantes:
+            \begin{itemize}
+                \item un ratio maximum de 3 entre la longueur et la largeur
+                \item une utilisation de minimum 75\% des tatamis saisis
+            \end{itemize}
+            8 $\times$ 5 ; 11 $\times$ 4 ; 7 $\times$ 6 ; 10 $\times$ 4 ; 9 $\times$ 4 ; 6 $\times$ 6
+            &Benoit&Manuel&Benoit&OK \\ \hline
+            Fonctionnalité "Obtenir une solution étant donne un nombre de tatamis" en saisissant une dimension non valide (2)&Réponse: Demande impossible Saisir au minimum 3 tatamis pour utiliser cette fonctionnalité.&Benoit&Manuel&Benoit&OK\\ \hline
+
+        \end{testtabular}}
+\end{adjustwidth}
 
 \bigskip
 Erreur sur validation des saisies:
@@ -37,7 +118,10 @@ Erreur sur validation des saisies:
 Une erreur a été constaté suivant les versions utilisés de PyQt:
 \begin{itemize}
     \item Version 5.9.7: la validation de la saisie des données fonctionne (comportement attendu)
-    \item Version 5.12.2: la validation fonctionne partiellement (cela limite bien le type d'entrée - uniquement des entiers, et limite le nombre de chiffres, mais cela ne limite pas à 25 ou 300 comme attendu; cela limite uniquement à respectivement 99 et 999). Pour corriger ce changement de comportement de QIntValidator, un nouveau message d’erreur a été mis en place.
+    \item Version 5.12.2: la validation fonctionne partiellement (cela limite bien le type d'entrée - uniquement
+          des entiers, et limite le nombre de chiffres, mais cela ne limite pas à 25 ou 300 comme attendu; cela limite
+          uniquement à respectivement 99 et 999). Pour corriger ce changement de comportement de QIntValidator, un
+          nouveau message d’erreur a été mis en place.
 \end{itemize}
 
 \section{Documentation Utilisateur Production}
@@ -52,3 +136,407 @@ Configuration et installations requises:
           (Idéalement la version 5.9.7 de PyQt)
     \item Installer les polices Nexa (light et bold) (fichiers otf fournis)
 \end{itemize}
+
+
+\subsection{Comment trouver la surface du dojo?}
+
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Afficher la surface du dojo”
+
+          \emph{ Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions. Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{ Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur }
+    \item Interpréter la réponse:
+          \begin{enumerate}
+              \item  \textbf{Réponse}: “La surface du dojo est [Nombre]”.
+                    \textbf{Interprétation}: la surface du dojo est de [Nombre]
+                    (unité identique à celle des dimensions entrées).
+
+          \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Comment trouver le nombre de tatamis nécessaires pour remplir un dojo?}
+
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo”
+
+          \emph{ Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions. Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{ Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur }
+    \item Interpréter la réponse:
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Le nombre de tatamis 2 $\times$ 1 nécessaires pour ce dojo est : [Nombre]”.
+                    \textbf{Interprétation}: il existe au moins une disposition possible et vous aurez besoin d’exactement [Nombre] tatamis pour remplir le dojo.
+              \item  \textbf{Réponse}: “Demande impossible. Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo”. \textbf{Interprétation}:
+                    il n’existe aucune disposition possible de tatamis 2 $\times$ 1 pour remplir le dojo.
+          \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Comment savoir s’il existe une disposition possible de tatamis pour un dojo donné?}
+
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Savoir s’il existe une disposition pour le dojo”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{ Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur }
+    \item Interpréter la réponse:
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Il existe au moins une disposition avec des tatamis 2 $\times$ 1 pour ce dojo”.
+                    \textbf{Interprétation}: il existe au moins une disposition possible.
+              \item \textbf{Réponse}: “Il n’existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo”.
+                    \textbf{Interprétation}: il n’existe aucune disposition possible de tatamis 2 $\times$ 1 pour remplir le dojo.
+                    Il est dans ce cas probable de devoir utiliser des demi-tatamis pour remplir pleinement le dojo.
+          \end{enumerate}
+
+\end{enumerate}
+
+\subsection{Comment savoir combien il existe de dispositions possibles de tatamis pour un dojo donné?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Connaître le nombre dispositions possibles”.
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur. }
+
+    \item Interpréter la réponse:
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Il existe [Nombre] dispositions possibles”.
+                    \textbf{Interprétation} : il existe des dispositions pour ce dojo et [Nombre] est
+                    le nombre de dispositions possibles pour remplir le dojo.
+              \item \textbf{Réponse}: “Il existe 0 disposition possible”.
+                    \textbf{Interprétation}: la demande est non pertinente car il n’existe pas de disposition possible
+                    de tatamis 2 $\times$ 1 pour les dimensions du dojo.
+          \end{enumerate}
+\end{enumerate}
+
+
+\subsection{Comment afficher une disposition?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Afficher une disposition”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur.}
+
+    \item Une disposition s’affiche ainsi que le rappel des dimensions du dojo, sa surface et le nombre
+          de tatamis nécessaires pour le remplir.
+
+          Ou bien le message d’erreur suivant s’affiche: “Demande impossible.
+          Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo” apparaît,
+          ce qui signifie que la demande est non pertinente car il n’existe pas de disposition
+          possible de tatamis 2 $\times$ 1 pour les dimensions du dojo.
+
+\end{enumerate}
+
+\subsection{Comment afficher toutes les dispositions possibles?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Afficher toutes les dispositions possibles”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur. }
+
+    \item Toutes les dispositions possibles s’affichent ainsi que le rappel des dimensions du dojo,
+          sa surface et le nombre de tatamis nécessaires pour le remplir.
+
+          Ou bien le message d’erreur suivant s’affiche: “Demande impossible.
+          Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo” apparaît,
+          ce qui signifie que la demande est non pertinente car il n’existe pas de disposition
+          possible de tatamis 2 $\times$ 1 pour les dimensions du dojo.
+
+\end{enumerate}
+
+\subsection{En cas d’absence de solutions, comment connaître la taille maximum du dojo qui permettrait de trouver au moins un disposition?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Quelle taille maximum de dojo pour avoir une solution”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur.}
+
+    \item Interpréter la réponse :
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Taille maximum de dojo pour le remplir de tatamis 2 $\times$ 1.
+                    La taille maximale est ([Longueur], [Largeur])”. \textbf{Interprétation}: La taille (plus petite
+                    que les dimensions entrées) maximale d’un dojo pour obtenir une solution est de longueur [Longueur] et de largeur [Largeur].
+              \item \textbf{Réponse}: “Demande impossible. Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo”.
+                    \textbf{Interprétation}: la demande est non pertinente car il existe au moins une disposition possible de tatamis 2 $\times$ 1 pour
+                    les dimensions du dojo entrées.
+          \end{enumerate}
+
+\end{enumerate}
+
+\subsection{En cas d’absence de solutions, existe-t-il une solution avec des demi-tatamis?}
+
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Quelle taille maximum de dojo pour avoir une solution”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur.}
+
+    \item Interpréter la réponse :
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Oui”. \textbf{Interprétation}: Le dojo (aux dimensions entrées) ne peut pas
+                    être rempli par des tatamis de taille 2 $\times$ 1 mais il peut l'être en combinant au moins un demi-tatamis
+                    (de taille 1 $\times$ 1).
+
+              \item \textbf{Réponse}: “Demande impossible. Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo”.
+                    \textbf{Interprétation}: la demande est non pertinente car il existe au moins une disposition possible
+                    sans demi-tatamis pour les dimensions du dojo entrées.
+          \end{enumerate}
+
+\end{enumerate}
+
+\subsection{Comment obtenir les tailles des dojos admettant des solutions de remplissage à partir d’un nombre de tatamis 2 $\times$ 1?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface le nombre de tatamis dans le champ prévu à cet effet (Champ au bas de l’interface intitulé
+          “Nombre de tatamis 2 $\times$ 1 disponibles (entre 1 et 300)”).
+
+          \emph{Nb: Vous pouvez entrer un nombre de tatamis compris entre 1 et 300.}
+
+    \item Cliquer sur le bouton: “Obtenir une solution étant donne un nombre de tatamis”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur.}
+
+    \item Interpréter la réponse :
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisis” suivi
+                    d’une liste de dimensions (couple de nombre de forme (longeur, largeur)).
+                    \textbf{Interprétation}: Les dimensions de dojos affichées sont des dimensions possibles de dojo permettant
+                    de remplir le dojo avec le nombre de tatamis 2 $\times$ 1 saisi.
+
+                    Nb: toutes les solutions de dimensions respectent:
+                    \begin{itemize}
+                        \item Un ratio maximum de 3 entre la longueur et la largeur
+                        \item Une utilisation au minimum de 75\% du nombre de tatamis
+                    \end{itemize}
+
+              \item \textbf{Réponse vide} (“Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi”
+                    sans dimensions affichées en dessous). \textbf{Interprétation}: il n’existe pas de dimensions de dojo
+                    permettant de le remplir avec le nombre de tatamis 2 $\times$ 1 saisi (et en respectant les conditions précédemment mentionnées).
+
+          \end{enumerate}
+
+\end{enumerate}
+
+\subsection{Comment savoir combien il existe de dispositions non symétriques possibles de tatamis pour un dojo donné?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Connaître le nombre dispositions possibles sans symétrie”.
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur. }
+
+    \item Interpréter la réponse:
+          \begin{enumerate}
+              \item \textbf{Réponse}: “Le nombre disposition(s) sans symétrie pour ce dojo est : [Nombre]”.
+                    \textbf{Interprétation} : il existe de dispositions pour ce dojo et [Nombre] est le nombre de dispositions
+                    possibles sans symétries pour remplir le dojo.
+
+              \item Ou bien le message d’erreur suivant s’affiche: “Demande impossible. Il n'existe pas de disposition possible
+                    avec des tatamis 2x1 pour ce dojo” apparaît, ce qui signifie que la demande est non pertinente car il n’existe pas
+                    de disposition possible de tatamis 2x1 pour les dimensions du dojo.
+          \end{enumerate}
+\end{enumerate}
+
+\subsection{Comment afficher toutes les dispositions non symétriques possibles?}
+
+\begin{enumerate}
+    \item Lancer l’interface (dans le Terminal avec la ligne de commande: \texttt{python3 interface.py})
+    \item Entrer dans l’interface la longueur et la largeur du dojo dans les champs prévus à cet effet.
+          (Champs au bas de l’interface intitulés “Longueur (entre 1 et 25)” et “Largeur (entre 1 et 25)”).
+
+          \emph{Nb:
+              \begin{itemize}
+                  \item Vous pouvez inverser la longueur et la largeur, cela n’a pas d’importance
+                  \item Vous pouvez entrer un nombre de tatamis compris entre 1 et 25.
+              \end{itemize}
+          }
+    \item Cliquer sur le bouton: “Afficher toutes les dispositions possibles sans symétrie”
+
+          \emph{Nb: Si vous oubliez d’entrer une dimension ou si vous entrez une dimension 0,
+              un message d’erreur “Erreur de saisie des dimensions.
+              Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
+
+          \emph{Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
+              conduit à l'apparition d’un message d’erreur. }
+
+    \item Toutes les dispositions non symétriques possibles s’affichent ainsi que le rappel des dimensions du dojo,
+          sa surface et le nombre de tatamis nécessaires pour le remplir.
+
+          Ou bien le message d’erreur suivant s’affiche: “Demande impossible.
+          Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo” apparaît,
+          ce qui signifie que la demande est non pertinente car il n’existe pas de disposition
+          possible de tatamis 2 $\times$ 1 pour les dimensions du dojo.
+
+\end{enumerate}
+
+\section{Explication de(s) algorithme(s) et choix de programmation}
+
+\subsection{Algorithme pour identifier les solution symétriques}
+
+\subsection{Choix de programmation Interface}
+
+Le principal changement concerne les messages de réponse (et d’erreur) qui ont été alignés avec le design de l’interface principale.
+
+\begin{itemize}
+
+
+    \item Exemple de message de retour (succès):
+
+          \begin{center}
+              \includegraphics[scale=0.25]{images/prodRetourSucces.png}
+          \end{center}
+
+
+    \item Exemple de message indiquant à l’utilisateur que la demande est impossible avec les dimensions saisies:
+
+          \begin{center}
+              \includegraphics[scale=0.25]{images/prodImpossible.png}
+          \end{center}
+
+
+    \item Exemple de message d’erreur en cas de non saisie ou saisie nulle de dimensions:
+
+          \begin{center}
+              \includegraphics[scale=0.25]{images/prodErreurSaisie.png}
+          \end{center}
+
+
+\end{itemize}
+L’interface principale a subi quelques modifications de design (couleur du texte) et l’ajout des boutons pour les
+fonctionnalités supplémentaires:
+
+
