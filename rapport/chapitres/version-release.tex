@@ -6,9 +6,24 @@ de l’interface d’un point de vue visuel et pour en faciliter la compréhensi
 
 Pour ce faire le backlog suivant a été "embarqué" dans cette version et a résulté en la roadmap suivante:
 
-%TODO insérer screenshot
+\begin{center}
+    \includegraphics[width=17cm]{images/roadmap-rc-part1.png}
+\end{center}
+
+\begin{center}
+    \includegraphics[width=17cm]{images/roadmap-rc-part2.png}
+
+    \includegraphics[width=17cm]{images/roadmap-rc-part3.png}
+\end{center}
 
 
+Et ici présenté en diagramme de Gantt:
+\begin{center}
+    \includegraphics[width=16cm]{images/tatamis-gantt-rc.png}
+
+\end{center}
+
+\newpage
 \section{Tests}
 
 
@@ -18,7 +33,7 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
     \renewcommand{\arraystretch}{1.2}
     {\setlength{\tabcolsep}{1.5 mm}
         \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
-            id  & Sujet                                                                                                              & Test d'acceptance                                                                                                                                                                                                                  & Méthode de test & Résultat \\ \hline
+            \rowcolor{tssteelblue} \textcolor{white}{id}                        & \textcolor{white}{Sujet}                                                                   & \textcolor{white}{Test d'acceptance (en gris : test utilisateur)}                                                                                            & \textcolor{white}{Méthode de test} & \textcolor{white}{Résultat} \\ \hline
             540 & EPIC Amélioration de l'expérience par ajout de fonctionnalités et amélioration de l'interface                      & \cellcolor{tsgrey}cf tests utilisateur des US                                                                                                                                                                                                        & Manuel          & OK       \\ \hline
             481 & US Affichage des dimensions sur les représentation graphiques des dispositions de tatamis                          & L'affichage graphique des solutions comprend un rappel des dimensions du dojo.                                                                                                                                                     & Manuel          & OK       \\ \hline
             482 & US Modification des dimensions du dojo                                                                             & L'application permet de saisir d'autres dimensions que celles initialement renseignées.                                                                                                                                            & Manuel          & OK       \\ \hline
@@ -30,16 +45,6 @@ Pour ce faire le backlog suivant a été "embarqué" dans cette version et a ré
             527 & US calculer les dispositions pour des dimensions plus petites                                                      & \cellcolor{tsgrey} Lorsque l'utilisateur propose des dimensions, il n'existe pas de disposition aux dimensions plus grandes entre la(les) solution(s) alternative(s) proposée(s) par l'application et la demande de l'utilisateur. & Manuel          & OK       \\ \hline
             544 & TACHE créer une fonction pour calculer les dispositions pour des dimensions plus petites                           & Lorsque l'utilisateur propose des dimensions, il n'existe pas de disposition aux dimensions plus grandes entre la(les) solution(s) alternative(s) proposée(s) par l'application et la demande de l'utilisateur.                    & Automatisé      & OK       \\ \hline
             545 & TACHE permettre à l'utilisateur d'utiliser la fonction de calcul des dispositions pour des dimensions plus petites & \cellcolor{tsgrey}La fonctionnalité est disponible sur l'interface utilisateur                                                                                                                                                                       & Manuel          & OK       \\ \hline
-                   \end{testtabular}}
-\end{adjustwidth}
-
-\noindent%
-\begin{adjustwidth}{-1.5cm}{0cm}
-
-    \renewcommand{\arraystretch}{1.2}
-    {\setlength{\tabcolsep}{1.5 mm}
-        \begin{testtabular}{|m{0.6cm}|m{5.5cm}|m{8cm}|m{2cm}|c|} \hline
-            id  & Sujet                                                                                                              & Test d'acceptance                                                                                                                                                                                                                  & Méthode de test & Résultat \\ \hline
             541 & US Amélioration de l'expérience par ajout de fonctionnalités et amélioration de l'interface                        & \cellcolor{tsgrey}Chaque interaction proposée par l'interface correspond à une fonctionnalité bien définie et identifiable, l'interface est intuitive est agréable visuellement.                                                                     & Manuel          & OK       \\ \hline
             547 & TACHE Interface: changement de couleur de fonds                                                                    & \cellcolor{tsgrey}Test utilisateur: Le fonds de l'interface est coloré& Manuel          & OK       \\ \hline
             548 & TACHE Interface: amélioration des champs de saisie                                                                 & \cellcolor{tsgrey}Les champs de saisie sont bien identifiables& Manuel          & OK       \\ \hline
@@ -343,6 +348,31 @@ Configuration et installations requises:
 
 \subsection{Algorithmes}
 
+La première fonctionnalité à implémenter fut le calcul de la taille maximum du dojo qui permettrait de trouver au moins une disposition 
+dans le cas ou les dimensions fournies initialement ne le permettent pas. Pour cela on fait appelle à la fonction calculant le nombre 
+de disposition pour un couple de dimensions données. Tant que le nombre de disposition est nul, la largeur ou la longueur est décrémentée. 
+La dimension décrémentée est choisie de façon à maximiser le nombre la surface du dojo.\\
+
+Pour déterminer les dimensions de dojos possibles pour un nombre de tatamis donné, il a fallu dans un premier temps implémenter 
+une fonction \texttt{multiples} permettant de déterminer les multiples d’un entier. Les couples de multiples ainsi obtenus constituent alors des dimensions 
+de dojo proposables. Néanmoins les valeurs obtenues ne permettent pas forcément un pavage tel qu’il est souhaité, de plus, de nombreux 
+couples de valeurs ne sont pas pertinents pour les dimensions d’un dojo de part leur ratio trop élevé entre longueur et largeur.\\
+
+Afin d’obtenir des couples en plus grand nombre et avec des valeurs pertinentes, une fonction \texttt{multiples\_inf} a été implémentée permettant de sélectionner 
+les multiples d’entiers inférieurs à un entier donné.  Un ratio minimum de 3 entre les valeurs du couple a été choisi, ainsi qu’un produit 
+des valeurs représentant au moins 75\% de l’entier donné. Ainsi on s’assure que les dimensions obtenues soient pertinentes pour la mise en 
+place du dojo.\\
+
+Enfin, la fonction principale \texttt{recherche\_disposition} fait appel aux fonctions précédemment décrites :
+\begin{itemize}
+    \item La fonction \texttt{multiples\_inf} est appelée pour obtenir une liste de dimensions acceptables d’un dojo pour un nombre de tatamis donné.
+    \item La fonction \texttt{recherche\_disposition\_max} est alors appelée sur chaque élément (couple) de cette liste et retourne donc un couple de 
+    valeurs inférieures ou égales. Les valeurs retournées sont ajoutées à une liste.
+    \item Finalement, une boucle effectue un test sur la liste de couples de valeurs obtenues afin d’en éliminer les éventuels doublons.
+\end{itemize}
+
+
+
 \subsection{Choix de programmation Interface}
 
 Outre l’ajout à l'interface des quatre boutons correspondants aux nouvelle fonctionnalités, 
@@ -370,7 +400,7 @@ les principaux changements ont été effectués à l’interface:
 
 
 \begin{center}
-    \includegraphics[scale=0.25]{images/releaseInterface.png}
+    \includegraphics[width=16cm]{images/releaseInterface2.png}
 \end{center}
 
 \subsection{Choix de la structure du programme}
