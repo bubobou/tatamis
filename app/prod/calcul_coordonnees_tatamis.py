@@ -38,7 +38,7 @@ class Dispositions:
 
     def init_room(self):
         "Fonction qui créé une matrice de 0 de dimension H*W, bordée par le nombre '-1' à ses extrémités"
-        room = np.zeros((self.H+2, self.W+2))
+        room = np.zeros((self.H+2, self.W+2),int)
         room[0,:] = -1
         room[self.H+1,:] = -1
         room[:,0] = -1
@@ -100,11 +100,14 @@ class Dispositions:
         if self.symetrie :
             self.solutions.append(self.room.copy())
             self.count = self.count + 1
+            print(self.room)
+            print(self.grille)
 
         elif self.verifie_symetrie(self.grille) :
             self.grilles.append(self.encode(self.grille))
             self.solutions.append(self.room.copy())
             self.count = self.count + 1
+            
             
 
     def encode(self,grille):
@@ -190,6 +193,6 @@ class Dispositions:
 # décommenter les lignes pour tester la classe Disposition
 
 # tStart = time.perf_counter()
-# disp=Dispositions(20,19)
+disp=Dispositions(4,5)
 # tCost  = time.perf_counter() - tStart
 # print('count = {0}, tCost = {1:6.3f}(sec)'.format(disp.count,tCost))

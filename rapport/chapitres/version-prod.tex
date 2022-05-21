@@ -505,7 +505,55 @@ Configuration et installations requises:
 
 \section{Explication de(s) algorithme(s) et choix de programmation}
 
-\subsection{Algorithme pour identifier les solution symétriques}
+\subsection{Algorithme pour identifier les solutions symétriques}
+
+Afin de pouvoir éliminer les solutions symétriques, il s’agissait bien sûr de pouvoir produire le symétrique d’un dojo, 
+mais mais avant tout il s’agit de pouvoir identifier deux dojos ayant le même pavage.\\
+
+Les solutions de pavage sont instanciées par une classe Dispositions dont l’attribut \texttt{solutions}  (de type \texttt{list}) stocke 
+les matrices (de type \texttt{np.array}) modélisant le dojo sous forme d’une grille. Ces matrices contiennent le numéro d’index de 
+chaque tatamis et permettent ainsi de modéliser de façon satisfaisante la disposition géométrique des tatamis, c’est d’ailleurs 
+à partir de cette matrice d’index que sont calculées les coordonnées de chaque tatamis. Néanmoins cette modélisation ne permet 
+pas de comparer deux dispositions de tatamis. En effet deux dispositions de tatamis pourraient être identiques géométriquement 
+mais seraient identifiées comme différentes si l’indexation de leurs tatamis ne correspondaient pas exactement.\\
+
+Le problème a été résolu en utilisant une matrice modélisant encore une fois le dojo par une grille, mais où cette fois la valeur d’une 
+position donnée correspond seulement à l’orientation (horizontale ou verticale) du tatami qui l’occupe. La position d'un tatami orienté
+horizontalement est alors codée par "0" et celle d'un tatami orienté verticalement, codée par "1".\\
+
+Exemple de matrices obtenues pour une disposition 4 $\times$ 5 :\\
+
+
+    Matrice dénommée \texttt{room} comportant les index des tatamis (les valeurs -1 permettent à l’algorithme de détecter les bords lors du parcours):\\
+
+[[-1 -1 -1 -1 -1 -1 -1]
+
+ [-1  ~~1  ~2  ~~2  ~~3  ~3 -1]
+
+ [-1  ~~1  ~4  ~~5  ~~5  ~6 -1]
+
+ [-1  ~~7  ~4  ~~8  ~~8  ~6 -1]
+
+ [-1  ~~7  ~9  ~~9 10 10 -1]
+
+ [-1 -1 -1 -1 -1 -1 -1]]
+
+ \bigskip
+
+    Matrice dénommée \texttt{grille} comportant l’orientation des tatamis :\\
+
+[[1 0 0 0 0]
+
+ ~[1 1 0 0 1]
+
+ ~[1 1 0 0 1]
+
+ ~[1 0 0 0 0]]
+
+
+
+
+
 
 \subsection{Choix de programmation Interface}
 
@@ -539,4 +587,62 @@ Le principal changement concerne les messages de réponse (et d’erreur) qui on
 L’interface principale a subi quelques modifications de design (couleur du texte) et l’ajout des boutons pour les
 fonctionnalités supplémentaires:
 
+\begin{center}
+    \includegraphics[scale=0.25]{images/prodInterface.png}
+\end{center}
+
+\subsection{Choix de la structure du programme}
+
+Aucun changement majeur n’a été appliqué. Le fichier \texttt{release.py} change de nom et devient \texttt{prod.py} mais son sens reste le même.
+
+Du refactoring a été implémenté pour améliorer le code, en cohérence avec l’application des principes SOLID:
+\begin{itemize}
+    \item Un refactoring mineur a été effectué sur le fichier Interface, les messages pop-up d’erreur ont été rationalisés pour passer 
+de 5 à 3 et simplement modifier les paramètres de textes changeants quand on les affichent.
+    \item Avec l’ajout des fonctions “Connaître le nombre de dispositions possibles sans symétries", la fonction pour exécuter ressemble 
+beaucoup aux fonctions “Savoir si il existe un dojo” et “Connaître le nombre de dispositions possibles”. Un refactoring a donc été 
+implémenté pour mutualiser une fonction commune pour le click sur ces 3 boutons.
+    \item Un refactoring a été implémenté pour corriger la fonction permettant de déterminer les dimensions à partir d'un nombre de tatamis. D'une part 
+cette fonction n'était pas correcte puisque ne permettant pas de répondre au critère du taux de 75\% de tatamis utilisés, d'autre part elle était redondante
+ et comportait des boucles évitables. 
+
+\end{itemize}
+
+\section{Challenges rencontrés et apprentissage}
+
+\subsection{Challenges rencontrés et solutions appliquées}
+
+Ce sprint n’a pas vu apparaître de nouveau challenges. Avec les leçons apprises des précédents sprints, sur l’organisation de l'équipe, 
+la planification… nous constatons que cela porte ses fruits.
+
+Deux challenges mineurs peuvent être cités:
+\begin{itemize}
+    \item Technique
+    \begin{itemize}
+        \item Une nouvelle fois, les ambitions en termes de fonctionnalités restent élevées. En particulier la fonctionnalité 
+        d'identification des symétries, comme on peut le constater dans le paragraphe d’explication, l’algorithme doit couvrir 
+        de nombreux cas de figure : symétrie d’axe horizontale, d’axe vertical , ainsi que la composition de celles-ci (symétrie centrale). 
+        Il a donc fallu s’assurer de pouvoir produire des symétriques de dojo, mais surtout de pouvoir modéliser les dispositions de façon 
+        à comparer leur géométrie.
+        \item Cela a été en particulier vrai pour la fonctionnalité 526, censée afficher les dojos avec des couleurs différentes pour faciliter 
+        la compréhension de l’affichage des dispositions. Compte tenu de la difficulté algorithmique et du manque de temps, il a été décidé 
+        d’abandonner cette fonctionnalité.
+
+    \end{itemize}
+    \item Rédactionnel
+    
+    S’agissant de la fin du projet, et bien qu’ayant écrit le rapport au fur et à mesure des précédents sprint, ce sprint a également été 
+    l’occasion d’un travail rédactionnel sur le rapport qui est consommateur de temps.
+
+\end{itemize}
+
+\subsection{Apprentissage}
+
+Les principales leçons de ce sprint sont plutôt des confirmations que des apprentissages:
+\begin{itemize}
+    \item D'itérations et l'amélioration continue portent leurs fruits. Comme mentionné, les leçons apprises lors des précédents sprint 
+    ont permis d'améliorer l'exécution de notre dernier sprint
+    \item La progression au fur et à mesure sur le rapport lors des précédents sprint a également été crucial; il aurait autrement été 
+    difficile de bien rédiger le rapport dans le temps imparti
+\end{itemize}
 
