@@ -169,10 +169,6 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 {\contentslabel[\thecontentslabel]{1.25cm}}{}
 {\sffamily\hfill\color{black}\thecontentspage}[]
 
-% \titlecontents{subsubsection}[0cm]
-% {\addvspace{6pt}\sffamily}
-% %{\contentslabel[\thecontentslabel]{1.25cm}}{}
-% {\sffamily\hfill\color{grey}\thecontentspage}[]
 
 
 % Front matter
@@ -399,7 +395,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 % Packages for mathematics and algorithms
 %--------------------------------------------------------------------------
 \RequirePackage{algorithm}
-\RequirePackage{minted}
+%\RequirePackage{minted}
 \RequirePackage{algpseudocode}
 \RequirePackage{xfrac}
 \RequirePackage{mathtools}
@@ -415,6 +411,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 \RequirePackage{booktabs}
 \RequirePackage{url}
 \RequirePackage{chngpage}
+\RequirePackage{multicol}
 
 % Table
 

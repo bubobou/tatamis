@@ -507,48 +507,88 @@ Configuration et installations requises:
 
 \subsection{Algorithme pour identifier les solutions symétriques}
 
-Afin de pouvoir éliminer les solutions symétriques, il s’agissait bien sûr de pouvoir produire le symétrique d’un dojo, 
+Afin de pouvoir éliminer les solutions symétriques, il s’agissait bien sûr de pouvoir produire le symétrique d’un dojo,
 mais mais avant tout il s’agit de pouvoir identifier deux dojos ayant le même pavage.\\
 
-Les solutions de pavage sont instanciées par une classe Dispositions dont l’attribut \texttt{solutions}  (de type \texttt{list}) stocke 
-les matrices (de type \texttt{np.array}) modélisant le dojo sous forme d’une grille. Ces matrices contiennent le numéro d’index de 
-chaque tatamis et permettent ainsi de modéliser de façon satisfaisante la disposition géométrique des tatamis, c’est d’ailleurs 
-à partir de cette matrice d’index que sont calculées les coordonnées de chaque tatamis. Néanmoins cette modélisation ne permet 
-pas de comparer deux dispositions de tatamis. En effet deux dispositions de tatamis pourraient être identiques géométriquement 
+Les solutions de pavage sont instanciées par une classe Dispositions dont l’attribut \texttt{solutions}  (de type \texttt{list}) stocke
+les matrices (de type \texttt{np.array}) modélisant le dojo sous forme d’une grille. Ces matrices contiennent le numéro d’index de
+chaque tatamis et permettent ainsi de modéliser de façon satisfaisante la disposition géométrique des tatamis, c’est d’ailleurs
+à partir de cette matrice d’index que sont calculées les coordonnées de chaque tatamis. Néanmoins cette modélisation ne permet
+pas de comparer deux dispositions de tatamis. En effet deux dispositions de tatamis pourraient être identiques géométriquement
 mais seraient identifiées comme différentes si l’indexation de leurs tatamis ne correspondaient pas exactement.\\
 
-Le problème a été résolu en utilisant une matrice modélisant encore une fois le dojo par une grille, mais où cette fois la valeur d’une 
+Le problème a été résolu en utilisant une matrice modélisant encore une fois le dojo par une grille, mais où cette fois la valeur d’une
 position donnée correspond seulement à l’orientation (horizontale ou verticale) du tatami qui l’occupe. La position d'un tatami orienté
 horizontalement est alors codée par "0" et celle d'un tatami orienté verticalement, codée par "1".\\
 
-Exemple de matrices obtenues pour une disposition 4 $\times$ 5 :\\
+Exemple de matrices obtenues pour une disposition 4 $\times$ 5 :
+
+\setlength{\columnseprule}{1pt}
+\setlength{\columnsep}{1cm}
+\begin{multicols}{2}
+
+    Contenu de la matrice dénommée \texttt{room} comportant les index des tatamis (les valeurs -1 permettent à l’algorithme de détecter les bords lors du parcours):
+
+    \begin{center}
+        \begin{tabular}{|c |c |c |c |c |c |c |} \hline
+            -1 & -1                    & -1                         & -1                         & -1                          & -1                          & -1 \\ \hline
+            -1 & \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}2 & \cellcolor{tsforestgreen}2 & \cellcolor{tsforestgreen}3  & \cellcolor{tsforestgreen}3  & -1 \\ \hline
+            -1 & \cellcolor{tsyellow}1 & \cellcolor{tsyellow}4      & \cellcolor{tsforestgreen}5 & \cellcolor{tsforestgreen}5  & \cellcolor{tsyellow}6       & -1 \\ \hline
+            -1 & \cellcolor{tsyellow}7 & \cellcolor{tsyellow}4      & \cellcolor{tsforestgreen}8 & \cellcolor{tsforestgreen}8  & \cellcolor{tsyellow}6       & -1 \\ \hline
+            -1 & \cellcolor{tsyellow}7 & \cellcolor{tsforestgreen}9 & \cellcolor{tsforestgreen}9 & \cellcolor{tsforestgreen}10 & \cellcolor{tsforestgreen}10 & -1 \\ \hline
+            -1 & -1                    & -1                         & -1                         & -1                          & -1                          & -1 \\ \hline
+        \end{tabular}
+
+    \end{center}
+   
+    \columnbreak
+
+    Contenu de la matrice dénommée \texttt{grille} comportant l’orientation des tatamis :
+  
+    \begin{center}
+       
+        \begin{tabular}{|c |c |c |c |c |} \hline
+        \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 \\ \hline
+        \cellcolor{tsyellow}1 & \cellcolor{tsyellow}1      & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsyellow}1      \\ \hline
+        \cellcolor{tsyellow}1 & \cellcolor{tsyellow}1      & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsyellow}1      \\ \hline
+        \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 \\ \hline
+    \end{tabular}
+    \end{center}
+
+\end{multicols}
+
+Il a été fait le choix d'ajouter deux attributs à la classe \texttt{Dispositions} :
+\begin{itemize}
+    \item Le premier attribut est la matrice \texttt{grille}, dont les valeurs sont modifiées au cours du 
+    parcours de la matrice \texttt{room}. L'intérêt est d'exploiter au mieux les fonctionnalités déjà implémentées 
+    dans la classe : parcours récursif d'une grille et distinction de l'orientation, tout en y ajoutant une 
+    structure de donnée de taille raisonnable (matrice de 0 et de 1).
+    \item Le seconde attribut ajouté consiste en la liste \texttt{grilles} qui stocke les dispositions
+    identifiées comme unique par la fonction \texttt{verifie\_symetrie}.
+\end{itemize} 
+
+La fonction \texttt{verifie\_symetrie} réalise les différentes symétries évoquées précédemment en appliquant
+les transformations suivantes :
+\begin{itemize}
+    \item inversion de l'ordre des lignes de la matrice \texttt{grille} pour une symétrie dite \emph{verticale};
+    \item inversion de l'ordre des valeurs au sein de chaque ligne pour une symétrie dite \emph{horizontale};
+    \item composition des deux précédentes pour une symétrie dite \emph{centrale}.
+\end{itemize}
+L'opération de comparaison de tableaux np.array n'est pas réalisable, et de toute façon fortement sujette
+à effets de bords sans utiliser le module \texttt{numpy}. La matrice \texttt{grille} est donc \emph{aplatie} à
+l'aide de la méthode \texttt{flatten} des tableaux \texttt{numpy}, puis encodée en une chaîne de caractères.
+La fonction vérifie que la matrice \texttt{grille} et ses symétriques ainsi encodées ne se trouvent pas dans 
+la liste \texttt{grilles}.\\
+
+La fonction \texttt{add\_room} a été implémentée pour prendre en charge la responsabilité d'ajouter une disposition
+à celle déjà détectées, et par la même occasion de les dénombrer. Selon la valeur de l'attribut de classe de type booléen
+\texttt{symetrie}, elle fait appel le cas échéant à la fonction \texttt{verifie\_symetrie} et ajoute alors une matrice
+\texttt{room} à la liste \texttt{solutions}.
 
 
-    Matrice dénommée \texttt{room} comportant les index des tatamis (les valeurs -1 permettent à l’algorithme de détecter les bords lors du parcours):\\
 
-[[-1 -1 -1 -1 -1 -1 -1]
 
- [-1  ~~1  ~2  ~~2  ~~3  ~3 -1]
 
- [-1  ~~1  ~4  ~~5  ~~5  ~6 -1]
-
- [-1  ~~7  ~4  ~~8  ~~8  ~6 -1]
-
- [-1  ~~7  ~9  ~~9 10 10 -1]
-
- [-1 -1 -1 -1 -1 -1 -1]]
-
- \bigskip
-
-    Matrice dénommée \texttt{grille} comportant l’orientation des tatamis :\\
-
-[[1 0 0 0 0]
-
- ~[1 1 0 0 1]
-
- ~[1 1 0 0 1]
-
- ~[1 0 0 0 0]]
 
 
 
@@ -597,14 +637,14 @@ Aucun changement majeur n’a été appliqué. Le fichier \texttt{release.py} ch
 
 Du refactoring a été implémenté pour améliorer le code, en cohérence avec l’application des principes SOLID:
 \begin{itemize}
-    \item Un refactoring mineur a été effectué sur le fichier Interface, les messages pop-up d’erreur ont été rationalisés pour passer 
-de 5 à 3 et simplement modifier les paramètres de textes changeants quand on les affichent.
-    \item Avec l’ajout des fonctions “Connaître le nombre de dispositions possibles sans symétries", la fonction pour exécuter ressemble 
-beaucoup aux fonctions “Savoir si il existe un dojo” et “Connaître le nombre de dispositions possibles”. Un refactoring a donc été 
-implémenté pour mutualiser une fonction commune pour le click sur ces 3 boutons.
-    \item Un refactoring a été implémenté pour corriger la fonction permettant de déterminer les dimensions à partir d'un nombre de tatamis. D'une part 
-cette fonction n'était pas correcte puisque ne permettant pas de répondre au critère du taux de 75\% de tatamis utilisés, d'autre part elle était redondante
- et comportait des boucles évitables. 
+    \item Un refactoring mineur a été effectué sur le fichier Interface, les messages pop-up d’erreur ont été rationalisés pour passer
+          de 5 à 3 et simplement modifier les paramètres de textes changeants quand on les affichent.
+    \item Avec l’ajout des fonctions “Connaître le nombre de dispositions possibles sans symétries", la fonction pour exécuter ressemble
+          beaucoup aux fonctions “Savoir si il existe un dojo” et “Connaître le nombre de dispositions possibles”. Un refactoring a donc été
+          implémenté pour mutualiser une fonction commune pour le click sur ces 3 boutons.
+    \item Un refactoring a été implémenté pour corriger la fonction permettant de déterminer les dimensions à partir d'un nombre de tatamis. D'une part
+          cette fonction n'était pas correcte puisque ne permettant pas de répondre au critère du taux de 75\% de tatamis utilisés, d'autre part elle était redondante
+          et comportait des boucles évitables.
 
 \end{itemize}
 
@@ -612,27 +652,27 @@ cette fonction n'était pas correcte puisque ne permettant pas de répondre au c
 
 \subsection{Challenges rencontrés et solutions appliquées}
 
-Ce sprint n’a pas vu apparaître de nouveau challenges. Avec les leçons apprises des précédents sprints, sur l’organisation de l'équipe, 
+Ce sprint n’a pas vu apparaître de nouveau challenges. Avec les leçons apprises des précédents sprints, sur l’organisation de l'équipe,
 la planification… nous constatons que cela porte ses fruits.
 
 Deux challenges mineurs peuvent être cités:
 \begin{itemize}
     \item Technique
-    \begin{itemize}
-        \item Une nouvelle fois, les ambitions en termes de fonctionnalités restent élevées. En particulier la fonctionnalité 
-        d'identification des symétries, comme on peut le constater dans le paragraphe d’explication, l’algorithme doit couvrir 
-        de nombreux cas de figure : symétrie d’axe horizontale, d’axe vertical , ainsi que la composition de celles-ci (symétrie centrale). 
-        Il a donc fallu s’assurer de pouvoir produire des symétriques de dojo, mais surtout de pouvoir modéliser les dispositions de façon 
-        à comparer leur géométrie.
-        \item Cela a été en particulier vrai pour la fonctionnalité 526, censée afficher les dojos avec des couleurs différentes pour faciliter 
-        la compréhension de l’affichage des dispositions. Compte tenu de la difficulté algorithmique et du manque de temps, il a été décidé 
-        d’abandonner cette fonctionnalité.
+          \begin{itemize}
+              \item Une nouvelle fois, les ambitions en termes de fonctionnalités restent élevées. En particulier la fonctionnalité
+                    d'identification des symétries, comme on peut le constater dans le paragraphe d’explication, l’algorithme doit couvrir
+                    de nombreux cas de figure : symétrie d’axe horizontale, d’axe vertical , ainsi que la composition de celles-ci (symétrie centrale).
+                    Il a donc fallu s’assurer de pouvoir produire des symétriques de dojo, mais surtout de pouvoir modéliser les dispositions de façon
+                    à comparer leur géométrie.
+              \item Cela a été en particulier vrai pour la fonctionnalité 526, censée afficher les dojos avec des couleurs différentes pour faciliter
+                    la compréhension de l’affichage des dispositions. Compte tenu de la difficulté algorithmique et du manque de temps, il a été décidé
+                    d’abandonner cette fonctionnalité.
 
-    \end{itemize}
+          \end{itemize}
     \item Rédactionnel
-    
-    S’agissant de la fin du projet, et bien qu’ayant écrit le rapport au fur et à mesure des précédents sprint, ce sprint a également été 
-    l’occasion d’un travail rédactionnel sur le rapport qui est consommateur de temps.
+
+          S’agissant de la fin du projet, et bien qu’ayant écrit le rapport au fur et à mesure des précédents sprint, ce sprint a également été
+          l’occasion d’un travail rédactionnel sur le rapport qui est consommateur de temps.
 
 \end{itemize}
 
@@ -640,9 +680,9 @@ Deux challenges mineurs peuvent être cités:
 
 Les principales leçons de ce sprint sont plutôt des confirmations que des apprentissages:
 \begin{itemize}
-    \item D'itérations et l'amélioration continue portent leurs fruits. Comme mentionné, les leçons apprises lors des précédents sprint 
-    ont permis d'améliorer l'exécution de notre dernier sprint
-    \item La progression au fur et à mesure sur le rapport lors des précédents sprint a également été crucial; il aurait autrement été 
-    difficile de bien rédiger le rapport dans le temps imparti
+    \item D'itérations et l'amélioration continue portent leurs fruits. Comme mentionné, les leçons apprises lors des précédents sprint
+          ont permis d'améliorer l'exécution de notre dernier sprint
+    \item La progression au fur et à mesure sur le rapport lors des précédents sprint a également été crucial; il aurait autrement été
+          difficile de bien rédiger le rapport dans le temps imparti
 \end{itemize}
 
