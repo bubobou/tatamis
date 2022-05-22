@@ -395,7 +395,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
 % Packages for mathematics and algorithms
 %--------------------------------------------------------------------------
 \RequirePackage{algorithm}
-%\RequirePackage{minted}
+\RequirePackage{pdfpages}
 \RequirePackage{algpseudocode}
 \RequirePackage{xfrac}
 \RequirePackage{mathtools}

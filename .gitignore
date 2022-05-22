@@ -8,3 +8,16 @@
 *.log
 *.synctex*
 *.pyc
+*.sty
+*.xdy
+*.out
+*.ist
+*.bat
+*.aux
+
+# généré par Sphinx
+sphinx*
+Make*
+latex*
+*.doctree
+*.pickle

@@ -88,14 +88,17 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="prod.multiples">
-<span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">multiples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#prod.multiples" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Retourne une liste contenant les couples de multiples d’un nombre, avec une valeur de facteur minimale</p>
+<span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">multiples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mini</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#prod.multiples" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui extrait les couples de multiples d’un entier, avec une valeur de multiple minimale et un ratio à respecter</p>
+<dl>
+<dt>Paramètres :</dt><dd><p>nombre (int) : l’entier dont il faut extraire les multiples</p>
+<p>mini (int) : le multiple minimal</p>
+<p>ratio (int) : le ratio à ne pas excéder entre les deux multiples</p>
+</dd>
+<dt>Return :</dt><dd><p>resultat (list) : une liste de couple (tuple) de multiples</p>
+</dd>
+</dl>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="prod.multiples_inf">
-<span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">multiples_inf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rendement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prod.multiples_inf" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="prod.nombre_dispo_uniques">
@@ -110,15 +113,31 @@ tatamis-parfait dans un rectangle de dimensions largeur * longueur</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="prod.recherche_disposition">
-<span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">recherche_disposition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prod.recherche_disposition" title="Lien permanent vers cette définition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="prod.recherche_dimensions">
+<span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">recherche_dimensions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombreTatamis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rendement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#prod.recherche_dimensions" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui recherche les dimensions possibles pour un dojo état donné un nombre de tatamis</p>
+<dl>
+<dt>Paramètres :</dt><dd><p>nombreTatamis (int) : le nombre de tatamis donné</p>
+<p>ratio (int) : la valeur maximale du quotient entre la longueur et largeur</p>
+<p>rendement (float) : le taux d’utilisation minimale de tatamis par rapport au nombre donné</p>
+</dd>
+<dt>Return :</dt><dd><p>dimensionsPossibles (list) : tableau des couples (longueur, largeur) permettant un pavage du dojo 
+avec le nombre de tatamis donné et les contraintes imposées</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="prod.recherche_disposition_max">
 <span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">recherche_disposition_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#prod.recherche_disposition_max" title="Lien permanent vers cette définition"></a></dt>
-<dd><p>Retourne un set contenant les plus grandes largeur et longueur permettant d’obtenir
+<dd><p>Retourne un tuple contenant les plus grandes largeur et longueur permettant d’obtenir
 au moins un pavage tatamis-parfait</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prod.verif_ratio">
+<span class="sig-prename descclassname"><span class="pre">prod.</span></span><span class="sig-name descname"><span class="pre">verif_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#prod.verif_ratio" title="Lien permanent vers cette définition"></a></dt>
+<dd><p>Fonction qui vérifie si le quotient entre deux entier n’excède un ratio donné</p>
 </dd></dl>
 
 </section>
