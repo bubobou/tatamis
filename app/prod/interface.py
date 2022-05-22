@@ -406,6 +406,7 @@ class Interface(QWidget):
             message.exec()
 
     def clickSansSymetrieNbDispo(self):
+        "fonction d'action sur le bouton Nombre de Solution Sans Symétrie"
         if self.valeur_vide() :
             message = MessageSaisieInvalide()          
             message.exec()

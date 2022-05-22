@@ -1,4 +1,3 @@
-
 from calcul_nombre_dispositions import *
 from calcul_coordonnees_tatamis import *
 
@@ -73,59 +72,17 @@ def recherche_dimensions(nombreTatamis : int, ratio=3, rendement=0.75 ) -> list:
         aire -=1
     return dimensionsPossibles
 
-# def multiples_inf(nombre,ratio=3,rendement=0.75) :
-#     """Fonction qui sélectionne les multiples d'entiers inférieurs à un entier selon un critère de ratio et de rendement
-        
-#         Paramètres :
-#             nombre (int) : l'entier dont il faut extraire les multiples
-
-#             ratio (int) : le ratio maximal entre les multiples
-
-#             rendement (float) : la proportion minimale que représente le produit des multiples par rapport à l'entier "nombre"
-
-#         Return :
-#             resultat (list) : une liste de couple (tuple) de multiples
-#     """
-#     facteurs = []
-#     nb = nombre    
-#     while nb > 3 :
-#         resultat = multiples(nb)
-#         if len(resultat) != 0:
-#             for h,w in resultat :
-#                 if h/w < ratio and w/h < ratio and w*h > rendement*nombre:
-#                     facteurs.append((h,w))
-#         nb -= 1              
-#     return facteurs
-
-
-# def recherche_disposition(nombre: int) -> list:
-#     aire = nombre*2
-#     dimensions = multiples_inf(aire)    
-#     dispositions = []
-
-#   
-#     for h,w in dimensions :
-#         dispositions.append(recherche_disposition_max(h,w))
-
-#     nb_disp = len(dispositions)-1 # élimination des doublons : à extraire dans une fonction
-
-#     for i in range(nb_disp,0,-1):
-#         tab = dispositions[:i]
-#         if ((dispositions[i][1],dispositions[i][0]) in tab) or (dispositions[i] in tab ) :
-#             dispositions.pop(i)
-
-#     return dispositions
-
-
 
 ### Symetrie ###
 
 def nombre_dispo_uniques(w,h):
+    """Fonction qui dénombre les dispositions de tatamis sans symétrique"""
     return Dispositions(w, h, False).count
 
 ### Interface ###
 
 def affichage_dimension(dispositions):
+    """Fonction qui créée une chaîne de caractère pour affichage dans une fenêtre"""
     affichage = ""
     for h,w in dispositions :
         affichage += f"{h} x {w} \n"
@@ -134,6 +91,7 @@ def affichage_dimension(dispositions):
 ### Largeur dimension max ###
 
 def dimension_max(W,H):
+    """Fonction qui retourne deux paramètres de tel sorte que le premier soit toujours supérieur au second """
     if W < H :
         W, H = H, W
     return W,H

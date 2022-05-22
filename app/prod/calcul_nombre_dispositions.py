@@ -9,7 +9,8 @@ def nombre_de_dispositions(r :int, s : int) -> int:
         return combinaison(r,s)
 
     
-def eq(x:int,y:int) -> int:    
+def eq(x:int,y:int) -> int:
+    "Fonction qui retourne 1 si deux entiers sont égaux, 0 sinon"    
     if x==y:
         return 1
     else:
