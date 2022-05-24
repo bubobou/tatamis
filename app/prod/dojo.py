@@ -3,7 +3,7 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QWidget, QLabel, QApplication, QPushButton, QLineEdit, QGridLayout, QMessageBox, QDialog, QVBoxLayout, QDialogButtonBox
 from PyQt5.QtWidgets import QGraphicsScene, QGraphicsView, QGraphicsRectItem, QGraphicsItem
 from PyQt5.QtGui import QBrush, QColor, QPen, QPainter
-from calcul_coordonnees_tatamis import Dispositions
+from pavage import *
 
 
 COULEUR_FOND = "white"

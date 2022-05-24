@@ -1,10 +1,11 @@
 import sys
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import QWidget, QLabel, QApplication, QPushButton, QLineEdit, QGridLayout, QMessageBox, QFrame, QSpacerItem
 from PyQt5.QtGui import * 
-from calcul_nombre_dispositions import *
+
+from denombrement import *
 from dojo import *
-from PyQt5 import QtCore
-from prod import *
+from main import *
 
 
 class MessageSaisieInvalide(QMessageBox):
@@ -510,11 +511,11 @@ class Interface(QWidget):
             message = MessageInfo("Existe-t-il une solutions avec des demi-tatamis?",info)
             message.exec()
 
-def main():
-    app = QApplication(sys.argv)
-    interface = Interface()
-    sys.exit(app.exec_())
+# def main():
+#     app = QApplication(sys.argv)
+#     interface = Interface()
+#     sys.exit(app.exec_())
     
     
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

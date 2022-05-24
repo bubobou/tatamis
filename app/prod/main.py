@@ -1,5 +1,5 @@
-from calcul_nombre_dispositions import *
-from calcul_coordonnees_tatamis import *
+from denombrement import nombre_de_dispositions
+from interface import *
 
 def recherche_disposition_max(r :int, s :int) -> tuple:
     """Retourne un tuple contenant les plus grandes largeur et longueur permettant d'obtenir
@@ -96,4 +96,11 @@ def dimension_max(W,H):
         W, H = H, W
     return W,H
             
-
+def main():
+    app = QApplication(sys.argv)
+    interface = Interface()
+    sys.exit(app.exec_())
+    
+    
+if __name__ == '__main__':
+    main()
