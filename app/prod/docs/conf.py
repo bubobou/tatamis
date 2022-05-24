@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'tatamis'
-copyright = '2022, Anger Benoit - Bourgine Bruno'
-author = 'Anger Benoit - Bourgine Bruno'
+copyright = '2022, ANGER Benoit - BOURGINE Bruno'
+author = 'ANGER Benoit - BOURGINE Bruno'
 
 # The full version, including alpha/beta/rc tags
-release = '1.01'
+release = '1.0'
 
 
 # -- General configuration ---------------------------------------------------

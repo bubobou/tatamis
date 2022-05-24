@@ -4,8 +4,8 @@ prod
 .. toctree::
    :maxdepth: 4
 
-   calcul_coordonnees_tatamis
-   calcul_nombre_dispositions
+   denombrement
    dojo
    interface
-   prod
+   main
+   pavage
