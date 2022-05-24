@@ -14,7 +14,12 @@
 *.ist
 *.bat
 *.aux
-
+*.mtc*
+*.bcf
+*.run.xml
+*.toc
+*.idx
+*.maf
 # généré par Sphinx
 sphinx*
 Make*

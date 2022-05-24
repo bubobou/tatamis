@@ -18,13 +18,15 @@
 
 % Language
 %--------------------------------------------------------------------------
-%\RequirePackage[swedish]{babel}
+%\RequirePackage[french]{babel}
 \RequirePackage[utf8]{inputenc}
 
 % Geometry
 %--------------------------------------------------------------------------
 \RequirePackage[top=2.5cm,bottom=2.5cm,left=3cm,right=3cm,
                 marginparwidth=1.1cm,marginparsep=2mm]{geometry}
+
+%\usepackage{microtype}
 
 % Fonts
 %--------------------------------------------------------------------------

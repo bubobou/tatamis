@@ -85,7 +85,7 @@ Configuration et installations requises:
     \item Librairies Python: datetime, numpy, PyQt5.QtCore, PyQt5.QtGui, PyQt5.QtWidgets, sys, time.
 \end{itemize}
 
-
+\newpage
 \subsection{Comment trouver le nombre de tatamis nécessaires pour remplir un dojo?}
 
 \begin{enumerate}
@@ -197,6 +197,7 @@ Configuration et installations requises:
 
 \end{enumerate}
 
+\newpage
 \subsection{Comment afficher toutes les dispositions possibles?}
 
 
@@ -298,7 +299,7 @@ Lorsque la ligne atteinte correspond au bord bas du tatamis, le pavage est compl
 L’auteur précise qu’un tel parcours peut comporter une profondeur considérable selon les dimensions de la pièce
 à paver et que selon les cas on peut donc atteindre rapidement la profondeur de récursivité maximale.\\
 
-L'illustration d'un parcours de recherche pour un pavage (4$\times$3) est donnée ci-dessous.\\
+L'illustration d'un parcours de recherche (obtenu grace à l'utilisation du module \texttt{rcviz}) pour un pavage (4$\times$3) est donnée ci-dessous.\\
 
 \begin{adjustwidth}{-1.5cm}{0cm}
     \includegraphics[width=19cm]{images/arbre4x3.pdf}
@@ -307,7 +308,8 @@ L'illustration d'un parcours de recherche pour un pavage (4$\times$3) est donné
 
 En testant le programme en Python proposé par l’auteur, nous atteignons effectivement une limite de calcul,
 mais celle-ci nous permet néanmoins de traiter des dojos plus grands que la solution évoquée précédemment.
-Nous augmentons ainsi notre capacité de traitement d’environ 80\% puisque la dimension limite de dojo passe de 16 à 25.\\
+Nous augmentons ainsi notre capacité de traitement d’environ 80\% puisque la dimension critique pour un temps de traitement raisonnable
+(de l'ordre d'une minute) passe de 16 à 25.\\
 
 La publication originale fournissait l’implémentation d’une fonction récursive manipulant des variables globales.
 Afin de pouvoir utiliser cette solution dans notre projet, la fonction a été intégrée au sein d’une classe en tant que méthode,
@@ -435,8 +437,7 @@ Deux options ont été étudiées:
 
 \subsubsection{Choix concernant l’intuitivité de l’interface}
 
-Pour cette première 'vraie' interface pour l’utilisateur
-(sachant qu’en version Alpha, l’utilisateur interagissait avec le programme par l'intermédiaire du Terminal),
+Pour cette première 'vraie' interface pour l’utilisateur (sachant qu’en version Alpha, l’utilisa-teur interagissait avec le programme par l'intermédiaire du Terminal),
 des choix importants et engageants pour la suite ont été à faire. De manière générale,
 il a été choisi de mettre un focus particulier sur la facilité d’utilisation et l’intuitivité pour l’utilisateur.
 Pour ce faire voilà les principales questions qui ont été étudiées et  choix effectués:
@@ -459,7 +460,12 @@ Pour ce faire voilà les principales questions qui ont été étudiées et  choi
           Voici les principales mesures mises en place :
           \begin{itemize}
               \item Les champs de saisie sont extrêmement guidés par une validation (à l'aide de la fonction \texttt{QIntValidator}):
-                    l’utilisateur ne peut saisir que des entiers entre les valeurs inscrites sur l’interface
+                    l’utilisateur ne peut saisir que des entiers entre les valeurs inscrites sur l’interface.
+                    On s'apercevra plus tard que cette fonctionnalité ne fonctionne pas de manière identique suivant les versions 
+                    de PyQt. Pour la version utilisée dans ce sprint, \texttt{QIntValidator} permet de bloquer la saisie de 
+                    nombres supérieurs à une limite fixée, mais des versions plus récentes ne le permettent pas complètement. 
+                    Nous nous en sommes apercus en tests de non regression pour la version Production et avons appliqué un correctif 
+                    (cf. explications dans la section sur la version Production).
               \item Les seules saisies impossibles à contrôler sont la saisie de "0" ou l’absence de saisie, mais des messages d’erreur
                     ont été mis en place.
               \item Des tests sont effectués avant l’appel de chaque fonctionnalité pour savoir si la fonctionnalité est disponible avec
@@ -490,9 +496,8 @@ Pour ce faire voilà les principales questions qui ont été étudiées et  choi
               \includegraphics[scale=0.25]{images/betaRetourSucces.png}
           \end{center}
 
-
+\newpage
     \item Exemple de message indiquant à l’utilisateur que la demande est impossible avec les dimensions saisies:
-
           \begin{center}
               \includegraphics[scale=0.25]{images/betaImpossible.png}
           \end{center}
@@ -530,7 +535,7 @@ Dans la continuité des choix fait en version Alpha, nous avons mis en applicati
           fonctions à fonctionnalité très limitée mais réutilisables ont été créées comme par exemple \texttt{set\_longueur()}, \texttt{set\_largeur()},
           \texttt{valeur\_vide(self)}, \texttt{clickExiste()} (leur fonctionnalité est documentée dans le code et donc non-reprise dans ce rapport)
 
-    \item Dans la mesure du possible des fonctions ou classes génériques sont créées puis réutilisées.
+    \item Dans la mesure du possible des fonctions ou classes génériques sont créées puis réutili-sées.
           Un bon exemple a cela sont les classes génériques de l’interface: \texttt{MessageSaisieInvalide}, \texttt{MessageDemandeImpossible} et \texttt{MessageInfo}.
 \end{itemize}
 
@@ -544,7 +549,7 @@ Les deux challenges principaux de cette version ont été les suivants:
 \begin{enumerate}
     \item Challenges techniques
 
-          Comme on peut le constater plus dans la section sur les choix de programmation, il s’agit de la version la plus complexe techniquement.
+          Comme on peut le constater plus en détails dans la section sur les choix de programmation, il s’agit de la version la plus complexe techniquement.
           D’un point de vue de l’algorithme, l’affichage des dispositions a été un gros challenge technique.
           D’un point de vue de l’interface, beaucoup de choix structurants ont été nécessaires, avec des essais et révisions.
           Enfin, d’un point de vue de l’architecture du programme, les choix faits en version Alpha ont été à implémenter de manière plus poussée.
@@ -574,12 +579,12 @@ Les deux challenges principaux de cette version ont été les suivants:
 
 \subsection{Apprentissage}
 
-Les deux principaux apprentissages sont les suivants:
+Les trois principaux apprentissages sont les suivants:
 
 \begin{enumerate}
     \item Importance des recherches
 
-          Les challenges techniques importants à surmonter nous ont permis de confirmer l’importance de faire des recherches et
+          Les challenges techniques importants à surmonter nous ont permis de confirmer l’impor-tance de faire des recherches et
           planifier la solution avant d’implémenter. Cela évite de perdre du temps à essayer des implémentations mal pensées.
           La réussite de cette version nous apprend également qu’avec des recherches, des problèmes qui semblent difficiles
           peuvent être surmontés.
@@ -593,7 +598,7 @@ Les deux principaux apprentissages sont les suivants:
     \item Promotion en classe
 
           La version alpha comporte essentiellement des algorithmes écrits sous forme de fonctions. Du fait de la complexification
-          des challenges et de l’ajout d’une interface graphique, la programmation objet s’est imposée à nous. Tout d’abord de part
+          des challenges et de l’ajout d’une interface graphi-que, la programmation objet s’est imposée à nous. Tout d’abord de part
           l’utilisation de la bibliothèque PyQt et des fonctionnalités qu’il a fallu développées en s’appuyant sur celle-ci, et ensuite
           de part les caractéristiques des solutions nécessitant d’être encapsulées et de disposer d’attribut et de fonctionnalités propres.
 
