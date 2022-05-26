@@ -6,7 +6,7 @@ symétriques qui apportent peu, voire prêtent à confusion pour l’utilisateur
 Dernière amélioration mineure de l’interface, surtout sur le visuel, pour aligner le design des messages de réponse
 à celui de l’interface principale.\\
 
-Pour ce faire le backlog suivant a été \emph{embarqué} dans cette version et a résulté en la roadmap suivante:
+Pour ce faire le backlog suivant a été "embarqué" dans cette version et a résulté en la roadmap suivante:
 
 
 \begin{center}
@@ -53,40 +53,22 @@ l’ensemble des fonctionnalités du programme. Des tests de non régression ont
 
     \renewcommand{\arraystretch}{1.2}
     {\setlength{\tabcolsep}{1.5 mm}
-        \begin{testtabular}{|m{5cm}|m{5cm}|m{1.5cm}|m{1.5cm}|m{1.5cm}|m{3cm}|} \hline
-            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}   & \textcolor{white}{Rédacteur cahier de tests}   & \textcolor{white}{Méthode de test}  & \textcolor{white}{Testeur} & \textcolor{white}{Résultat} \\ \hline
-            Champs de saisie \emph{Longueur} - test de saisie $>$ 25 (26)&Saisie impossible&Benoit&Manuel&Benoit&OK avec version 5.9.7 de PyQt \tabularnewline & & & & & KO avec version 5.12.2 de PyQt \\ \hline
-            Champs de saisie \emph{Largeur} - test de saisie $>$  25 (26)&Saisie impossible&Benoit&Manuel&Benoit&OK avec version 5.9.7 de PyQt \tabularnewline & & & & & KO avec version 5.12.2 de PyQt\\ \hline
-            Champs de saisie \emph{Nombre de tatamis disponibles} - test de saisie $>$ 300 (301)&Saisie impossible&Benoit&Manuel&Benoit&OK avec version 5.9.7 de PyQt \tabularnewline & & & & & KO avec version 5.12.2 de PyQt\\ \hline
-            Champs de saisie \emph{Longueur} - test de saisie nulle (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
-            Champs de saisie \emph{Longueur} - test d'absence de saisie (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
-            Champs de saisie \emph{Largeur} - test de saisie nulle (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
-            Champs de saisie \emph{Largeur} - test d'absence de saisie (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
-            Champs de saisie \emph{Nombre de tatamis disponibles} - test de saisie nulle puis cliquer sur le bouton "Obtenir une solution etant donne un nombre de tatamis"&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
-            Champs de saisie \emph{Nombre de tatamis disponibles} - test d'absence de saisie puis cliquer sur le bouton "Obtenir une solution etant donne un nombre de tatamis"&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Benoit&Manuel&Bruno&OK\\ \hline
-            Fonctionnalité "Afficher la surface du dojo" en saisissant des dimensions valides (3,1)&Réponse: La surface du dojo est 3.&Benoit&Manuel&Benoit&OK\\ \hline
-        \end{testtabular}}
-\end{adjustwidth}
-
-\noindent%
-\begin{adjustwidth}{-1.5cm}{0cm}
-
-    \renewcommand{\arraystretch}{1.2}
-    {\setlength{\tabcolsep}{1.5 mm}
-        \begin{testtabular}{|m{5cm}|m{5cm}|m{1.5cm}|m{1.5cm}|m{1.5cm}|m{3cm}|} \hline
-            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}   & \textcolor{white}{Rédacteur cahier de tests}   & \textcolor{white}{Méthode de test}  & \textcolor{white}{Testeur} & \textcolor{white}{Résultat} \\ \hline
-            Fonctionnalité "Savoir si il existe une disposition pour ce dojo" en saisissant des dimensions ou il existe (3,4)&Réponse: Il existe au moins une disposition avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Savoir si il existe une disposition pour ce dojo" en saisissant des dimensions ou il n'existe pas (3,1)&Réponse: Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Connaître le nombre de dispositions possibles" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Il existe 0 disposition possible&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Connaître le nombre de dispositions possibles" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Il existe 4 dispositions possibles&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Le nombre de tatamis 2 $\times$ 1 nécessaires pour ce dojo est : 6&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Quelle taille maximum de dojo pour avoir une solution?" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: La taille maximale est (1, 2)&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Quelle taille maximum de dojo pour avoir une solution?" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Demande impossible Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Existe-t-il une solutions avec des demi-tatamis?" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Oui&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Existe-t-il une solutions avec des demi-tatamis?" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Demande impossible Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Afficher une disposition" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Affichage d'une disposition avec les indications "Dojo de dimension : 4 x 3 $|$ Surface: 12 $m^2$ $|$ 6 tatamis"&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Afficher une disposition" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+        \begin{testtabular}{|m{6.5cm}|m{6.5cm}|m{2cm}|m{3cm}|} \hline
+            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}      & \textcolor{white}{Méthode de test}   & \textcolor{white}{Résultat} \\ \hline
+            Champs de saisie \emph{Longueur} - test de saisie $>$ 25 (26)&Saisie impossible&Manuel&OK avec version 5.9.7 de PyQt \tabularnewline & & & KO avec version 5.12.2 de PyQt \\ \hline
+            Champs de saisie \emph{Largeur} - test de saisie $>$  25 (26)&Saisie impossible&Manuel&OK avec version 5.9.7 de PyQt \tabularnewline & & & KO avec version 5.12.2 de PyQt\\ \hline
+            Champs de saisie \emph{Nombre de tatamis disponibles} - test de saisie $>$ 300 (301)&Saisie impossible&Manuel&OK avec version 5.9.7 de PyQt \tabularnewline & & & KO avec version 5.12.2 de PyQt\\ \hline
+            Champs de saisie \emph{Longueur} - test de saisie nulle (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Manuel&OK\\ \hline
+            Champs de saisie \emph{Longueur} - test d'absence de saisie (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Manuel&OK\\ \hline
+            Champs de saisie \emph{Largeur} - test de saisie nulle (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Manuel&OK\\ \hline
+            Champs de saisie \emph{Largeur} - test d'absence de saisie (puis cliquer sur chaque boutons - sauf le dernier bouton du bas liee a une autre saisie)&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Manuel&OK\\ \hline
+            Champs de saisie \emph{Nombre de tatamis disponibles} - test de saisie nulle puis cliquer sur le bouton "Obtenir une solution etant donne un nombre de tatamis"&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Manuel&OK\\ \hline
+            Champs de saisie \emph{Nombre de tatamis disponibles} - test d'absence de saisie puis cliquer sur le bouton "Obtenir une solution etant donne un nombre de tatamis"&Message d'erreur "Erreur de saisie des dimensions Aucune dimension ne peut avoir une valeur nulle ou vide"&Manuel&OK\\ \hline
+            Fonctionnalité "Afficher la surface du dojo" en saisissant des dimensions valides (3,1)&Réponse: La surface du dojo est 3.&Manuel&OK\\ \hline
+            Fonctionnalité "Savoir si il existe une disposition pour ce dojo" en saisissant des dimensions ou il existe (3,4)&Réponse: Il existe au moins une disposition avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
+            Fonctionnalité "Savoir si il existe une disposition pour ce dojo" en saisissant des dimensions ou il n'existe pas (3,1)&Réponse: Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de dispositions possibles" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Il existe 0 disposition possible&Manuel&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de dispositions possibles" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Il existe 4 dispositions possibles&Manuel&OK\\ \hline
 
         \end{testtabular}}
 \end{adjustwidth}
@@ -96,23 +78,32 @@ l’ensemble des fonctionnalités du programme. Des tests de non régression ont
 
     \renewcommand{\arraystretch}{1.2}
     {\setlength{\tabcolsep}{1.5 mm}
-        \begin{testtabular}{|m{5cm}|m{5cm}|m{1.5cm}|m{1.5cm}|m{1.5cm}|m{3cm}|} \hline
-            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}   & \textcolor{white}{Rédacteur cahier de tests}   & \textcolor{white}{Méthode de test}  & \textcolor{white}{Testeur} & \textcolor{white}{Résultat} \\ \hline
-            Fonctionnalité "Afficher toutes les dispositions possibles" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Affichage de 4 dispositions avec les indications "Dojo de dimension : 4 x 3 $|$ Surface: 12 $m^2$ $|$ 6 tatamis"&Benoit&Manuel&Benoit&OK\\ \hline
-            Fonctionnalité "Afficher toutes les dispositions possibles" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Benoit&Manuel&Benoit&OK\\ \hline
+        \begin{testtabular}{|m{6.5cm}|m{6.5cm}|m{2cm}|m{3cm}|} \hline
+            \rowcolor{tssteelblue}  \textcolor{white}{Sujet}    & \textcolor{white}{Test d'acceptance}      & \textcolor{white}{Méthode de test}   & \textcolor{white}{Résultat} \\ \hline
+            Fonctionnalité "Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Le nombre de tatamis 2 $\times$ 1 nécessaires pour ce dojo est : 6&Manuel&OK\\ \hline
+            Fonctionnalité "Connaître le nombre de tatamis 2 $\times$ 1 nécessaires pour la taille du dojo" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
+            Fonctionnalité "Quelle taille maximum de dojo pour avoir une solution?" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: La taille maximale est (1, 2)&Manuel&OK\\ \hline
+            Fonctionnalité "Quelle taille maximum de dojo pour avoir une solution?" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Demande impossible Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
+            Fonctionnalité "Existe-t-il une solutions avec des demi-tatamis?" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Oui&Manuel&OK\\ \hline
+            Fonctionnalité "Existe-t-il une solutions avec des demi-tatamis?" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Demande impossible Il existe au moins une disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
+            Fonctionnalité "Afficher une disposition" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Affichage d'une disposition avec les indications "Dojo de dimension : 4 x 3 $|$ Surface: 12 $m^2$ $|$ 6 tatamis"&Manuel&OK\\ \hline
+            Fonctionnalité "Afficher une disposition" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
+            Fonctionnalité "Afficher toutes les dispositions possibles" en saisissant des dimensions ou il existe au moins une disposition (3,4)&Réponse: Affichage de 4 dispositions avec les indications "Dojo de dimension : 4 x 3 $|$ Surface: 12 $m^2$ $|$ 6 tatamis"&Manuel&OK\\ \hline
+            Fonctionnalité "Afficher toutes les dispositions possibles" en saisissant des dimensions ou il n'existe pas de disposition (3,1)&Réponse: Demande impossible Il n'existe pas de disposition possible avec des tatamis 2 $\times$ 1 pour ce dojo&Manuel&OK\\ \hline
             Fonctionnalité "Obtenir une solution étant donne un nombre de tatamis" en saisissant une dimension valide (23)&Réponse: Dimension(s) possible(s) du dojo étant donné le nombre de tatamis saisi. Ces propositions satisfont aux conditions suivantes:
             \begin{itemize}
                 \item un ratio maximum de 3 entre la longueur et la largeur
                 \item une utilisation de minimum 75\% des tatamis saisis
             \end{itemize}
             8 $\times$ 5 ; 11 $\times$ 4 ; 7 $\times$ 6 ; 10 $\times$ 4 ; 9 $\times$ 4 ; 6 $\times$ 6
-            &Benoit&Manuel&Benoit&OK \\ \hline
-            Fonctionnalité "Obtenir une solution étant donne un nombre de tatamis" en saisissant une dimension non valide (2)&Réponse: Demande impossible Saisir au minimum 3 tatamis pour utiliser cette fonctionnalité.&Benoit&Manuel&Benoit&OK\\ \hline
+            &Manuel&OK \\ \hline
+            Fonctionnalité "Obtenir une solution étant donne un nombre de tatamis" en saisissant une dimension non valide (2)&Réponse: Demande impossible Saisir au minimum 3 tatamis pour utiliser cette fonctionnalité.&Manuel&OK\\ \hline
 
         \end{testtabular}}
 \end{adjustwidth}
 
-\bigskip
+\vspace{1cm}
+
 Erreur sur validation des saisies:
 
 Une erreur a été constaté suivant les versions utilisés de PyQt:
@@ -158,7 +149,7 @@ Configuration et installations requises:
               un message d’erreur “Erreur de saisie des dimensions. Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
 
           \emph{ Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
-              conduit à l'apparition d’un message d’erreur }
+              conduit à l'apparition d’un message d’erreur. }
     \item Interpréter la réponse:
           \begin{enumerate}
               \item  \textbf{Réponse}: “La surface du dojo est [Nombre]”.
@@ -189,7 +180,7 @@ Configuration et installations requises:
               un message d’erreur “Erreur de saisie des dimensions. Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
 
           \emph{ Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
-              conduit à l'apparition d’un message d’erreur }
+              conduit à l'apparition d’un message d’erreur. }
     \item Interpréter la réponse:
           \begin{enumerate}
               \item \textbf{Réponse}: “Le nombre de tatamis 2 $\times$ 1 nécessaires pour ce dojo est : [Nombre]”.
@@ -220,7 +211,7 @@ Configuration et installations requises:
               Aucune dimension ne peut avoir une valeur nulle ou vide” apparaît.}
 
           \emph{ Nb: Si vous utilisez la version 5.12.2 de PyQt, la saisie d'une dimension supérieure à 25 est possible mais
-              conduit à l'apparition d’un message d’erreur }
+              conduit à l'apparition d’un message d’erreur. }
     \item Interpréter la réponse:
           \begin{enumerate}
               \item \textbf{Réponse}: “Il existe au moins une disposition avec des tatamis 2 $\times$ 1 pour ce dojo”.
@@ -524,7 +515,7 @@ mais seraient identifiées comme différentes si l’indexation de leurs tatamis
 Le problème a été résolu en utilisant une matrice modélisant encore une fois le dojo par une grille, mais où cette fois la valeur d’une
 position donnée de la grille correspond seulement à l’orientation (horizontale ou verticale) du tatami qui l’occupe.
 La position d'un tatami orienté horizontalement est alors codée par "0" et celle d'un tatami orienté verticalement, codée par "1". Bien entendu
-il s'agirait de démontrer rigoureusement que deux dispositions géométriquement différentes ne puisse être ainsi codées 
+il s'agirait de démontrer rigoureusement que deux dispositions géométriquement différentes ne puisse être ainsi codées
 par deux matrices identiques. Le temps restant imparti ne nous l'a malheureusement pas permis.\\
 
 
@@ -547,32 +538,32 @@ Exemple de matrices obtenues pour une disposition 4 $\times$ 5 :
         \end{tabular}
 
     \end{center}
-   
+
     \columnbreak
 
     Contenu de la matrice dénommée \texttt{grille} comportant l’orientation des tatamis :
-  
+
     \begin{center}
-       
+
         \begin{tabular}{|c |c |c |c |c |} \hline
-        \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 \\ \hline
-        \cellcolor{tsyellow}1 & \cellcolor{tsyellow}1      & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsyellow}1      \\ \hline
-        \cellcolor{tsyellow}1 & \cellcolor{tsyellow}1      & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsyellow}1      \\ \hline
-        \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 \\ \hline
-    \end{tabular}
+            \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 \\ \hline
+            \cellcolor{tsyellow}1 & \cellcolor{tsyellow}1      & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsyellow}1      \\ \hline
+            \cellcolor{tsyellow}1 & \cellcolor{tsyellow}1      & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsyellow}1      \\ \hline
+            \cellcolor{tsyellow}1 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 & \cellcolor{tsforestgreen}0 \\ \hline
+        \end{tabular}
     \end{center}
 
 \end{multicols}
 
 Il a été fait le choix d'ajouter deux attributs à la classe \texttt{Dispositions} :
 \begin{itemize}
-    \item Le premier attribut est la matrice \texttt{grille}, dont les valeurs sont modifiées au cours du 
-    parcours de la matrice \texttt{room}. L'intérêt est d'exploiter au mieux les fonctionnalités déjà implémentées 
-    dans la classe : parcours récursif d'une grille et distinction de l'orientation, tout en y ajoutant une 
-    structure de donnée de taille raisonnable (matrice de 0 et de 1).
+    \item Le premier attribut est la matrice \texttt{grille}, dont les valeurs sont modifiées au cours du
+          parcours de la matrice \texttt{room}. L'intérêt est d'exploiter au mieux les fonctionnalités déjà implémentées
+          dans la classe : parcours récursif d'une grille et distinction de l'orientation, tout en y ajoutant une
+          structure de données de taille raisonnable (matrice de 0 et de 1).
     \item Le seconde attribut ajouté consiste en la liste \texttt{grilles} qui stocke les dispositions
-    identifiées comme unique par la fonction \texttt{verifie\_symetrie}.
-\end{itemize} 
+          identifiées comme unique par la fonction \texttt{verifie\_symetrie}.
+\end{itemize}
 
 La fonction \texttt{verifie\_symetrie} réalise les différentes symétries évoquées précédemment en appliquant
 les transformations suivantes :
@@ -584,7 +575,7 @@ les transformations suivantes :
 L'opération de comparaison de tableaux np.array n'est pas réalisable, et de toute façon fortement sujette
 à effets de bords sans utiliser le module \texttt{numpy}. La matrice \texttt{grille} est donc \emph{aplatie} à
 l'aide de la méthode \texttt{flatten} des tableaux \texttt{numpy}, puis encodée en une chaîne de caractères.
-La fonction vérifie que la matrice \texttt{grille} et ses symétriques ainsi encodées ne se trouvent pas dans 
+La fonction vérifie que la matrice \texttt{grille} et ses symétriques ainsi encodées ne se trouvent pas dans
 la liste \texttt{grilles}.\\
 
 La fonction \texttt{add\_room} a été implémentée pour prendre en charge la responsabilité d'ajouter une disposition
@@ -620,20 +611,22 @@ Le principal changement concerne les messages de réponse (et d’erreur) qui on
           \end{center}
 
 
-\end{itemize}
-L’interface principale a subi quelques modifications de design (couleur du texte) et l’ajout des boutons pour les
-fonctionnalités supplémentaires:
 
-\begin{center}
-    \includegraphics[scale=0.25]{images/prodInterface.png}
-\end{center}
+    \item L’interface principale a subi quelques modifications de design (couleur du texte) et l’ajout des boutons pour les
+          fonctionnalités supplémentaires:
+
+          \begin{center}
+              \includegraphics[scale=0.25]{images/prodInterface.png}
+          \end{center}
+
+\end{itemize}
 
 \subsection{Choix de la structure du programme}
 
 % Aucun changement majeur n’a été appliqué. Le fichier \texttt{release.py} change de nom et devient
 %  \texttt{prod.py} mais son sens reste le même.
 
-Afin de produire un ensemble cohérent et compréhensible de modules pour la livraison du projet, 
+Afin de produire un ensemble cohérent et compréhensible de modules pour la livraison du projet,
 un renommage a été effectué :
 \begin{itemize}
     \item le module \texttt{calcul\_nombre\_dispositions} a été renommé en \texttt{denombrement} ;
@@ -687,8 +680,15 @@ Deux challenges mineurs peuvent être cités:
 Les principales leçons de ce sprint sont plutôt des confirmations que des apprentissages:
 \begin{itemize}
     \item D'itérations et l'amélioration continue portent leurs fruits. Comme mentionné, les leçons apprises lors des précédents sprint
-          ont permis d'améliorer l'exécution de notre dernier sprint
+          ont permis d'améliorer l'exécution de notre dernier sprint.
     \item La progression au fur et à mesure sur le rapport lors des précédents sprint a également été crucial; il aurait autrement été
-          difficile de bien rédiger le rapport dans le temps imparti
+          difficile de bien rédiger le rapport dans le temps imparti.
 \end{itemize}
+
+D'un point de vue plus général, en terme de gestion des versions concurrentes nous avons bien eu conscience de ne pas avoir exploiter au mieux
+les fonctionnalité de l'outil Git et du dépôt GitHub. En effet, si nous avons bien choisi de créer une branche par version, nous ne l'avons pas fait
+pour l'implémentation de nouvelles fonctionnalités ou la correction de bug. Ce mode de fonctionnement a parfois occasionné quelques conflits de version 
+heureusement sans conséquences. De plus nous avons délibérément choisi de créer un dossier par version, ce qui était a priori redondant avec la création
+ de branches de versions. Néanmoins nous avons préféré agir de la sorte car n'étant pas experts de l'outil Git cela nous a permis de sécuriser la 
+ pérennité de notre travail.
 
